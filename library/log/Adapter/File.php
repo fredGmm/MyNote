@@ -2,9 +2,9 @@
 
 namespace app\library\log\Adapter;
 
-use app\library\log\WriterInterface;
+use SebastianBergmann\CodeCoverage\RuntimeException;
 
-class File implements WriterInterface
+class File
 {
 
     /**
@@ -31,7 +31,7 @@ class File implements WriterInterface
      * @param string $fileName 日志文件名
      * @param string $filePath 日志路径
      * @param string $writeModel 文件写入模式
-     * @throws LogException
+     * @throws RuntimeException
      */
     public function __construct($fileName, $filePath, $writeModel = 'a')
     {
@@ -40,12 +40,12 @@ class File implements WriterInterface
             $filePath = rtrim($filePath, DIRECTORY_SEPARATOR);
             $result = mkdir($filePath, 0755, true);
             if (!$result) {
-                throw new LogException(sprintf('无法创建目录文件夹 %s', $filePath));
+                throw new RuntimeException(sprintf('无法创建目录文件夹 %s', $filePath));
             }
         }
-        $fileFullPath = $filePath . DIRECTORY_SEPARATOR . $fileName;
+        $fileFullPath = $filePath . DIRECTORY_SEPARATOR . $fileName . '_' . date('Y-m-d') . '.log';
         if (!is_writable($filePath)) {
-            throw new LogException(sprintf('日志文件目录 %s 无法写入,请检查权限.', $fileFullPath));
+            throw new RuntimeException(sprintf('日志文件目录 %s 无法写入,请检查权限.', $fileFullPath));
         }
         $this->fileFullPath = $fileFullPath;
     }
@@ -90,7 +90,7 @@ class File implements WriterInterface
         $fileHandle = fopen($this->fileFullPath, $this->writeModel);
         flock($fileHandle, LOCK_EX);
         if (fwrite($fileHandle, $logContent) === false) {
-            throw new LogException(sprintf('日志文件 %s 无法写入, 请检查权限', $this->fileFullPath));
+            throw new RuntimeException(sprintf('日志文件 %s 无法写入, 请检查权限', $this->fileFullPath));
         }
         fflush($fileHandle);
         flock($fileHandle, LOCK_UN);

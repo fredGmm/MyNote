@@ -2,6 +2,8 @@
 
 namespace app\library\log;
 
+use app\library\log\Adapter\File;
+
 class Logger
 {
     /**
@@ -174,6 +176,8 @@ class Logger
         $this->logLineKeywords['interface'] = $this->options['interfaceName'];
         $this->logLineKeywords['method'] = $this->options['methodName'];
 
+        $this->logConf = \Yii::$app->params['logConf'];
+
         $this->generateKeywords();
 
         if (is_string($this->options['logLevelThreshold'])) {
@@ -187,21 +191,7 @@ class Logger
         if (isset($this->logLevels[$globalLevel])) {
             $this->globalLevel = $this->logLevels[$globalLevel];
         }
-        // 如果默认配置的级别低于全局级别, 则使用全局级别
-        if ($this->options['logLevelThreshold'] > $this->globalLevel) {
-            $this->options['logLevelThreshold'] = $this->globalLevel;
-        }
 
-        
-    }
-
-    /**
-     * 获取日志写入对象
-     * @param WriterInterface $writer
-     */
-    public function setWriter(WriterInterface $writer)
-    {
-        $this->writer = $writer;
     }
 
     /**
@@ -210,6 +200,7 @@ class Logger
     protected function generateKeywords()
     {
         $keywords = [];
+
         if ($this->options['keywords']) {
             foreach ($this->options['keywords'] as $key => $words) {
                 foreach ($words as $word) {
@@ -415,10 +406,9 @@ class Logger
      * @param array $args
      * @return null
      */
-    public function log($level, $message, array $args = [])
+    public function log($level, $message, $logConfKey, array $args = [])
     {
         // 全局级别控制
-
         if ($this->logLevels[$level] > $this->globalLevel) {
             return;
         }
@@ -427,6 +417,11 @@ class Logger
         if ($this->logLevels[$level] > $this->options['logLevelThreshold']) {
             return;
         }
+        $keywords = $this->logConf[$logConfKey]['keyword'];
+        $logName = $this->logConf[$logConfKey]['fileName'];
+        $this->options['keywords'] = $keywords;
+        $this->generateKeywords();
+        $this->writer = new File($logName, \Yii::$app->basePath .'/runtime');
         $this->logLineCount++;
 
         // 运行计时
@@ -493,18 +488,18 @@ class Logger
      * 错误级别日志快捷方法
      * @param string $msg 消息内容
      */
-    public function error($msg)
+    public function error($msg, $logConfKey = 'defaultLogger')
     {
-        $this->log(Config::ERROR, $msg, func_get_args());
+        $this->log(Config::ERROR, $msg, $logConfKey, func_get_args());
     }
 
     /**
      * 警告级别日志快捷方法
      * @param string $msg 消息内容
      */
-    public function warning($msg)
+    public function warning($msg, $logConfKey = 'defaultLogger')
     {
-        $this->log(Config::WARNING, $msg, func_get_args());
+        $this->log(Config::WARNING, $msg, $logConfKey, func_get_args());
     }
 
     /**
@@ -520,9 +515,9 @@ class Logger
      * 消息级别日志快捷方法
      * @param string $msg 消息内容
      */
-    public function info($msg)
+    public function info($msg, $logConfKey = 'defaultLogger')
     {
-        $this->log(Config::INFO, $msg, func_get_args());
+        $this->log(Config::INFO, $msg, $logConfKey, func_get_args());
     }
 
     /**

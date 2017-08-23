@@ -21,4 +21,10 @@ return [
             'log_name' => ['test']
         ]
     ],
+    'defaultLogger' => [
+        'fileName' => 'default',
+        'keyword' => [
+            'log_name' => ['dede']
+        ]
+    ]
 ];
