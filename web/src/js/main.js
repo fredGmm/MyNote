@@ -1,4 +1,4 @@
-/* 
+/*
 Theme Name:yuncms theme
 Theme URI:http://www.haothemes.com/name
 Author:author
