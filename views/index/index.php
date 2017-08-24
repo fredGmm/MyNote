@@ -29,24 +29,24 @@ AppAsset::addScript($this,'@web/src/js/main.js')
 <header>
     <div class="header-nav">
         <div role="navigation">
-            <a href="#" rel="home" class="hd-logo" title="嵐"><img src="<?php echo  "/src/images/logo.jpg" ?>"></a>
+            <a href="#" rel="home" class="hd-logo" title="嵐"><img style="opacity: 0.4;" src="<?php echo  "/src/images/logo.jpg" ?>"></a>
             <ul class="hd-nav">
                 <li class="search-box-li">
                     <div><input type="text" name="search-keyword" placeholder="输入关键词" form="search-keyword"><i
                             class="iconfont search-submit">&#xe617;</i></div>
                     <i class="search-exit"></i></li>
-                <li><a href="/index/index" name="index">我们的ARASHI<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
-                <li><a href="/index/today-news" name="about" target="_blank">今日新闻<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
-                <li><a href="/index/hang-they" name="productlist">交给岚吧<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
-                <li><a href="/index/my-nio" name="article">Nio专版<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
-                <li><a href="/index/fans-family" name="contact">关于迷妹<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+                <li><a href="/index/index" name="index" style="font-size: 30px">我们的ARASHI<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+                <li><a href="/index/today-news" name="about" target="_blank" style="font-size: 25px">今日新闻<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+                <li><a href="http://www.ntv.co.jp/arashinishiyagare/" target="_blank" name="productlist" style="font-size: 25px">交给岚吧<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+                <li><a href="/index/my-nio" name="article" style="font-size: 25px">nino专版<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+                <li><a href="/index/fans-family" name="contact" style="font-size: 25px">关于迷妹<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
             </ul>
 
             <div class="motai"></div>
             <ul>
                 <li><a><i class="iconfont search-botton">&#xe617;</i></a></li>
-                <li><a>中文</a></li>
-                <li><a>En</a></li>
+                <li style="font-size: 25px"><a>中文</a></li>
+                <li style="font-size: 25px"><a>En</a></li>
                 <li><a><i class="iconfont nav-bottom">&#xe61f;</i></a></li>
             </ul>
 
