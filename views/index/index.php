@@ -27,7 +27,9 @@ AppAsset::addScript($this,'@web/src/js/main.js')
 <body>
 
 <header>
+
     <div class="header-nav">
+
         <div role="navigation">
             <a href="#" rel="home" class="hd-logo" title="嵐"><img style="opacity: 0.4;" src="<?php echo  "/src/images/logo.jpg" ?>"></a>
             <ul class="hd-nav">
@@ -49,6 +51,7 @@ AppAsset::addScript($this,'@web/src/js/main.js')
                 <li style="font-size: 25px"><a>En</a></li>
                 <li><a><i class="iconfont nav-bottom">&#xe61f;</i></a></li>
             </ul>
+            <button class="btn btn-large btn-primary" style="padding-right: 10px;opacity: 0.8;" type="button"><a href="/user/login/index" target="_blank" >会员</a></button>
 
         </div>
         <div class="search-box">
@@ -56,7 +59,6 @@ AppAsset::addScript($this,'@web/src/js/main.js')
                 <input type="text" name="search-keyword" placeholder="请输入您的内容">
                 <span></span>
             </form>
-
         </div>
 
     </div>
