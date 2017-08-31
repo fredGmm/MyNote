@@ -18,7 +18,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="/src/css/food/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/src/lib/jquery/food/jquery-select2/css/select2.min.css">
     <link rel="stylesheet" href="/src/css/food/food.css">
 </head>
 
@@ -157,9 +157,9 @@
     <div class="tag-cloud"></div>
 </div>
 <script type="text/javascript" src="/src/lib/jquery/food/jquery.min.js"></script>
-<script type="text/javascript" src="/src/lib/jquery/food/select2.min.js"></script>
+<script type="text/javascript" src="/src/lib/jquery/food/jquery-select2/js/select2.min.js"></script>
 <script type="text/javascript" src="/src/lib/jquery/food/jquery.tag-cloud.min.js"></script>
-<script type="text/javascript" src="/src/js/food/index.js"></script>
+<script type="text/javascript" src="/src/lib/jquery/food/index.js"></script>
 </body>
 
 </html>
