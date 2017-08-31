@@ -9,6 +9,8 @@
 //定义 模块名
 $modsName = [
     'user',
+    'base',
+    'food'
 ];
 
 

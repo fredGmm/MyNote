@@ -16,7 +16,7 @@ class BaseModule extends Module
     //常量
     const CtrlNameSpace = '\controller';
 
-    const MainLayoutName = 'Main';
+    const MainLayoutName = 'main';
 
     //经常 变动的 在外部 定义变量， 方便 继承后 直接赋值改动
     public function init()

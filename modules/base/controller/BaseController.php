@@ -6,6 +6,8 @@
  * Time: 22:32
  */
 
+namespace app\modules\base\controller;
+
 use app\mvc\_base\model\BaseTable;
 use yii;
 use yii\filters\AccessControl;
@@ -14,7 +16,7 @@ use yii\web\AssetBundle;
 use yii\web\Controller;
 use yii\web\View;
 
-Abstract class BaseCtrl extends Controller
+Abstract class BaseController extends Controller
 {
 
 
@@ -68,6 +70,34 @@ Abstract class BaseCtrl extends Controller
         return true;
     }
 
+    public function render($view, $viewParams = [], $jsVars =[])
+    {
+        $this->getView()->registerAssetBundle(AssetBundle::className());
+        $this->getView()->params['_fullIdPath'] = $this->_fullIdPath; //加入 路由全路径
+
+        $addJsVarStr = '';
+        foreach ($jsVars as $varKey => $value) {
+            $addJsVarStr .= "var $varKey=$value;\r\n";
+        }
+        //定义 Js 中 页面取数据的相对根路径, 与 页面图片相对根路径, 与图片目录根路径
+        $this->view->registerJs(<<<EOF
+var pageApiRootUri='/$this->_modId/$this->_ctrlId.';
+var cacheflag='1';
+$addJsVarStr
+EOF
+            , View::POS_HEAD);
+
+        //注册 资源文件
+      //  self::addPageScript();
+
+        //render 之前 自动 提交事务
+       // BaseTable::commitAllDBTrans();
+
+        return parent::render(str_replace('action', '', $view), $viewParams);
+
+
+    }
+
     //自定义 Render
     public function diyRender($funcName, $viewParms = [], $jsVars = [], $layoutParms = [])
     {
@@ -110,10 +140,9 @@ EOF
             , View::POS_HEAD);
 
         //注册 资源文件
-        self::addPageScript();
-
+      //  self::addPageScript();
         //render 之前 自动 提交事务
-        BaseTable::commitAllDBTrans();
+       // BaseTable::commitAllDBTrans();
 
         return parent::render(str_replace('action', '', $funcName), $viewParms);
     }
