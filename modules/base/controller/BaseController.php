@@ -82,7 +82,7 @@ Abstract class BaseController extends Controller
         //定义 Js 中 页面取数据的相对根路径, 与 页面图片相对根路径, 与图片目录根路径
         $this->view->registerJs(<<<EOF
 var pageApiRootUri='/$this->_modId/$this->_ctrlId.';
-var cacheflag='1';
+var cacheflag='2352345';
 $addJsVarStr
 EOF
             , View::POS_HEAD);

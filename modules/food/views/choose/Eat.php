@@ -5,6 +5,8 @@
  * Date: 2017/8/31
  * Time: 22:01
  */
+
+\app\assets\AppAsset::register($this);
 ?>
 <html>
 
@@ -20,9 +22,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/src/lib/jquery/food/jquery-select2/css/select2.min.css">
     <link rel="stylesheet" href="/src/css/food/food.css">
+    <?php $this->head() ?>
 </head>
 
 <body>
+
 <div class="option">
     <div class="options">
         <ul>
@@ -163,4 +167,11 @@
 </body>
 
 </html>
+
+<script type="text/javascript" >
+
+    alert(cacheflag);
+</script>
+
+
 
