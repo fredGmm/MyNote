@@ -7,8 +7,9 @@ $(function() {
      * demo
      */
     var $tagCloud = $(".tag-cloud"),
-        num = "〇①②③④⑤⑥⑦⑧⑨",
-        html = '<a href="javascript:;">标签</a>',
+        num = $(".foods").text().split("  "),
+        per = $(".per").text().split("  "),
+
         $number = $("#tag-number"),
         $boxsize = $("#tag-boxsize"),
         $mincolor = $("#tag-mincolor"),
@@ -27,9 +28,9 @@ $(function() {
     function getTimesHtml(times) {
         var html = '';
         for (var i = 0,_html; i < times; i++) {
-            _html = '<a href="javascript:;">标签' + i + '</a>';
+            _html = '<a href="javascript:;">' + i + '</a> ';
             html += _html.replace(/\d/g,function(v,i){
-                return num[v];
+                return num[v] + ' ' +  per[v] + "%";
             });
         }
         return html;
@@ -83,10 +84,11 @@ $(function() {
         }
     }
     function clickEvent(e){
-        destroy();
-        $tagCloud.html(getTimesHtml(~~$number.val())).tagCloud(getOpts());
-    }
 
+        destroy();
+       $tagCloud.html(getTimesHtml(~~$number.val())).tagCloud(getOpts());
+    }
+   
     function destroy() {
         var boxsize = $boxsize.val().split("*");
         $tagCloud.attr("class", "tag-cloud").css({

@@ -22,7 +22,9 @@ $(function() {
         $animdelay = $("#tag-animdelay"),
         $minsize = $("#tag-minsize"),
         $method = $("#tag-method"),
-        $go = $("#go");
+        $go = $("#go"),
+
+        $first = $("#first");
 
     function getTimesHtml(times) {
         var html = '';

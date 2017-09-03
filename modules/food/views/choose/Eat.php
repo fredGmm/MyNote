@@ -7,12 +7,12 @@
  */
 
 \app\assets\AppAsset::register($this);
+$this->title = 'what eat?';
 ?>
 <html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Tag Cloud</title>
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta name="format-detection" content="telephone=no" />
     <meta content="email=no" name="format-detection" />
@@ -27,24 +27,31 @@
 
 <body>
 
+<?php foreach ($data as $per => $food){ ?>
+    <div id="test" hidden="hidden" class="foods" > <?php echo $food; ?> </div>
+    <div hidden="hidden" class="per" > <?php echo $per; ?> </div>
+<?php } ?>
+
+
+
 <div class="option">
     <div class="options">
         <ul>
-            <li>
+            <li hidden="hidden">
                 标签个数：
-                <select id="tag-number">
+                <select  id="tag-number" >
                     <option value="1">1</option>
                     <option value="3">3</option>
-                    <option value="5">5</option>
+                    <option value="5" selected>5</option>
                     <option value="7">7</option>
-                    <option value="11">11</option>
-                    <option value="25" selected>25</option>
+                    <option value="11" >11</option>
+                    <option value="25" >25</option>
                     <option value="34">34</option>
                     <option value="49">49</option>
                     <option value="52">52</option>
                 </select>
             </li>
-            <li>
+            <li hidden="hidden">
                 容器宽高：
                 <select id="tag-boxsize">
                     <option value="1200*520" selected>1200*520</option>
@@ -54,7 +61,7 @@
                     <option value="500*500">500*500</option>
                 </select>
             </li>
-            <li>
+            <li hidden="hidden">
                 最小颜色值：
                 <select id="tag-mincolor">
                     <option value="#000" selected>#000</option>
@@ -66,7 +73,7 @@
                     <option value="#25cd87">#cdf</option>
                 </select>
             </li>
-            <li>
+            <li hidden="hidden">
                 最大颜色值：
                 <select id="tag-maxcolor">
                     <option value="#000">#000</option>
@@ -78,18 +85,18 @@
                     <option value="#25cd87">#cdf</option>
                 </select>
             </li>
-            <li>
+            <li hidden="hidden">
                 是否显示调试网格：
                 <input type="checkbox" id="tag-debug" value="true">
             </li>
-            <li>
+            <li hidden="hidden">
                 设置圆角：
                 <select id="tag-radius">
                     <option value="50%" selected>50%</option>
                     <option value="10px">10px</option>
                 </select>
             </li>
-            <li>
+            <li hidden="hidden">
                 设置背景色：
                 <select id="tag-bgcolor">
                     <option value="" selected>随机</option>
@@ -102,7 +109,7 @@
                     <option value="#25cd87">#25cd87</option>
                 </select>
             </li>
-            <li>
+            <li hidden="hidden">
                 设置文本色：
                 <select id="tag-color">
                     <option value="" selected>随机</option>
@@ -115,7 +122,7 @@
                     <option value="#25cd87">#25cd87</option>
                 </select>
             </li>
-            <li>
+            <li hidden="hidden">
                 设置动画：
                 <select id="tag-anim">
                     <option value="bomb" selected>bomb</option>
@@ -123,7 +130,7 @@
                     <option value="warp">warp</option>
                 </select>
             </li>
-            <li>
+            <li hidden="hidden">
                 设置动画时间：
                 <select id="tag-animtime">
                     <option value="700">700ms</option>
@@ -132,7 +139,7 @@
                     <option value="100">100ms</option>
                 </select>
             </li>
-            <li>
+            <li hidden="hidden">
                 设置动画延迟：
                 <select id="tag-animdelay">
                     <option value="200">200ms</option>
@@ -142,7 +149,7 @@
                     <option value="50">50ms</option>
                 </select>
             </li>
-            <li>
+            <li hidden="hidden">
                 设置计算方式：
                 <select id="tag-method">
                     <option value="area" selected>根据面积开方计算</option>
@@ -154,7 +161,7 @@
 
     </div>
     <a href="javascript:;" id="go">
-        运行
+        我到底吃啥？♋☹♋
     </a>
 </div>
 <div class="main">
@@ -163,15 +170,14 @@
 <script type="text/javascript" src="/src/lib/jquery/food/jquery.min.js"></script>
 <script type="text/javascript" src="/src/lib/jquery/food/jquery-select2/js/select2.min.js"></script>
 <script type="text/javascript" src="/src/lib/jquery/food/jquery.tag-cloud.min.js"></script>
-<script type="text/javascript" src="/src/lib/jquery/food/index.js"></script>
+<script type="text/javascript" src="/src/js/food/index.js"></script>
 </body>
-
 </html>
-
 <script type="text/javascript" >
-
-    alert(cacheflag);
 </script>
+
+
+
 
 
 

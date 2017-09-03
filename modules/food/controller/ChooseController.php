@@ -15,10 +15,9 @@ class ChooseController extends BaseController {
 
     public function actionEat(){
 
-        $foods = ['茄子煲','鱼香肉','面食'];
+        $foods = [10=>'茄子煲', 30=>'鱼香肉丝', 18=>'面食', 20=>'牛肉粉', 22=>'老婆饼'];
 
-        $a = 'a';
-        return $this->render(__FUNCTION__,['data' =>$foods],['a' => $a, 'b'=> 'bbb']);
+        return $this->render(__FUNCTION__,['data' =>$foods]);
     }
 
 
