@@ -6,6 +6,7 @@ use app\library\log\Adapter\File;
 use app\library\log\Config;
 use app\library\log\log;
 use app\library\log\Logger;
+use app\modules\food\model\FoodChooseModel;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
@@ -38,10 +39,12 @@ class IndexController extends Controller
 
 
     public function actionTest(){
+
+        var_dump(FoodChooseModel::findOne(['fid' => 1])->toArray());EXIT;
         if(!empty(Yii::$app->request->post())){
             var_dump(Yii::$app->request->post());exit;
         }
-        return $this->render('Test');
+     //   return $this->render('Test');
     }
 
     public function actionDownImg()
