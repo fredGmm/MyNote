@@ -75,6 +75,10 @@ Abstract class BaseController extends Controller
         $this->getView()->registerAssetBundle(AssetBundle::className());
         $this->getView()->params['_fullIdPath'] = $this->_fullIdPath; //加入 路由全路径
 
+        //CSRF 验证参数
+        $csrfParam = \Yii::$app->request->csrfParam;
+        $csrfToken = \Yii::$app->request->csrfToken;
+
         $addJsVarStr = '';
         foreach ($jsVars as $varKey => $value) {
             $addJsVarStr .= "var $varKey=$value;\r\n";
@@ -83,6 +87,8 @@ Abstract class BaseController extends Controller
         $this->view->registerJs(<<<EOF
 var pageApiRootUri='/$this->_modId/$this->_ctrlId.';
 var cacheflag='2352345';
+var csrfParam = '$csrfParam';
+var csrfToken = '$csrfToken';
 $addJsVarStr
 EOF
             , View::POS_HEAD);

@@ -38,7 +38,10 @@ class IndexController extends Controller
 
 
     public function actionTest(){
-     
+        if(!empty(Yii::$app->request->post())){
+            var_dump(Yii::$app->request->post());exit;
+        }
+        return $this->render('Test');
     }
 
     public function actionDownImg()

@@ -4,6 +4,8 @@
 /* @var $content string */
 
 ?>
+
+
 <?php $this->beginPage() ?>
 
 <?= $content ?>
