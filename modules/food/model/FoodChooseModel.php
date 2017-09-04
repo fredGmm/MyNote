@@ -12,4 +12,11 @@ use app\modules\base\model\BaseTable;
 class FoodChooseModel extends BaseTable {
 
     const TableName = 'food_choose';
+
+    public static function getTopFive(){
+
+        $foodData = self::find()->select('*')->asArray()->all();
+
+        return $foodData;
+    }
 }

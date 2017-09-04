@@ -5,9 +5,15 @@
  * Date: 2017/8/31
  * Time: 22:01
  */
-
+use app\assets\AppAsset;
 \app\assets\AppAsset::register($this);
 $this->title = 'what eat?';
+
+
+AppAsset::addCss($this,'@web/src/css/default.css');
+AppAsset::addScript($this,'@web/src/lib/jquery/jquery.js');
+AppAsset::addScript($this,'@web/src/lib/bootstrap/bootstrap.js');
+
 ?>
 <html>
 
@@ -22,16 +28,16 @@ $this->title = 'what eat?';
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/src/lib/jquery/food/jquery-select2/css/select2.min.css">
     <link rel="stylesheet" href="/src/css/food/food.css">
+
     <?php $this->head() ?>
 </head>
 
 <body>
 
 <?php foreach ($data as $per => $food){ ?>
-    <div id="test" hidden="hidden" class="foods" > <?php echo $food; ?> </div>
-    <div hidden="hidden" class="per" > <?php echo $per; ?> </div>
+    <div id="test" hidden="hidden" class="foods" > <?php echo $food['food_name']; ?> </div>
+    <div hidden="hidden" class="per" > <?php echo $food['per']; ?> </div>
 <?php } ?>
-
 
 
 <div class="option">
@@ -55,8 +61,8 @@ $this->title = 'what eat?';
                 容器宽高：
                 <select id="tag-boxsize">
                     <option value="1200*520" selected>1200*520</option>
-                    <option value="600*400">800*600</option>
-                    <option value="400*600">400*600</option>
+                    <option value="600*400" selected>800*600</option>
+                    <option value="400*600" >400*600</option>
                     <option value="1111*555">1111*555</option>
                     <option value="500*500">500*500</option>
                 </select>
@@ -171,6 +177,8 @@ $this->title = 'what eat?';
 <script type="text/javascript" src="/src/lib/jquery/food/jquery-select2/js/select2.min.js"></script>
 <script type="text/javascript" src="/src/lib/jquery/food/jquery.tag-cloud.min.js"></script>
 <script type="text/javascript" src="/src/js/food/index.js"></script>
+
+
 </body>
 </html>
 <script type="text/javascript" >
