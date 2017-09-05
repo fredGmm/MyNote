@@ -11,8 +11,7 @@ $this->title = 'what eat?';
 
 
 AppAsset::addCss($this,'@web/src/css/default.css');
-AppAsset::addScript($this,'@web/src/lib/jquery/jquery.js');
-AppAsset::addScript($this,'@web/src/lib/bootstrap/bootstrap.js');
+
 
 ?>
 <html>
@@ -60,7 +59,7 @@ AppAsset::addScript($this,'@web/src/lib/bootstrap/bootstrap.js');
             <li hidden="hidden">
                 容器宽高：
                 <select id="tag-boxsize">
-                    <option value="1200*520" selected>1200*520</option>
+                    <option value="1200*520" >1200*520</option>
                     <option value="600*400" selected>800*600</option>
                     <option value="400*600" >400*600</option>
                     <option value="1111*555">1111*555</option>
@@ -166,11 +165,22 @@ AppAsset::addScript($this,'@web/src/lib/bootstrap/bootstrap.js');
         </ul>
 
     </div>
+    <div id="div-go">
     <a href="javascript:;" id="go">
         我到底吃啥？♋☹♋
-    </a>
+    </a></div>
 </div>
+
 <div class="main">
+    <div class="food-menu">
+        <span style="display: block; font-size: 20px">香煎带鱼：5.5元</span>
+        <span style="display: block;font-size: 20px">香煎带鱼：5.5元</span>
+        <span style="display: block;font-size: 20px">香煎带鱼：5.5元</span>
+        <span style="display: block;font-size: 20px">香煎带鱼：5.5元</span>
+        <span style="display: block;font-size: 20px">香煎带鱼：5.5元</span>
+        <span style="display: block;font-size: 20px">香煎带鱼：5.5元</span>
+
+    </div>
     <div class="tag-cloud"></div>
 </div>
 <script type="text/javascript" src="/src/lib/jquery/food/jquery.min.js"></script>

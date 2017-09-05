@@ -47,12 +47,15 @@ input[type="checkbox"] {
     width: 250px;
     height: 40px;
     line-height: 40px;
-    margin:-10px auto 10px;
+    margin:10px auto;
     text-align: center;
     text-decoration: none;
     background-color: #f287a7;
     border-radius: 3px;
     color: #fff;
+}
+#div-go {
+    margin-left: 200px;
 }
 
 .main {
@@ -61,12 +64,14 @@ input[type="checkbox"] {
 
 .tag-cloud {
     width: 1200px;
+
     margin: 0 auto;
     height: 520px;
     position: relative;
     text-align: center;
     font-size: 14px;
     background-color: #01b1dd;
+
 }
 
 .tag-cloud a {
@@ -82,4 +87,9 @@ input[type="checkbox"] {
     display: block;
 }
 
-.
+.food-menu {
+    width:200px;
+    height: 300px;
+    border:1px dashed #000;
+    float: left;
+}
