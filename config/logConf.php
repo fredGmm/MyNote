@@ -26,5 +26,11 @@ return [
         'keyword' => [
             'log_name' => ['dede']
         ]
+    ],
+    'redisLogger' => [
+        'fileName' => 'default',
+        'keyword' => [
+            'log_name' => ['dede']
+        ]
     ]
 ];

@@ -40,6 +40,8 @@ class IndexController extends Controller
 
     public function actionTest(){
 
+        
+        
         //连接本地的 Redis 服务
         $redis = new \Redis();
         $redis->connect('127.0.0.1', 6379);
@@ -110,4 +112,8 @@ class IndexController extends Controller
     }
 
 
+    public function actionLog()
+    {
+        Yii::$app->log->info('test' . date('Y-m-d'));
+    }
 }
