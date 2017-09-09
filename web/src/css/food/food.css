@@ -93,3 +93,7 @@ input[type="checkbox"] {
     border:1px dashed #000;
     float: left;
 }
+
+.hei {
+    height: 28px;
+}

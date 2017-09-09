@@ -62,23 +62,27 @@ AppAsset::addCss($this,'@web/src/css/default.css');
 <?php } ?>
 
 
+<div style="margin-left: 200px; float: left">
+    你中午吃几个菜：
+    <select  class="js-example-basic-single"  id="tag-number"  >
+        <option value="1">1</option>
+        <option value="2" selected>2</option>
+        <option value="3" >3</option>
+    </select>
+</div>
+<div style="margin-left: 50px; float: left">
+    减肥不？：
+    <select  class="js-example-basic-single"  id="tag-number"  >
+        <option value="1" selected>正常搭配</option>
+        <option value="0" >我要减肥</option>
+        <option value="2" >我要长肉</option>
+    </select>
+</div>
+
+
 <div class="option">
     <div class="options">
         <ul>
-            <li hidden="hidden">
-                标签个数：
-                <select  id="tag-number" >
-                    <option value="1">1</option>
-                    <option value="3">3</option>
-                    <option value="5" selected>5</option>
-                    <option value="7">7</option>
-                    <option value="11" >11</option>
-                    <option value="25" >25</option>
-                    <option value="34">34</option>
-                    <option value="49">49</option>
-                    <option value="52">52</option>
-                </select>
-            </li>
             <li hidden="hidden">
                 容器宽高：
                 <select id="tag-boxsize">
@@ -216,9 +220,15 @@ AppAsset::addCss($this,'@web/src/css/default.css');
 <script type="text/javascript" src="/src/js/food/index.js"></script>
 
 
+
 </body>
 </html>
 <script type="text/javascript" >
+    $(".js-example-basic-single").select2(); //单选
+
+    $(".js-example-basic-multiple").select2(); //多选
+
+
 </script>
 
 
