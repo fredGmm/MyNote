@@ -23,6 +23,12 @@ AppAsset::addScript($this,'@web/src/js/main.js')
     <meta name="description" content="" />
     <meta name="keywords" content="arashi" />
     <?php $this->head() ?>
+    <style>
+        a.one:link {color:black;}
+        a.one:visited {color:black;}
+        a.one:hover {color:red;text-decoration:none;}
+
+    </style>
 </head>
 <body>
 
@@ -31,7 +37,7 @@ AppAsset::addScript($this,'@web/src/js/main.js')
     <div class="header-nav">
 
         <div role="navigation">
-            <a href="#" rel="home" class="hd-logo" title="嵐"><img style="opacity: 0.4;" src="<?php echo  "/src/images/logo.jpg" ?>"></a>
+            <a href="#" rel="home" class="hd-logo" title="嵐"><img style="opacity: 0.5;" src="<?php echo  "/src/images/logo.jpg" ?>"></a>
             <ul class="hd-nav">
                 <li class="search-box-li">
                     <div><input type="text" name="search-keyword" placeholder="输入关键词" form="search-keyword"><i
@@ -97,20 +103,20 @@ AppAsset::addScript($this,'@web/src/js/main.js')
     <div>
         <div class="main-head">
             <p>
-                <span>我们提供</span>
+                <span style="color: black"><a class="one" href="/food/choose/eat">帮你选择吃啥</a> </span>
             </p>
         </div>
         <div class="main-we-provide">
             <ul>
                 <li><span><img src="<?php echo  "/src/images/lunch.png" ?>" alt=""></span>
-                    <h2>中餐</h2>
-                    <p>公司目前经营的范围包括：电子商务平台开发技术支持、技术转让、运维技术服务大数据、云计算等。</p></li>
+                    <h2>营养算法</h2>
+                    <p style="font-size: 20px; color: #a94442; font-style:italic">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp根据当前季节择优选择食物来推出最优搭配。</p></li>
                 <li><span><img src="<?php echo  "/src/images/dinner.png" ?>" alt=""></span>
-                    <h2>晚餐</h2>
-                    <p>公司目前经营的范围包括：电子商务平台开发技术支持、技术转让、运维技术服务大数据、云计算等。</p></li>
+                    <h2>大数据选择推荐</h2>
+                    <p style="font-size: 20px; color: #a94442; font-style:italic">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp根据人气评分推荐性价比高还特么好吃的菜。</p></li>
                 <li><span><img src="<?php echo  "/src/images/coffee.png" ?>" alt=""></span>
-                    <h2>甜品/咖啡</h2>
-                    <p>公司目前经营的范围包括：电子商务平台开发技术支持、技术转让、运维技术服务大数据、云计算等。</p></li>
+                    <h2>拉布拉斯·傅里叶变换</h2>
+                    <p style="font-size: 20px; color: #a94442; font-style:italic">&nbsp&nbsp&nbsp&nbsp根据空间时间定性转化算法，来算出最合适的饭菜。</p></li>
             </ul>
         </div>
     </div>

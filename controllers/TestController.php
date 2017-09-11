@@ -5,16 +5,19 @@
  * Date: 2017/9/3
  * Time: 20:05
  */
-//<input type="hidden" name="<?php echo $this->security->get_csrf_token_name()?>" value="<?php echo $this->security->get_csrf_hash()?>" />
 
-//csrf 验证
-$this->security->csrf_verify();
+namespace app\controllers;
 
-// 如果不是ajax,post,无来源验证直接返回
-if (strtolower($_SERVER['REQUEST_METHOD']) != 'post' || !$this->input->is_ajax_request() || !\Library\Tools::checkReferer()) {
-throw new UserException('REQUEST_ERROR');
+
+class TestController extends \yii\web\Controller
+{
+    public function actionRedis()
+    {
+        $redis = \app\library\Cache\BaseRedis::getInstance();
+        
+      //  $redis->set('test', date('Y-m-d H:i:m',time()), 3600);
+
+        var_dump($redis->get('test'));
+
+    }
 }
-
-$this->security->xss_clean($array[$index]);
-
-class
