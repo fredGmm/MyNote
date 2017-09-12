@@ -262,6 +262,11 @@ AppAsset::addCss($this,'@web/src/css/default.css');
 
     $(".js-example-basic-multiple").select2(); //多选
 
+    $(".hd-logo").click(function () {
+
+        $(".hd-logo img").css('opacity','1')
+    })
+
 
 </script>
 
