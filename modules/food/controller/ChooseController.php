@@ -15,7 +15,9 @@ use yii\base\Controller;
 class ChooseController extends BaseController {
 
     public function actionEat(){
-        
+        $foods = '';
+        $食物 = '';
+        var_dump($foods,$食物);
         $foods = FoodAlgorithm::getNoonMeal();
         
         return $this->render(__FUNCTION__,['data' =>$foods]);

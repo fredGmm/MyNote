@@ -27,7 +27,6 @@ AppAsset::addScript($this,'@web/src/js/main.js')
         a.one:link {color:black;}
         a.one:visited {color:black;}
         a.one:hover {color:red;text-decoration:none;}
-
     </style>
 </head>
 <body>
@@ -35,7 +34,6 @@ AppAsset::addScript($this,'@web/src/js/main.js')
 <header>
 
     <div class="header-nav">
-
         <div role="navigation">
             <a href="#" rel="home" class="hd-logo" title="嵐"><img style="opacity: 0.5;" src="<?php echo  "/src/images/logo.jpg" ?>"></a>
             <ul class="hd-nav">

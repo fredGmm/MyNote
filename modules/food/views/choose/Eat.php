@@ -55,14 +55,48 @@ AppAsset::addCss($this,'@web/src/css/default.css');
 </head>
 
 <body>
+<div>
+<div class="header-nav" style="background: #286090; height: 116px">
+    <div role="navigation">
+        <a href="#" rel="home" class="hd-logo" title="嵐"><img style="opacity: 0.5;" src="<?php echo  "/src/images/logo.jpg" ?>"></a>
+        <ul class="hd-nav">
+            <li class="search-box-li">
+                <div><input type="text" name="search-keyword" placeholder="输入关键词" form="search-keyword"><i
+                        class="iconfont search-submit">&#xe617;</i></div>
+                <i class="search-exit"></i></li>
+            <li><a href="/index/index" name="index" style="font-size: 30px">我们的ARASHI<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+            <li><a href="/index/today-news" name="about" target="_blank" style="font-size: 25px">今日新闻<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+            <li><a href="http://www.ntv.co.jp/arashinishiyagare/" target="_blank" name="productlist" style="font-size: 25px">交给岚吧<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+            <li><a href="/index/my-nio" name="article" style="font-size: 25px">nino专版<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+            <li><a href="/index/fans-family" name="contact" style="font-size: 25px">关于迷妹<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+        </ul>
 
+        <div class="motai"></div>
+        <ul>
+            <li><a><i class="iconfont search-botton">&#xe617;</i></a></li>
+            <li style="font-size: 25px"><a>中文</a></li>
+            <li style="font-size: 25px"><a>En</a></li>
+            <li><a><i class="iconfont nav-bottom">&#xe61f;</i></a></li>
+        </ul>
+        <button class="btn btn-large btn-primary" style="padding-right: 10px;opacity: 0.8;" type="button"><a href="/user/login/index" target="_blank" >会员</a></button>
+    </div>
+    <div class="search-box">
+        <form method="post" action="#" id="search-keyword">
+            <input type="text" name="search-keyword" placeholder="请输入您的内容">
+            <span></span>
+        </form>
+    </div>
+</div>
+
+
+</div>
 <?php foreach ($data as $per => $food){ ?>
     <div id="test" hidden="hidden" class="foods" > <?php echo $food['food_name']; ?> </div>
     <div hidden="hidden" class="per" > <?php echo $food['per']; ?> </div>
 <?php } ?>
 
 
-<div style="margin-left: 200px; float: left">
+<div style="margin-left: 200px; margin-top: 117px; float: left">
     你中午吃几个菜：
     <select  class="js-example-basic-single"  id="tag-number"  >
         <option value="1">1</option>
@@ -70,7 +104,7 @@ AppAsset::addCss($this,'@web/src/css/default.css');
         <option value="3" >3</option>
     </select>
 </div>
-<div style="margin-left: 50px; float: left">
+<div style="margin-left: 50px;  margin-top: 117px; float: left">
     减肥不？：
     <select  class="js-example-basic-single"  id="tag-number"  >
         <option value="1" selected>正常搭配</option>
@@ -194,7 +228,7 @@ AppAsset::addCss($this,'@web/src/css/default.css');
     </div>
     <div id="div-go">
     <a href="javascript:;" id="go">
-        我到底吃啥？♋☹♋
+        我到底吃啥？
     </a></div>
 </div>
 
@@ -202,13 +236,13 @@ AppAsset::addCss($this,'@web/src/css/default.css');
     <div class="food-menu">
         <table class="gridtable">
             <tr>
-                <th>Info Header 1</th><th>Info Header 2</th><th>Info Header 3</th>
+                <th>菜名</th><th>大盘价格</th><th>小盘价格</th>
             </tr>
             <tr>
-                <td>Text 1A</td><td>Text 1B</td><td>Text 1C</td>
+                <td>双黄鱼片</td><td>7 元</td><td>6 元</td>
             </tr>
             <tr>
-                <td>Text 2A</td><td>Text 2B</td><td>Text 2C</td>
+                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
             </tr>
         </table>
     </div>

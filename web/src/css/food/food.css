@@ -59,7 +59,8 @@ input[type="checkbox"] {
 }
 
 .main {
-    background-color: #eee;
+    /*background-color: #eee;*/
+    background:url(../../images/arashi/jitui.jpg);
 }
 
 .tag-cloud {
@@ -71,6 +72,7 @@ input[type="checkbox"] {
     text-align: center;
     font-size: 14px;
     background-color: #01b1dd;
+
 
 }
 
