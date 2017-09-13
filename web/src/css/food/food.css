@@ -60,13 +60,13 @@ input[type="checkbox"] {
 
 .main {
     /*background-color: #eee;*/
+    height: 600px;
     background:url(../../images/arashi/jitui.jpg);
 }
 
 .tag-cloud {
     width: 1200px;
-
-    margin: 0 auto;
+    margin: 0 500px;
     height: 520px;
     position: relative;
     text-align: center;
@@ -92,7 +92,6 @@ input[type="checkbox"] {
 .food-menu {
     width:200px;
     height: 300px;
-    border:1px dashed #000;
     float: left;
 }
 

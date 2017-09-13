@@ -27,10 +27,20 @@ $config = [
 
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => false,//这句一定有，false发送邮件，true只是生成邮件在runtime文件夹下，不发邮件
+            // 'viewPath' => '@app/mail',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.163.com',//每种邮箱的host配置不一样
+                'port' => '25',//465 587
+                'encryption' => 'tls',//ssl tls
+                'username' => '17771869383@163.com',
+                'password' => 'ming19940329',
+            ],
+            'messageConfig' => [
+                'charset' => 'UTF-8',
+                'from' => ['17771869383@163.com' => '系统邮件'],
+            ],
         ],
         'log' => [
             'class' => 'app\library\log\Logger'

@@ -32,9 +32,10 @@ AppAsset::addCss($this,'@web/src/css/default.css');
             font-family: verdana,arial,sans-serif;
             font-size:11px;
             color:#333333;
-            border-width: 1px;
+            border-width: 0px;
             border-color: #666666;
             border-collapse: collapse;
+            width: 300px;
         }
         table.gridtable th {
             border-width: 1px;
@@ -58,7 +59,7 @@ AppAsset::addCss($this,'@web/src/css/default.css');
 <div>
 <div class="header-nav" style="background: #286090; height: 116px">
     <div role="navigation">
-        <a href="#" rel="home" class="hd-logo" title="嵐"><img style="opacity: 0.5;" src="<?php echo  "/src/images/logo.jpg" ?>"></a>
+        <a href="#" rel="home" class="hd-logo" title="嵐"><img style="opacity: 1;" src="<?php echo  "/src/images/logo.jpg" ?>"></a>
         <ul class="hd-nav">
             <li class="search-box-li">
                 <div><input type="text" name="search-keyword" placeholder="输入关键词" form="search-keyword"><i
@@ -96,7 +97,7 @@ AppAsset::addCss($this,'@web/src/css/default.css');
 <?php } ?>
 
 
-<div style="margin-left: 200px; margin-top: 117px; float: left">
+<div style="margin-left: 500px; margin-top: 150px; float: left">
     你中午吃几个菜：
     <select  class="js-example-basic-single"  id="tag-number"  >
         <option value="1">1</option>
@@ -104,7 +105,7 @@ AppAsset::addCss($this,'@web/src/css/default.css');
         <option value="3" >3</option>
     </select>
 </div>
-<div style="margin-left: 50px;  margin-top: 117px; float: left">
+<div style="margin-left: 50px;  margin-top: 150px; float: left">
     减肥不？：
     <select  class="js-example-basic-single"  id="tag-number"  >
         <option value="1" selected>正常搭配</option>
@@ -268,7 +269,6 @@ AppAsset::addCss($this,'@web/src/css/default.css');
         }else {
             $(".hd-logo img").css('opacity','1')
         }
-
     })
 
 
