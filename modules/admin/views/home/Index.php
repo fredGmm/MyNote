@@ -92,7 +92,7 @@ $this->title = '美食推荐-后台管理';
                     <a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
                 </li>
                 <li class="layui-nav-item" mobile>
-                    <a href="javascript:;"><i class="iconfont icon-loginout"></i> 退出</a>
+                    <a href="/user/login/index"><i class="iconfont icon-loginout"></i> 退出</a>
                 </li>
                 <li class="layui-nav-item lockcms" pc>
                     <a href="javascript:;"><i class="iconfont icon-lock1"></i><cite>锁屏</cite></a>
@@ -100,12 +100,12 @@ $this->title = '美食推荐-后台管理';
                 <li class="layui-nav-item" pc>
                     <a href="javascript:;">
                         <img src="images/face.jpg" class="layui-circle" width="35" height="35">
-                        <cite>请叫我马哥</cite>
+                        <cite>桂明明</cite>
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
                         <dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
-                        <dd><a href="javascript:;"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+                        <dd><a href="/user/login/index"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
                     </dl>
                 </li>
             </ul>
