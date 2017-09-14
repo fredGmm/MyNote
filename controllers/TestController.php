@@ -20,4 +20,11 @@ class TestController extends \yii\web\Controller
         var_dump($redis->get('test'));
 
     }
+
+    public function actionAjax(){
+        $id = \Yii::$app->request->post('id',3);
+        $type = \Yii::$app->request->post('type',3);
+
+        echo  json_encode(['id' => $id, 'type' => '肉类']);
+    }
 }

@@ -245,6 +245,21 @@ AppAsset::addCss($this,'@web/src/css/default.css');
             <tr>
                 <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
             </tr>
+            <tr>
+                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
+            </tr>
+            <tr>
+                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
+            </tr>
+            <tr>
+                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
+            </tr>
+            <tr>
+                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
+            </tr>
+            <tr>
+                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
+            </tr>
         </table>
     </div>
     <div class="tag-cloud"></div>

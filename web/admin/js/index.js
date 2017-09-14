@@ -7,6 +7,8 @@ layui.config({
 		element = layui.element();
 		$ = layui.jquery;
 		tab = layui.bodyTab();
+		csrf_name = $("#csrf").attr('name');
+	    csrf_val  = $("#csrf").val();
 
 	//锁屏
 	function lockPage(){
@@ -65,7 +67,7 @@ layui.config({
 	})
 
 	//公告层
-	function showNotice(){
+	function showNotice(msg){
 		layer.open({
 	        type: 1,
 	        title: "系统公告", //不显示标题栏
@@ -75,7 +77,7 @@ layui.config({
 	        id: 'LAY_layuipro', //设定一个id，防止重复弹出
 	        btn: ['火速围观'],
 	        moveType: 1, //拖拽模式，0或者1
-	        content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>最近偶然发现贤心大神的layui框架，瞬间被他的完美样式所吸引，虽然功能不算强大，但毕竟是一个刚刚出现的框架，后面会慢慢完善的。很早之前就想做一套后台模版，但是感觉bootstrop代码的冗余太大，不是非常喜欢，自己写又太累，所以一直闲置了下来。直到遇到了layui我才又燃起了制作一套后台模版的斗志。由于本人只是纯前端，所以页面只是单纯的实现了效果，没有做服务器端的一些处理，可能后期技术跟上了会更新的，如果有什么问题欢迎大家指导。谢谢大家。</p><p>在此特别感谢Beginner和Paco，他们写的框架给了我很好的启发和借鉴。希望有时间可以多多请教。</p></div>',
+	        content: '<div style="padding:15px 20px; text-align:justify; line-height: 22px; text-indent:2em;border-bottom:1px solid #e2e2e2;"><p>+msg+在这里好好管理你的美食吧</p></div>',
 	        success: function(layero){
 				var btn = layero.find('.layui-layer-btn');
 				btn.css('text-align', 'center');
@@ -96,9 +98,30 @@ layui.config({
 	if(window.sessionStorage.getItem("lockcms") != "true" && window.sessionStorage.getItem("showNotice") != "true"){
 		showNotice();
 	}
-	$(".showNotice").on("click",function(){
-		showNotice();
-	})
+	$(".showNotice").click(function(){
+		var param = new Object();
+		param['id'] = 3;
+		param['type'] = "2";
+		param[csrf_name] = csrf_val;
+		$.ajax({
+			type: 'POST',
+			url:"/test/ajax",
+			// data: {
+			// 	id: 1,
+			// 	type: "2",
+			// 	_csrf:csrf_val
+			// },
+			data:param,
+			success:function(result){
+
+				showNotice(result);
+		}});
+	});
+
+	// $(".showNotice").on("click",function(){
+	// 	alert('系统公告');
+	// 	showNotice();
+	// })
 
 	//刷新后还原打开的窗口
 	if(window.sessionStorage.getItem("menu") != null){

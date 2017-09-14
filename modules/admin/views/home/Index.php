@@ -6,6 +6,7 @@
  * Time: 22:01
  */
 use app\assets\AppAsset;
+use yii\helpers\Html;
 \app\assets\AppAsset::register($this);
 $this->title = '美食推荐-后台管理';
 
@@ -14,7 +15,7 @@ $this->title = '美食推荐-后台管理';
 <html>
 <head>
     <meta charset="utf-8">
-
+    <?= Html::csrfMetaTags() ?>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -28,6 +29,8 @@ $this->title = '美食推荐-后台管理';
     <link rel="stylesheet" href="/admin/css/main.css" media="all" />
 </head>
 <body class="main_body">
+<input type="hidden" id="csrf" name="<?=Yii::$app->request->csrfParam ?>" value="<?=Yii::$app->request->getCsrfToken() ?>">
+
 <div class="layui-layout layui-layout-admin">
     <!-- 顶部 -->
     <div class="layui-header header">
