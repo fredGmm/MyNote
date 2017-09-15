@@ -7,7 +7,7 @@ var navs = [{
 	{
 		"title" : "食物列表",
 		"icon" : "icon-text",
-		"href" : "page/news/newsList.html",
+		"href" : "page/food/foodList.html",
 		"spread" : false
 	},
 	{
