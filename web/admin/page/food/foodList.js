@@ -8,6 +8,7 @@ layui.config({
 
 	//加载页面数据
 	var newsData = '';
+	
 	$.get("../../json/newsList.json", function(data){
 		var newArray = [];
 		//单击首页“待审核文章”加载的信息
@@ -109,7 +110,7 @@ layui.config({
 	//添加文章
 	$(".newsAdd_btn").click(function(){
 		var index = layui.layer.open({
-			title : "添加文章",
+			title : "菜品添加",
 			type : 2,
 			content : "foodAdd.html",
 			success : function(layero, index){

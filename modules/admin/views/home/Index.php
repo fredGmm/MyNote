@@ -99,7 +99,7 @@ $this->title = '美食推荐-后台管理';
                 </li>
                 <li class="layui-nav-item" pc>
                     <a href="javascript:;">
-                        <img src="images/face.jpg" class="layui-circle" width="35" height="35">
+                        <img src="/src/images/arashi/jitui.jpg" class="layui-circle" width="35" height="35">
                         <cite>桂明明</cite>
                     </a>
                     <dl class="layui-nav-child">
@@ -140,8 +140,8 @@ $this->title = '美食推荐-后台管理';
 
 <!-- 锁屏 -->
 <div class="admin-header-lock" id="lock-box" style="display: none;">
-    <div class="admin-header-lock-img"><img src="images/face.jpg"/></div>
-    <div class="admin-header-lock-name" id="lockUserName">请叫我马哥</div>
+    <div class="admin-header-lock-img"><img src="/src/images/arashi/jitui.jpg"/></div>
+    <div class="admin-header-lock-name" id="lockUserName">桂明明</div>
     <div class="input_btn">
         <input type="password" class="admin-header-lock-input layui-input" placeholder="请输入密码解锁.." name="lockPwd" id="lockPwd" />
         <button class="layui-btn" id="unlock">解锁</button>
