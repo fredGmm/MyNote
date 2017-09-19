@@ -42,28 +42,20 @@ layui.config({
  	// })
 
 	$("#food_add_btn").click(function(){
-		var param = new Object();
-		param['newsName'] = $(".newsName").val();
-		param['newsLook'] = $(".newsLook option").eq($(".newsLook").val()).text();
-		param['newsTime'] = $(".newsTime").val();
-
-		alert(param);
-
-		param['id'] = 3;
-		param['type'] = "2";
-		param[csrf_name] = csrf_val;
+alert(layedit.getContent(editIndex));
 		$.ajax({
 			type: 'POST',
 			url:"/test/ajax",
-			// data: {
-			// 	id: 1,
-			// 	type: "2",
-			// 	_csrf:csrf_val
-			// },
-			data:param,
+			 data: {
+				 foodName: $(".foodName").val(),
+			 	 foodType:  $(".food_type option").eq($(".newsLook").val()).text(),
+				 addTime: $(".add_time").val(),
+				 content : $(".layui-textarea").html()
+			 },
+		//	data:param,
 			success:function(result){
 
-				showNotice(result);
+				alert(1234);
 			}});
 	});
 })
