@@ -191,21 +191,5 @@ EOF
         }
     }
 
-    /**
-     * 根据数据中的某一字段排序
-     * @datetime 2016/8/4
-     * @param array $array 原始数组
-     * @param string $field 数组字段
-     * @param bool $desc
-     * @param bool $ignoreCase 是否忽略大小写
-     */
-    public function sortArrByField(&$array, $field, $desc = true, $ignoreCase = false)
-    {
-        $fieldArr = array();
-        foreach ($array as $k => $v) {
-            $fieldArr[$k] = $ignoreCase ? strtolower($v[$field]) : $v[$field];
-        }
-        $sort = $desc ? SORT_DESC : SORT_ASC;
-        array_multisort($fieldArr, $sort, $array);
-    }
+    
 }

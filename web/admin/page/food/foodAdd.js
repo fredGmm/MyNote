@@ -8,6 +8,8 @@ layui.config({
 		laydate = layui.laydate,
 		$ = layui.jquery;
 
+
+
 	//创建一个编辑器
  	var editIndex = layedit.build('news_content');
  	var addNewsArray = [],addNews;
@@ -42,20 +44,27 @@ layui.config({
  	// })
 
 	$("#food_add_btn").click(function(){
-alert(layedit.getContent(editIndex));
+
 		$.ajax({
 			type: 'POST',
-			url:"/test/ajax",
+			url:"/admin/food/add",
+			dataType: 'json',
 			 data: {
 				 foodName: $(".foodName").val(),
 			 	 foodType:  $(".food_type option").eq($(".newsLook").val()).text(),
 				 addTime: $(".add_time").val(),
-				 content : $(".layui-textarea").html()
+				 content : layedit.getContent(editIndex),
+				 
 			 },
-		//	data:param,
 			success:function(result){
+				alert(result.code);
+				alert(result.data.key.key2);
 
-				alert(1234);
+				layer.alert('哈哈哈', {
+					skin: 'layui-layer-lan'
+					,closeBtn: 0
+					,anim: 1 //动画类型
+				});
 			}});
 	});
 })
