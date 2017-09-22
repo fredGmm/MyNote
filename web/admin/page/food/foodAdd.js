@@ -8,8 +8,6 @@ layui.config({
 		laydate = layui.laydate,
 		$ = layui.jquery;
 
-
-
 	//创建一个编辑器
  	var editIndex = layedit.build('news_content');
  	var addNewsArray = [],addNews;
@@ -54,17 +52,29 @@ layui.config({
 			 	 foodType:  $(".food_type option").eq($(".newsLook").val()).text(),
 				 addTime: $(".add_time").val(),
 				 content : layedit.getContent(editIndex),
+				 fit_type_b : $(".breakfast").val() == "on" ? '1' : '',
+				 fit_type_l : $(".tuijian").val() == "on" ? '1' : '',
+				 fit_type_s : $(".tuijian").val() == "on" ? '1' : ''
 				 
 			 },
 			success:function(result){
-				alert(result.code);
-				alert(result.data.key.key2);
+				var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
+				top.layer.close(index);
+				top.layer.msg("添加成功！");
+				layer.closeAll("iframe");
+				//刷新父页面
+				parent.location.reload();
 
-				layer.alert('哈哈哈', {
+			},
+
+			error:function(){
+				layer.alert('请求失败', {
 					skin: 'layui-layer-lan'
 					,closeBtn: 0
 					,anim: 1 //动画类型
 				});
-			}});
+			}
+		});
+
 	});
 })

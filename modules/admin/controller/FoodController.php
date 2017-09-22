@@ -20,7 +20,10 @@ class FoodController extends BaseController {
     public function actionAdd()
     {
 
-        var_dump(\Yii::$app->request->post());
+
+        $this->jsonOk(['a' => 4321]);
+
+        //var_dump(\Yii::$app->request->post());
     }
 
     public function actionDelete()

@@ -191,5 +191,60 @@ EOF
         }
     }
 
+    /**
+     * JSON信息输出
+     *
+     * @param array $data 数据
+     * @param int $code 信息码 默认为0
+     * @param string $msg 提示信息 可有可无
+     * @return string|object
+     */
+    public function jsonOut_($code = 0, $msg = '', $data = [])
+    {
+        header('Content-Type:application/json;charset=UTF-8');
+        $output = array(
+            'code' => $code,
+            'msg' => $msg,
+            'data' => $data,
+        );
+        $this->getResponse()->setBody(json_encode($output, JSON_UNESCAPED_UNICODE));
+    }
+
+    /**
+     * ajax请求返回json数据
+     * @author fredGui
+     * @param array $data 返回给前端的具体数据，如果是列表的话数组格式如['count'=>14,'datalist'=>[]]
+     * @param int $code 返回状态码,非0 全是失败
+     * @param string $msg 提示消息语
+     */
+    private  function jsonOut($code, $data, $msg)
+    {
+        $resp = \Yii::$app->getResponse();
+        $resp->format = yii\web\Response::FORMAT_JSON;
+        $resp->content = json_encode(['code' => (int)$code, 'msg' => (string)$msg, 'data' => $data], JSON_UNESCAPED_UNICODE);
+        $resp->send();
+        exit;
+    }
+
+    public  function jsonOk($data, $msg = '')
+    {
+        $resp = \Yii::$app->getResponse();
+        $resp->format = yii\web\Response::FORMAT_JSON;
+        $resp->content = json_encode(['code' => 0, 'msg' => (string)$msg, 'data' => $data], JSON_UNESCAPED_UNICODE);
+        $resp->send();
+        exit;
+    }
+
+    public  function jsonError($code = 999999, $data = [], $msg = '')
+    {
+        $resp = \Yii::$app->getResponse();
+        $resp->format = yii\web\Response::FORMAT_JSON;
+        $resp->content = json_encode(['code' => (int)$code, 'msg' => (string)$msg, 'data' => $data], JSON_UNESCAPED_UNICODE);
+        $resp->send();
+        exit;
+    }
+
+
+
     
 }
