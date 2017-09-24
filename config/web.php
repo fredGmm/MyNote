@@ -13,7 +13,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'guimingmingtest',
-           // 'enableCsrfValidation' => false, //暂时先关闭csfr
+            'enableCsrfValidation' => false, //暂时先关闭csfr
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
