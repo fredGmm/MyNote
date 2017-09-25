@@ -41,19 +41,18 @@ layui.config({
  	// 	return false;
  	// })
 
-
+	var fit_type ;
+	var _food = '';
 	$("#food_add_btn").click(function(){
+		event.preventDefault();
+		fit_type = $("input[name='breakfast']").is(':checked') ? '1,' : '';
+		fit_type += $("input[name='lunch']").is(':checked')? '2,' : '';
+		fit_type += $("input[name='supper']").is(':checked')? '3' : '';
 
-		alert($("input[name='breakfast']").is(':checked'));
-		fit_type = $(".breakfast").val()=="on" ? '1,' : '';
-		fit_type += $(".lunch").val()=="on"? '2,' : '';
-		fit_type += $(".supper").val()=="on"? '3' : '';
-
-		_food = '';
 		_food += 'food_info[food_name]='+ $(".foodName").val();
 		_food += '&food_info[fit_type]='+ fit_type;
 		_food += '&food_info[description]='+ layedit.getContent(editIndex);
-		_food += '&food_info[shop_name]=hzy';
+		_food += '&food_info[shop_name]=活子轩食府';
 		_food += '&food_info[kind]=meat';
 		
 		$.ajax({
@@ -77,10 +76,11 @@ layui.config({
 						,anim: 1 //动画类型
 					});
 				}
-
 			}
 
 		});
 
 	});
+
+	return false;
 })

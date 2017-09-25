@@ -39,14 +39,15 @@ layui.config({
 	// })
 
 	$.post({
-		url:"/admin/food/getList",
+		url:"/admin/food/get-list",
 		dataType: 'json',
 		data: {
-			
+			page:1,
+			page_size:3
 		},
 		success:function(result){
 
-
+			foodsList(result.data);
 		},
 
 		error:function(){
@@ -282,28 +283,28 @@ layui.config({
 			if(currData.length != 0){
 				for(var i=0;i<currData.length;i++){
 					dataHtml += '<tr>'
-			    	+'<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
-			    	+'<td align="left">'+currData[i].newsName+'</td>'
-			    	+'<td>'+currData[i].newsAuthor+'</td>';
-			    	if(currData[i].newsStatus == "待审核"){
-			    		dataHtml += '<td style="color:#f00">'+currData[i].newsStatus+'</td>';
-			    	}else{
-			    		dataHtml += '<td>'+currData[i].newsStatus+'</td>';
-			    	}
-			    	dataHtml += '<td>'+currData[i].newsLook+'</td>'
-			    	+'<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow"'+currData[i].isShow+'></td>'
-			    	+'<td>'+currData[i].newsTime+'</td>'
-			    	+'<td>'
-					+  '<a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
-					+  '<a class="layui-btn layui-btn-normal layui-btn-mini news_collect"><i class="layui-icon">&#xe600;</i> 收藏</a>'
-					+  '<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="'+data[i].newsId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
-			        +'</td>'
-			    	+'</tr>';
+						+'<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
+						+'<td align="left">'+currData[i].newsName+'</td>'
+						+'<td>'+currData[i].newsAuthor+'</td>';
+					if(currData[i].newsStatus == "待审核"){
+						dataHtml += '<td style="color:#f00">'+currData[i].newsStatus+'</td>';
+					}else{
+						dataHtml += '<td>'+currData[i].newsStatus+'</td>';
+					}
+					dataHtml += '<td>'+currData[i].newsLook+'</td>'
+						+'<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow"'+currData[i].isShow+'></td>'
+						+'<td>'+currData[i].newsTime+'</td>'
+						+'<td>'
+						+  '<a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
+						+  '<a class="layui-btn layui-btn-normal layui-btn-mini news_collect"><i class="layui-icon">&#xe600;</i> 收藏</a>'
+						+  '<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="'+data[i].newsId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
+						+'</td>'
+						+'</tr>';
 				}
 			}else{
 				dataHtml = '<tr><td colspan="8">暂无数据</td></tr>';
 			}
-		    return dataHtml;
+			return dataHtml;
 		}
 
 		//分页
@@ -317,7 +318,60 @@ layui.config({
 			jump : function(obj){
 				$(".news_content").html(renderDate(newsData,obj.curr));
 				$('.news_list thead input[type="checkbox"]').prop("checked",false);
-		    	form.render();
+				form.render();
+			}
+		})
+	}
+
+	function foodsList(that){
+		//渲染数据
+		function renderDate(data,curr){
+			// var dataHtml = '';
+			// if(!that){
+			// 	currData = newsData.concat().splice(curr*nums-nums, nums);
+			// }else{
+			// 	currData = that.concat().splice(curr*nums-nums, nums);
+			// }
+			console.log(data);
+			if(currData.length != 0){
+				for(var i=0;i<currData.length;i++){
+					dataHtml += '<tr>'
+						+'<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
+						+'<td align="left">'+currData[i].newsName+'</td>'
+						+'<td>'+currData[i].newsAuthor+'</td>';
+					if(currData[i].newsStatus == "待审核"){
+						dataHtml += '<td style="color:#f00">'+currData[i].newsStatus+'</td>';
+					}else{
+						dataHtml += '<td>'+currData[i].newsStatus+'</td>';
+					}
+					dataHtml += '<td>'+currData[i].newsLook+'</td>'
+						+'<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow"'+currData[i].isShow+'></td>'
+						+'<td>'+currData[i].newsTime+'</td>'
+						+'<td>'
+						+  '<a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
+						+  '<a class="layui-btn layui-btn-normal layui-btn-mini news_collect"><i class="layui-icon">&#xe600;</i> 收藏</a>'
+						+  '<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="'+data[i].newsId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
+						+'</td>'
+						+'</tr>';
+				}
+			}else{
+				dataHtml = '<tr><td colspan="8">暂无数据</td></tr>';
+			}
+			return dataHtml;
+		}
+
+		//分页
+		var nums = 13; //每页出现的数据量
+		if(that){
+			newsData = that;
+		}
+		laypage({
+			cont : "page",
+			pages : Math.ceil(newsData.length/nums),
+			jump : function(obj){
+				$(".news_content").html(renderDate(newsData,obj.curr));
+				$('.news_list thead input[type="checkbox"]').prop("checked",false);
+				form.render();
 			}
 		})
 	}

@@ -33,4 +33,12 @@ class FoodChooseModel extends BaseTable {
         $food_choose_model->user_id = 0;
         return $food_choose_model->save();
     }
+
+    public static function getFoodList(){
+
+        $foods = self::find()->offset(0)->limit(10)->asArray()->all();
+        $count = self::find()->count();
+        return ['food_list'=>$foods, 'count'=>$count];
+    }
+
 }
