@@ -9,10 +9,7 @@ use app\assets\AppAsset;
 \app\assets\AppAsset::register($this);
 $this->title = 'what eat?';
 
-
 AppAsset::addCss($this,'@web/src/css/default.css');
-
-
 ?>
 <html>
 
@@ -57,67 +54,67 @@ AppAsset::addCss($this,'@web/src/css/default.css');
 
 <body>
 <div>
-<div class="header-nav" style="background: #286090; height: 116px">
-    <div role="navigation">
-        <a href="#" rel="home" class="hd-logo" title="嵐"><img style="opacity: 1;" src="<?php echo  "/src/images/logo.jpg" ?>"></a>
-        <ul class="hd-nav">
-            <li class="search-box-li">
-                <div><input type="text" name="search-keyword" placeholder="输入关键词" form="search-keyword"><i
-                        class="iconfont search-submit">&#xe617;</i></div>
-                <i class="search-exit"></i></li>
-            <li><a href="/index/index" name="index" style="font-size: 30px">吃货的追求<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
-            <li><a href="/index/today-news" name="about" target="_blank" style="font-size: 25px">今日养生<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
-            <li><a href="http://www.ntv.co.jp/arashinishiyagare/" target="_blank" name="productlist" style="font-size: 25px">小吃点评<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
-            <li><a href="/index/my-nio" name="article" style="font-size: 25px">做饭专版<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
-            <li><a href="/index/fans-family" name="contact" style="font-size: 25px">关于小明<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
-        </ul>
+    <div class="header-nav" style="background: #286090; height: 86px">
+        <div role="navigation">
+            <a href="#" rel="home" class="hd-logo" title="嵐"><img style="opacity: 1;" src="<?php echo  "/src/images/logo.jpg" ?>"></a>
+            <ul class="hd-nav">
+                <li class="search-box-li">
+                    <div><input type="text" name="search-keyword" placeholder="输入关键词" form="search-keyword"><i
+                            class="iconfont search-submit">&#xe617;</i></div>
+                    <i class="search-exit"></i></li>
+                <li><a href="/index/index" name="index" style="font-size: 25px">吃货的追求<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+                <li><a href="/index/today-news" name="about" target="_blank" style="font-size: 25px">今日养生<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+                <li><a href="http://www.ntv.co.jp/arashinishiyagare/" target="_blank" name="productlist" style="font-size: 25px">小吃点评<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+                <li><a href="/index/my-nio" name="article" style="font-size: 25px">做饭专版<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+                <li><a href="/index/fans-family" name="contact" style="font-size: 25px">关于小明<span><i class="iconfont ">&#xe6aa;</i></span></a></li>
+            </ul>
 
-        <div class="motai"></div>
+            <div class="motai"></div>
 
-        <button class="btn btn-large btn-primary" style="padding-right: 10px;opacity: 0.8;" type="button"><a href="/user/login/index" target="_blank" >会员</a></button>
+            <button class="btn btn-large btn-primary" style="padding-right: 10px;opacity: 0.8;" type="button"><a href="/user/login/index" target="_blank" >会员</a></button>
+        </div>
+        <div class="search-box">
+            <form method="post" action="#" id="search-keyword">
+                <input type="text" name="search-keyword" placeholder="请输入您的内容">
+                <span></span>
+            </form>
+        </div>
     </div>
-    <div class="search-box">
-        <form method="post" action="#" id="search-keyword">
-            <input type="text" name="search-keyword" placeholder="请输入您的内容">
-            <span></span>
-        </form>
-    </div>
-</div>
-
-
 </div>
 <?php foreach ($data as $per => $food){ ?>
     <div id="test" hidden="hidden" class="foods" > <?php echo $food['food_name']; ?> </div>
     <div hidden="hidden" class="per" > <?php echo $food['per']; ?> </div>
 <?php } ?>
-
-
-<div style="margin-left: 500px; margin-top: 150px; float: left">
-    你中午吃几个菜：
-    <select  class="js-example-basic-single"  id="tag-number"  >
-        <option value="1">1</option>
-        <option value="2" selected>2</option>
-        <option value="3" >3</option>
-    </select>
+<HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15); margin-top: 87px;float: left" width="100%" color=#987cb9 SIZE=1 />
+<div>
+    <div style="margin-left: 400px; margin-top: 0px; float: left">
+        <span style="color: #e5e5e5; font-size: 20px">你中午吃几个菜：</span>
+        <select  class="js-example-basic-single"  id="tag-number"  >
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3" >3</option>
+        </select>
+    </div>
+    <div style="margin-left: 50px;  margin-top: 0px; float: left">
+        <span style="color: #e5e5e5; font-size: 20px">减肥不？：</span>
+        <select  class="js-example-basic-single"  id="tag-number"  >
+            <option value="1" selected>正常搭配</option>
+            <option value="0" >我要减肥</option>
+            <option value="2" >我要长肉</option>
+        </select>
+    </div>
 </div>
-<div style="margin-left: 50px;  margin-top: 150px; float: left">
-    减肥不？：
-    <select  class="js-example-basic-single"  id="tag-number"  >
-        <option value="1" selected>正常搭配</option>
-        <option value="0" >我要减肥</option>
-        <option value="2" >我要长肉</option>
-    </select>
-</div>
 
 
-<div class="option">
+
+<div class="option" style="background-color: #286090">
     <div class="options">
         <ul>
             <li hidden="hidden">
                 容器宽高：
                 <select id="tag-boxsize">
                     <option value="1200*520" >1200*520</option>
-                    <option value="600*400" selected>800*600</option>
+                    <option value="600*450" selected>600*450</option>
                     <option value="400*600" >400*600</option>
                     <option value="1111*555">1111*555</option>
                     <option value="500*500">500*500</option>
@@ -222,13 +219,17 @@ AppAsset::addCss($this,'@web/src/css/default.css');
         </ul>
 
     </div>
+
     <div id="div-go">
-    <a href="javascript:;" id="go">
-        我到底吃啥？
-    </a></div>
+        <a href="javascript:;" id="go">
+        <button type="button" class="button-blue" >what eat?</button>
+        </a>
+    </div>
 </div>
 
+
 <div class="main">
+    <!-- 价格表 -->
     <div class="food-menu">
         <table class="gridtable">
             <tr>
