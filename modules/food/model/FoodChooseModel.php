@@ -19,4 +19,18 @@ class FoodChooseModel extends BaseTable {
 
         return $foodData;
     }
+
+    public static function saveNewFood($food_info){
+
+        $food_choose_model = new self;
+        $food_choose_model->food_name = $food_info['food_name'];
+        $food_choose_model->shop_name = $food_info['shop_name'];
+        $food_choose_model->address = isset($food_info['address']) ? $food_info['address'] : '';
+        $food_choose_model->ip = 0;
+        $food_choose_model->fit_type = $food_info['fit_type'];
+        $food_choose_model->kind = $food_info['kind'];
+        $food_choose_model->description = $food_info['description'];
+        $food_choose_model->user_id = 0;
+        return $food_choose_model->save();
+    }
 }

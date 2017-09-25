@@ -41,39 +41,45 @@ layui.config({
  	// 	return false;
  	// })
 
+
 	$("#food_add_btn").click(function(){
 
+		alert($("input[name='breakfast']").is(':checked'));
+		fit_type = $(".breakfast").val()=="on" ? '1,' : '';
+		fit_type += $(".lunch").val()=="on"? '2,' : '';
+		fit_type += $(".supper").val()=="on"? '3' : '';
+
+		_food = '';
+		_food += 'food_info[food_name]='+ $(".foodName").val();
+		_food += '&food_info[fit_type]='+ fit_type;
+		_food += '&food_info[description]='+ layedit.getContent(editIndex);
+		_food += '&food_info[shop_name]=hzy';
+		_food += '&food_info[kind]=meat';
+		
 		$.ajax({
 			type: 'POST',
 			url:"/admin/food/add",
 			dataType: 'json',
-			 data: {
-				 foodName: $(".foodName").val(),
-			 	 foodType:  $(".food_type option").eq($(".newsLook").val()).text(),
-				 addTime: $(".add_time").val(),
-				 content : layedit.getContent(editIndex),
-				 fit_type_b : $(".breakfast").val() == "on" ? '1' : '',
-				 fit_type_l : $(".tuijian").val() == "on" ? '1' : '',
-				 fit_type_s : $(".tuijian").val() == "on" ? '1' : ''
-				 
-			 },
+		//	data: {food_info:JSON.stringify(food_info)}, //直接传的json
+			data : _food,
 			success:function(result){
-				var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
-				top.layer.close(index);
-				top.layer.msg("添加成功！");
-				layer.closeAll("iframe");
-				//刷新父页面
-				parent.location.reload();
+				if(result.code == 0){
+					var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,});
+					top.layer.close(index);
+					top.layer.msg("添加成功！");
+					layer.closeAll("iframe");
+					//刷新父页面
+					parent.location.reload();
+				}else{
+					layer.alert('添加失败', {
+						skin: 'layui-layer-lan'
+						,closeBtn: 0
+						,anim: 1 //动画类型
+					});
+				}
 
-			},
-
-			error:function(){
-				layer.alert('请求失败', {
-					skin: 'layui-layer-lan'
-					,closeBtn: 0
-					,anim: 1 //动画类型
-				});
 			}
+
 		});
 
 	});
