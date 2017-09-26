@@ -375,14 +375,9 @@ layui.config({
 			skip:true,
 			jump : function(obj, first){
 				var current_page = obj.curr;
-
+				alert(current_page);
 				$(".news_content").html(renderDate(newsData));//一定要把翻页的ajax请求放到这里，不然会请求两次
-
-				//form.render();
-				if(!first){ //一定要加此判断，否则初始时会无限刷新
-
-					location.href = '?page='+ currentPageAllAppoint;
-				}
+				form.render();
 			}
 		})
 	}
