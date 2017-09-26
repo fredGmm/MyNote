@@ -10,7 +10,7 @@ layui.config({
 	var newsData = '';
 	
 	// $.get("../../json/newsList.json", function(data){
-	//
+    //
 	// 	var newArray = [];
 	// 	//单击首页“待审核文章”加载的信息
 	// 	if($(".top_tab li.layui-this cite",parent.document).text() == "待审核文章"){
@@ -321,36 +321,39 @@ layui.config({
 				form.render();
 			}
 		})
+
 	}
 
 	function foodsList(that){
 		//渲染数据
 		function renderDate(data,curr){
-			// var dataHtml = '';
+			 var dataHtml = '';
 			// if(!that){
 			// 	currData = newsData.concat().splice(curr*nums-nums, nums);
 			// }else{
 			// 	currData = that.concat().splice(curr*nums-nums, nums);
 			// }
-			console.log(data);
-			if(currData.length != 0){
-				for(var i=0;i<currData.length;i++){
+			currData = data.food_list;
+			if(data.length != 0){
+
+				for(var i=0;i<2;i++){
 					dataHtml += '<tr>'
 						+'<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
-						+'<td align="left">'+currData[i].newsName+'</td>'
-						+'<td>'+currData[i].newsAuthor+'</td>';
-					if(currData[i].newsStatus == "待审核"){
-						dataHtml += '<td style="color:#f00">'+currData[i].newsStatus+'</td>';
-					}else{
-						dataHtml += '<td>'+currData[i].newsStatus+'</td>';
-					}
-					dataHtml += '<td>'+currData[i].newsLook+'</td>'
-						+'<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow"'+currData[i].isShow+'></td>'
-						+'<td>'+currData[i].newsTime+'</td>'
+						+'<td align="left">'+currData[i].fid +'</td>'
+						+'<td>'+currData[i].food_name +'</td>';
+				//	if(currData[i].newsStatus == "待审核"){
+						dataHtml += '<td style="color:#f00">'+currData[i].description+'</td>';
+				//	}else{
+					//	dataHtml += '<td>'+currData[i].newsStatus+'</td>';
+				//	}
+					dataHtml += '<td>'+currData[i].shop_name+'</td>'
+						// +'<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow"'+currData[i].user_id+'></td>'
+						+ '<td>'+currData[i].kind+'</td>'
+						+'<td>'+2017+'</td>'
 						+'<td>'
 						+  '<a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
 						+  '<a class="layui-btn layui-btn-normal layui-btn-mini news_collect"><i class="layui-icon">&#xe600;</i> 收藏</a>'
-						+  '<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="'+data[i].newsId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
+						+  '<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="'+currData[i].fid+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
 						+'</td>'
 						+'</tr>';
 				}
@@ -361,17 +364,25 @@ layui.config({
 		}
 
 		//分页
-		var nums = 13; //每页出现的数据量
+		var nums = 3; //每页出现的数据量
 		if(that){
 			newsData = that;
 		}
+
 		laypage({
 			cont : "page",
-			pages : Math.ceil(newsData.length/nums),
-			jump : function(obj){
-				$(".news_content").html(renderDate(newsData,obj.curr));
-				$('.news_list thead input[type="checkbox"]').prop("checked",false);
-				form.render();
+			pages : Math.ceil(newsData.count/nums),
+			skip:true,
+			jump : function(obj, first){
+				var current_page = obj.curr;
+
+				$(".news_content").html(renderDate(newsData));//一定要把翻页的ajax请求放到这里，不然会请求两次
+
+				//form.render();
+				if(!first){ //一定要加此判断，否则初始时会无限刷新
+
+					location.href = '?page='+ currentPageAllAppoint;
+				}
 			}
 		})
 	}

@@ -15,10 +15,12 @@ class FoodController extends BaseController {
 
     public function actionGetList()
     {
-       $food_list = FoodChooseModel::getFoodList();
+        $page = \Yii::$app->request->post('kind', null);
+        $page_size = 10;
+
+        $food_list = FoodChooseModel::getFoodList();
 
         $this->jsonOk($food_list);
-        
     }
 
     public function actionAdd()
