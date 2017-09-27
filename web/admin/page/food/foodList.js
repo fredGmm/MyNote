@@ -326,7 +326,7 @@ layui.config({
 
 	function foodsList(that){
 		//分页
-		var nums = 2; //每页出现的数据量
+		var nums = 5; //每页出现的数据量
 		if(that){
 			newsData = that;
 		}
@@ -345,7 +345,7 @@ layui.config({
 						dataType: 'json',
 						data: {
 							page:current_page,
-							page_size:2
+							page_size:nums
 						},
 						success:function(result){
 							$(".news_content").html(renderData(result.data));//一定要把翻页的ajax请求放到这里，不然会请求两次

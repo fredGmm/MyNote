@@ -16,7 +16,7 @@ class FoodController extends BaseController {
     public function actionGetList()
     {
         $page = \Yii::$app->request->post('page', 1);
-        $page_size = 2;
+        $page_size = 5;
 
         $food_list = FoodChooseModel::getFoodList($page, $page_size);
 

@@ -16,17 +16,24 @@ class FoodAlgorithm {
 
         $food_choose = new FoodChooseModel();
         $where = [];
-        if (empty($kind)) {
+        if (!empty($kind)) {
             $where['kind'] = $kind;
         }
 
-        $result = $food_choose::find()->where($where)->limit($num)->asArray()->all();
+        $result = $food_choose::find()->where($where)->asArray()->all();
 
-        foreach ($result as $fk => &$v){
+        $data = [];
+        $key = array_rand(range(0,count($result)-1), $num);
+        for($i=0; $i<$num; $i++){
+
+            $data[$i] = $result[$key[$i]];
+        }
+
+        foreach ($data as $fk => &$v){
             $v['per'] = mt_rand(1,10)  * 10 . '%';
         }
 
-        return $result;
+        return $data;
     }
 
 
