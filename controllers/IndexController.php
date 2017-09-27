@@ -27,7 +27,6 @@ class IndexController extends Controller
     public function actionIndex()
     {
       //  $this->getView()->registerAssetBundle(AssetBundle::className());
-      var_dump(Yii::$app->request->get());exit;
         return $this->render('index');
     }
 
