@@ -9,6 +9,7 @@
 namespace app\modules\food\controller;
 
 use app\modules\base\controller\BaseController;
+use app\modules\food\model\FoodChooseModel;
 use app\modules\food\service\FoodAlgorithm;
 use yii\base\Controller;
 
@@ -20,6 +21,18 @@ class ChooseController extends BaseController {
         
         return $this->render(__FUNCTION__,['data' =>$foods]);
     }
+
+    public function actionAjaxRecommend()
+    {
+        $num = \Yii::$app->request->post('num', 2);
+        $kind = \Yii::$app->request->post('kind');
+
+        $data = FoodAlgorithm::getNoonMeal($num,2);
+
+        $this->jsonOk($data);
+
+    }
+
 
 
 

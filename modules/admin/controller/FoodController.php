@@ -15,10 +15,10 @@ class FoodController extends BaseController {
 
     public function actionGetList()
     {
-        $page = \Yii::$app->request->post('kind', null);
-        $page_size = 10;
+        $page = \Yii::$app->request->post('page', 1);
+        $page_size = 2;
 
-        $food_list = FoodChooseModel::getFoodList();
+        $food_list = FoodChooseModel::getFoodList($page, $page_size);
 
         $this->jsonOk($food_list);
     }
@@ -26,7 +26,7 @@ class FoodController extends BaseController {
     public function actionAdd()
     {
         $food_info = \Yii::$app->request->post('food_info');
-var_dump($food_info);exit;
+
         if (empty($food_info)) {
             $this->jsonError(1001, '信息不能为空');
         }

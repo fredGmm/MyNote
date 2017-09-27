@@ -52,8 +52,9 @@ layui.config({
 		_food += 'food_info[food_name]='+ $(".foodName").val();
 		_food += '&food_info[fit_type]='+ fit_type;
 		_food += '&food_info[description]='+ layedit.getContent(editIndex);
-		_food += '&food_info[shop_name]=活子轩食府';
-		_food += '&food_info[kind]=meat';
+		_food += '&food_info[price]=' + $(".price").val();
+		_food += '&food_info[shop_name]=' + $(".shop_name").val();
+		_food += '&food_info[kind]='+ $(".food_type").val();
 		
 		$.ajax({
 			type: 'POST',

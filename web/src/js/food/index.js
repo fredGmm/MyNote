@@ -30,14 +30,26 @@ $(function() {
         for (var i = 0,_html; i < times; i++) {
             _html = '<a href="javascript:;">' + i + '</a> ';
             html += _html.replace(/\d/g,function(v,i){
-                return num[v] + ' ' +  per[v] + "%";
+               // return num[v] + ' ' +  per[v] + "%";
+                return 'what eat?';
+            });
+        }
+        return html;
+    }
+
+    function getCircleHtml(times, content) {
+        var html = '';
+        for (var i = 0,_html; i < times; i++) {
+            _html = '<a href="javascript:;">' + i + '</a> ';
+            html += _html.replace(/\d/g,function(v,i){
+                return content[v].food_name + ' ' +  content[v].per;
             });
         }
         return html;
     }
 
     function getOpts() {
-        console.log($minsize.val());
+       // console.log($minsize.val());
         return {
             minColor: $mincolor.val(),
             maxColor: $maxcolor.val(),
@@ -84,11 +96,34 @@ $(function() {
         }
     }
     function clickEvent(e){
-
+        console.log($tagCloud);
         destroy();
-       $tagCloud.html(getTimesHtml(~~$number.val())).tagCloud(getOpts());
+        $tagCloud.html(getTimesHtml(~~$number.val())).tagCloud(getOpts());
     }
-   
+
+    $("#go").click(function(){
+
+        $.ajax({
+            type:'POST',
+            url:"/food/choose/ajax-recommend",
+            dataType: 'json',
+            data: {
+                num:$(".eat-num").val(),
+                kind:$(".eat-kind").val()
+            },
+            success:function(result){
+                console.log($tagCloud);
+                var data = result.data;
+                destroy();
+
+                $tagCloud.html(getCircleHtml(~~$(".eat-num").val(),data)).tagCloud(getOpts());
+            },
+            error:function(){
+            }
+        });
+
+    });
+
     function destroy() {
         var boxsize = $boxsize.val().split("*");
         $tagCloud.attr("class", "tag-cloud").css({
@@ -98,7 +133,7 @@ $(function() {
         $("#tag-cloud-style").remove();
     }
 
-    $go.on("click",clickEvent);
+   // $go.on("click",clickEvent);
 
     clickEvent();
     /**

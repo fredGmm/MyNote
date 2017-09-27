@@ -325,60 +325,77 @@ layui.config({
 	}
 
 	function foodsList(that){
-		//渲染数据
-		function renderDate(data,curr){
-			 var dataHtml = '';
-			// if(!that){
-			// 	currData = newsData.concat().splice(curr*nums-nums, nums);
-			// }else{
-			// 	currData = that.concat().splice(curr*nums-nums, nums);
-			// }
-			currData = data.food_list;
-			if(data.length != 0){
-
-				for(var i=0;i<2;i++){
-					dataHtml += '<tr>'
-						+'<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
-						+'<td align="left">'+currData[i].fid +'</td>'
-						+'<td>'+currData[i].food_name +'</td>';
-				//	if(currData[i].newsStatus == "待审核"){
-						dataHtml += '<td style="color:#f00">'+currData[i].description+'</td>';
-				//	}else{
-					//	dataHtml += '<td>'+currData[i].newsStatus+'</td>';
-				//	}
-					dataHtml += '<td>'+currData[i].shop_name+'</td>'
-						// +'<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow"'+currData[i].user_id+'></td>'
-						+ '<td>'+currData[i].kind+'</td>'
-						+'<td>'+2017+'</td>'
-						+'<td>'
-						+  '<a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
-						+  '<a class="layui-btn layui-btn-normal layui-btn-mini news_collect"><i class="layui-icon">&#xe600;</i> 收藏</a>'
-						+  '<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="'+currData[i].fid+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
-						+'</td>'
-						+'</tr>';
-				}
-			}else{
-				dataHtml = '<tr><td colspan="8">暂无数据</td></tr>';
-			}
-			return dataHtml;
-		}
-
 		//分页
-		var nums = 3; //每页出现的数据量
+		var nums = 2; //每页出现的数据量
 		if(that){
 			newsData = that;
 		}
-
 		laypage({
 			cont : "page",
 			pages : Math.ceil(newsData.count/nums),
 			skip:true,
 			jump : function(obj, first){
 				var current_page = obj.curr;
-				alert(current_page);
-				$(".news_content").html(renderDate(newsData));//一定要把翻页的ajax请求放到这里，不然会请求两次
-				form.render();
+
+				$(".news_content").html(renderData(newsData));
+				//form.render();
+				if(!first){ //一定要加此判断，否则初始时会无限刷新
+					$.post({
+						url:"/admin/food/get-list",
+						dataType: 'json',
+						data: {
+							page:current_page,
+							page_size:2
+						},
+						success:function(result){
+							$(".news_content").html(renderData(result.data));//一定要把翻页的ajax请求放到这里，不然会请求两次
+						},
+						error:function(){
+
+						}
+					})
+
+				}
 			}
 		})
+	}
+
+	//渲染数据
+	function renderData(data,curr){
+		var dataHtml = '';
+		// if(!that){
+		// 	currData = newsData.concat().splice(curr*nums-nums, nums);
+		// }else{
+		// 	currData = that.concat().splice(curr*nums-nums, nums);
+		// }
+		currData = data.food_list;
+
+		if(data.count != 0){
+
+			$.each(currData,function(n,value){
+				dataHtml += '<tr>'
+					+'<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
+					+'<td align="left">'+value.fid +'</td>'
+					+'<td>'+value.food_name +'</td>';
+				//	if(currData[i].newsStatus == "待审核"){
+				dataHtml += '<td style="color:#f00">'+value.description+'</td>';
+				//	}else{
+				//	dataHtml += '<td>'+currData[i].newsStatus+'</td>';
+				//	}
+				dataHtml += '<td>'+value.shop_name+'</td>'
+					// +'<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow"'+currData[i].user_id+'></td>'
+					+ '<td>'+value.kind+'</td>'
+					+'<td>'+2017+'</td>'
+					+'<td>'
+					+  '<a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
+					+  '<a class="layui-btn layui-btn-normal layui-btn-mini news_collect"><i class="layui-icon">&#xe600;</i> 收藏</a>'
+					+  '<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="'+value.fid+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
+					+'</td>'
+					+'</tr>';
+			})
+		}else{
+			dataHtml = '<tr><td colspan="8">暂无数据</td></tr>';
+		}
+		return dataHtml;
 	}
 })

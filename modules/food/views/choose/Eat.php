@@ -89,7 +89,7 @@ AppAsset::addCss($this,'@web/src/css/default.css');
 <div>
     <div style="margin-left: 400px; margin-top: 0px; float: left">
         <span style="color: #e5e5e5; font-size: 20px">你中午吃几个菜：</span>
-        <select  class="js-example-basic-single"  id="tag-number"  >
+        <select  class="js-example-basic-single eat-num"  id="tag-number"  >
             <option value="1">1</option>
             <option value="2" selected>2</option>
             <option value="3" >3</option>
@@ -97,7 +97,7 @@ AppAsset::addCss($this,'@web/src/css/default.css');
     </div>
     <div style="margin-left: 50px;  margin-top: 0px; float: left">
         <span style="color: #e5e5e5; font-size: 20px">减肥不？：</span>
-        <select  class="js-example-basic-single"  id="tag-number"  >
+        <select  class="js-example-basic-single eat-kind"  id="tag-number"  >
             <option value="1" selected>正常搭配</option>
             <option value="0" >我要减肥</option>
             <option value="2" >我要长肉</option>
