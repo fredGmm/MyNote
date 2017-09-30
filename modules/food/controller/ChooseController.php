@@ -17,17 +17,21 @@ class ChooseController extends BaseController {
 
     public function actionEat(){
        
-        $foods = FoodAlgorithm::getNoonMeal();
+        $all_food_list = FoodChooseModel::find()->asArray()->all();
         
-        return $this->render(__FUNCTION__,['data' =>$foods]);
+        return $this->render(__FUNCTION__,['all_food_list' =>$all_food_list]);
     }
 
+    /**
+     *
+     * 
+     */
     public function actionAjaxRecommend()
     {
         $num = \Yii::$app->request->post('num', 2);
-        $kind = \Yii::$app->request->post('kind');
+        $kind = \Yii::$app->request->post('kind', '');
 
-        $data = FoodAlgorithm::getNoonMeal($num,2);
+        $data = FoodAlgorithm::getNoonMeal($num,$kind);
 
         $this->jsonOk($data);
 

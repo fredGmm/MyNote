@@ -81,9 +81,9 @@ AppAsset::addCss($this,'@web/src/css/default.css');
         </div>
     </div>
 </div>
-<?php foreach ($data as $per => $food){ ?>
+<?php foreach (array_slice($all_food_list,0,2) as $per => $food){ ?>
     <div id="test" hidden="hidden" class="foods" > <?php echo $food['food_name']; ?> </div>
-    <div hidden="hidden" class="per" > <?php echo $food['per']; ?> </div>
+    <div hidden="hidden" class="per" > <?php echo '10%'; ?> </div>
 <?php } ?>
 <HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15); margin-top: 87px;float: left" width="100%" color=#987cb9 SIZE=1 />
 <div>
@@ -98,9 +98,11 @@ AppAsset::addCss($this,'@web/src/css/default.css');
     <div style="margin-left: 50px;  margin-top: 0px; float: left">
         <span style="color: #e5e5e5; font-size: 20px">减肥不？：</span>
         <select  class="js-example-basic-single eat-kind"  id="tag-number"  >
-            <option value="1" selected>正常搭配</option>
-            <option value="0" >我要减肥</option>
-            <option value="2" >我要长肉</option>
+            <option value="0" selected>正常搭配</option>
+            <option value="vagetable" >我要减肥</option>
+            <option value="meat" >我要长肉</option>
+            <option value="protein" >我要长肉</option>
+
         </select>
     </div>
 </div>
@@ -233,29 +235,13 @@ AppAsset::addCss($this,'@web/src/css/default.css');
     <div class="food-menu">
         <table class="gridtable">
             <tr>
-                <th>菜名</th><th>大盘价格</th><th>小盘价格</th>
+                <th>菜名</th><th>类别</th><th>大盘价格</th>
             </tr>
+            <?php foreach ($all_food_list as $ak => $av) { ?>
             <tr>
-                <td>双黄鱼片</td><td>7 元</td><td>6 元</td>
+                <td><?php echo $av['food_name'] ?></td><td><?php echo $av['kind'] ?></td><td><?php echo $av['food_price'] ?></td>
             </tr>
-            <tr>
-                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
-            </tr>
-            <tr>
-                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
-            </tr>
-            <tr>
-                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
-            </tr>
-            <tr>
-                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
-            </tr>
-            <tr>
-                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
-            </tr>
-            <tr>
-                <td>番茄炒鸡蛋</td><td>4.5</td><td>4 元</td>
-            </tr>
+            <?php } ?>
         </table>
     </div>
     <div class="tag-cloud"></div>

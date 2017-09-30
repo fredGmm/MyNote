@@ -42,7 +42,7 @@ $(function() {
         for (var i = 0,_html; i < times; i++) {
             _html = '<a href="javascript:;">' + i + '</a> ';
             html += _html.replace(/\d/g,function(v,i){
-                return content[v].food_name + ' ' +  content[v].per;
+                return content[v].food_name + ' ¥' +  content[v].food_price;
             });
         }
         return html;
