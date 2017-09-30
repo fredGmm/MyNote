@@ -42,7 +42,7 @@ $(function() {
         for (var i = 0,_html; i < times; i++) {
             _html = '<a href="javascript:;">' + i + '</a> ';
             html += _html.replace(/\d/g,function(v,i){
-                return content[v].food_name + ' ¥' +  content[v].food_price;
+                return '<p style="font-size: 20px; color: white">'+ content[v].food_name + ' ¥' +  content[v].food_price + '</p>';
             });
         }
         return html;
@@ -53,8 +53,8 @@ $(function() {
         return {
             minColor: $mincolor.val(),
             maxColor: $maxcolor.val(),
-            minSize: 30,
-            maxSize: 150,
+            minSize: 150,
+            maxSize: 250,
             minFontSize: 12,
             currentClass: "tag-cloud-enter",
             debug: $debug.prop("checked"),

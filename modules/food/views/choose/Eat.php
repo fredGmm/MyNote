@@ -173,8 +173,8 @@ AppAsset::addCss($this,'@web/src/css/default.css');
             <li hidden="hidden">
                 设置文本色：
                 <select id="tag-color">
-                    <option value="" selected>随机</option>
-                    <option value="#000">#000</option>
+                    <option value="" >随机</option>
+                    <option value="#000" selected>#000</option>
                     <option value="#ffffff">#ffffff</option>
                     <option value="#777777">#777777</option>
                     <option value="rgb(200,200,200)">rgb(200,200,200)</option>
