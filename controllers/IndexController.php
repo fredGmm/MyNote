@@ -54,6 +54,7 @@ class IndexController extends Controller
     public function actionDownImg()
     {
         self::getImage('https://http.cat/100','./','cat.jpg');
+        //https://dog.ceo/dog-api/#all
     }
 
     /*

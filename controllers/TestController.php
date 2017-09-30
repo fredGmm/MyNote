@@ -28,4 +28,12 @@ class TestController extends \yii\web\Controller
 
         echo  json_encode(['id' => $id, 'type' => '肉类']);
     }
+    
+    public function actionLog()
+    {
+        \Yii::$app->log->warning('info log test');
+        \Yii::$app->log->warning('waring log test');
+        \Yii::$app->log->error('error log test');
+
+    }
 }
