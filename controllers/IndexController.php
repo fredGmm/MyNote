@@ -38,17 +38,17 @@ class IndexController extends Controller
 
     public function actionTest(){
         //连接本地的 Redis 服务
-        $redis = new \Redis();
-        $redis->connect('127.0.0.1', 6379);
-        $redis->set('name','heihei');
-        $data = $redis->get('name');
-        print_r($data);// 输出小明
-        exit;
-        var_dump(FoodChooseModel::findOne(['fid' => 1])->toArray());EXIT;
-        if(!empty(Yii::$app->request->post())){
-            var_dump(Yii::$app->request->post());exit;
-        }
-     //   return $this->render('Test');
+//        $redis = new \Redis();
+//        $redis->connect('127.0.0.1', 6379);
+//        $redis->set('name','heihei');
+//        $data = $redis->get('name');
+//        print_r($data);// 输出小明
+//        exit;
+//        var_dump(FoodChooseModel::findOne(['fid' => 1])->toArray());EXIT;
+//        if(!empty(Yii::$app->request->post())){
+//            var_dump(Yii::$app->request->post());exit;
+//        }
+        return $this->render('Test');
     }
 
     public function actionDownImg()
