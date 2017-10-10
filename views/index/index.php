@@ -28,6 +28,16 @@ AppAsset::addScript($this,'@web/src/js/main.js')
         a.one:visited {color:black;}
         a.one:hover {color:red;text-decoration:none;}
     </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d6e45f606eb597494e19dc2c3eefb6c7";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
 </head>
 <body>
 
