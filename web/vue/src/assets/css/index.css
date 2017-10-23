@@ -1,0 +1,292 @@
+a, input, textarea, b, button, i, span, figure img, img.avatar, ul.children, .post-social>div, .gallery_popup, .popup, .swiper-button, .sub-menu, .widget_shopping_cart_content, *:before, *:after {
+    -webkit-transition: ease-in-out .5s;
+    transition: ease-in-out .5s;
+}
+
+
+.home .container, .container>section.slogan {
+    margin-bottom: 0;
+}
+.container {
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+.container .bulletin {
+    margin-bottom: 12px;
+    position: relative;
+}
+.container>section {
+    margin-bottom: 24px;
+}
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    clear: both;
+}
+.bounceInUp {
+    -webkit-animation-name: bounceInUp;
+    animation-name: bounceInUp;
+}
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: backwards;
+    animation-fill-mode: backwards;
+}
+.bulletin .bulletin_title {
+    min-width: 80px;
+    background-color: #222;
+    color: #f2e6d8;
+    text-align: center;
+    font-size: 14px;
+    padding: 4.5px;
+    position: relative;
+    margin-right: 32px;
+}
+.bulletin .bulletin_title:before {
+    content: '';
+    height: 0;
+    width: 0;
+    display: block;
+    border: 12px transparent solid;
+    border-right-width: 0;
+    border-left-color: #222;
+    position: absolute;
+    top: 5px;
+    right: -12px;
+    -webkit-transform: scaleY(1.45);
+    transform: scaleY(1.45);
+}
+.bulletin .bulletin_title i {
+    margin-right: 6px;
+}
+.bulletin .bulletin_title h3 {
+    color: #f2e6d8;
+    font-size: 14px;
+}
+.bulletin .swiper-bulletin {
+    overflow: hidden;
+    width: calc(100% - 180px);
+}
+.bulletin .bulletin_title, .bulletin .bulletin_title i, .bulletin .bulletin_title h3, .bulletin .swiper-bulletin {
+    display: inline-block;
+    vertical-align: middle;
+}
+.slide-home {
+    float: left;
+    width: 800px;
+}
+.slide-home .swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.sticky {
+    float: right;
+    width: 376px;
+    height: 450px;
+    position: relative;
+}
+.box {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px #f2f2f2 solid;
+    position: relative;
+    font-size: 12px;
+}
+.triangle:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    height: 0;
+    width: 0;
+    display: block;
+    border: 8px transparent solid;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-color: #e1244e;
+    z-index: 10;
+}
+.postlist {
+    overflow: hidden;
+    padding: 0 0 20px 136px;
+}
+.postlist .figure {
+    margin-left: -136px;
+    float: left;
+}
+.postlist p{
+    font-size: 14px;
+    margin-bottom: 4px;
+    margin-top: -2px;
+}
+.postlist p a {
+    max-height: 48px;
+    min-height: 32px;
+    overflow: hidden;
+    display: block;
+}
+.homeinfo a, .homeinfo {
+    color: #999;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+.figure a {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+.postlist .figure img{
+    width: 128px;
+    height: 72px;
+}
+.postlist .figure img.thumb {
+    width: 128px;
+}
+.sticky .homeinfo .category, .sidebar .homeinfo .category {
+    display: block;
+    float: left;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 92px;
+}
+.homeinfo .category {
+    padding-right: 6px;
+    position: relative;
+    display: inline-block;
+    max-width: 50%;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.homeinfo .category:before {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 12px;
+    background-color: #ddd;
+    right: 1px;
+    top: 6px;
+}
+.homeinfo .date {
+    padding-left: 4px;
+}
+.homeinfo .favoriteup, .homeinfo .comment, .homeinfo .like {
+    float: right;
+}
+.slide-main .swiper-container img{
+    width: 800px;
+    height: 450px;
+    display: inline-block;
+}
+.sticky a.more {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    background-color: #fbfbfb;
+    border-top: 1px #f4f4f4 solid;
+    padding: 12px 20px;
+}
+.sticky a.more:hover span {
+    color: #b1244e;
+}
+.sticky a.more span {
+    font-size: 14px;
+    color: #999;
+}
+.right-list{
+    min-width: 198px;
+}
+.post_list ul {
+    margin-right: -20px;
+}
+.layout_ul {
+    font-size: 0;
+}
+.post_list ul li {
+    width: 25%;
+}
+.home_title {
+    background-color: #fdfdfd;
+    margin: -20px -20px 20px;
+    padding: 12px 12px 12px 20px;
+    border-bottom: 1px #f2f2f2 solid;
+    height: 48px;
+}
+.layout_li {
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: top;
+}
+.post_bottom ul li:nth-last-child(-n+4) .postgrid {
+    margin-bottom: 0;
+}
+.postgrid {
+    margin: 0 20px 20px 0;
+    overflow: hidden;
+}
+.postgrid h2 {
+    font-size: 14px;
+    margin: 8px 0 4px;
+}
+.postgrid h2 a {
+    color: #333;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+}
+
+.post_list .homeinfo {
+    margin-bottom: 0;
+}
+.postgrid .homeinfo {
+    margin: 2px 0 12px;
+}
+.homeinfo a, .homeinfo {
+    color: #999;
+}
+.homeinfo .category {
+    padding-right: 6px;
+    position: relative;
+    display: inline-block;
+    max-width: 50%;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.homeinfo .date {
+    padding-left: 4px;
+}
+.homeinfo .favoriteup, .homeinfo .comment, .homeinfo .like {
+    float: right;
+}
+.homeinfo .favoriteup i, .homeinfo .comment i, .homeinfo .like i {
+    margin-right: 4px;
+}
+.figure:hover img.thumb {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.postgrid .figure img{
+    height: 155px;
+}

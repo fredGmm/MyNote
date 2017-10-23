@@ -1,0 +1,121 @@
+body * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.header {
+    background-color: #fff;
+    border-bottom: 1px #f2f2f2 solid;
+    height: 108px;
+    padding: 4px 20px 0;
+    margin-bottom: 24px;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.top-menu, .top-menu span ,.top-menu a {
+    color: #999;
+}
+.top-menu.left a {
+	display: inline-block;
+    padding: 6px;
+}
+.top-menu span{
+	display: inline-block;
+	height: 36px;
+	line-height: 36px;
+}
+ul.menu>li {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+.top-menu.right a {
+    padding: 6px 12px;
+    display: inline-block;
+    line-height: 24px;
+}
+.header-top{
+	height: 36px;
+	clear: both;
+}
+.header-bottom{
+	margin-top: 12px;
+    height: 56px;
+    clear: both;
+}
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    clear: both;
+}
+a:hover, a:active {
+    outline: 0;
+    color: #b1244e;
+}
+a, input, textarea, b, button, i, span, figure img, img.avatar, ul.children, .post-social>div, .gallery_popup, .popup, .swiper-button, .sub-menu, .widget_shopping_cart_content, *:before, *:after {
+    -webkit-transition: ease-in-out .5s;
+    transition: ease-in-out .5s;
+}
+.header-menu a {
+    font-size: 14px;
+    color: #666
+}
+.header-menu>ul>li>a {
+    padding: 12px 16px 20px;
+    display: block;
+}
+.sub-menu {
+    top: 68px;
+    left: 0;
+    position: absolute;
+    z-index: 12;
+    min-width: 120px;
+    text-align: center;
+    opacity: 0;
+    /* visibility: hidden; */
+    border-top: 4px #b1244e solid;
+    background-color: #fff;
+}
+.top-menu>ul.menu>li>ul.sub-menu:before, .header-menu>ul.menu>li>ul.sub-menu:before {
+    content: '';
+    height: 0;
+    width: 0;
+    display: block;
+    border: 8px transparent solid;
+    border-top-width: 0;
+    border-bottom-color: #b1244e;
+    position: absolute;
+    left: 30px;
+    top: -12px;
+}
+ul.menu>li.menu-item-has-children>a {
+    padding-right: 24px;
+} 
+.header-menu ul.menu>li.menu-item-has-children:after {
+    top: 12px;
+}
+ul.menu>li.menu-item-has-children:after {
+    content: '\e8a4';
+}
+
+.sub-menu>li.menu-item-has-children:after, ul.menu>li.menu-item-has-children:after {
+    font-family: 'salong';
+    position: absolute;
+    right: 12px;
+}
+.img-c img {
+    /* height: auto; */
+    height: 36px;
+    display: block;
+    max-width: 181px;
+    opacity: 1!important;
+}
+.img-c{
+    line-height: 24px;
+    font-weight: normal;
+    color: #333;
+    text-rendering: optimizelegibility;
+}
