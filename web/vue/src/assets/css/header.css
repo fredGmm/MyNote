@@ -98,7 +98,7 @@ ul.menu>li.menu-item-has-children>a {
     top: 12px;
 }
 ul.menu>li.menu-item-has-children:after {
-    content: '\e8a4';
+    content: '▼';
 }
 
 .sub-menu>li.menu-item-has-children:after, ul.menu>li.menu-item-has-children:after {
