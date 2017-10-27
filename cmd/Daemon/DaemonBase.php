@@ -96,7 +96,6 @@ abstract class DaemonBase
                 $this->todo();
 
                 try {
-                    
                     $this->main();
                 }catch (Exception $e) {
                     var_dump($e);
