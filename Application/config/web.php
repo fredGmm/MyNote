@@ -3,6 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
 
+
 $config = [
     'id' => 'lv_luo',
     'basePath' => dirname(__DIR__),
@@ -48,6 +49,14 @@ $config = [
             'class' => 'app\library\log\Logger'
         ],
         'db' => $db,
+        'mongodb' => [
+            'class' => 'yii\mongodb\Connection',
+            # 有账户的配置
+            //'dsn' => 'mongodb://demofancyecommerce:fdaVBDFS#fdfdtyg423DF23#$@localhost:27017/demofancyecommerce',
+            # 无账户的配置
+            'dsn' => 'mongodb://192.168.1.111:27017/article',
+
+        ],
 
         'urlManager' => [
             'enablePrettyUrl' => true,
