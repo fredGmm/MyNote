@@ -67,6 +67,16 @@ a, input, textarea, b, button, i, span, figure img, img.avatar, ul.children, .po
     padding: 12px 16px 20px;
     display: block;
 }
+.sub-menu>li:hover>.sub-menu, ul.menu>li:hover>.sub-menu {
+    opacity: 1;
+    visibility: visible;
+}
+.header-menu>ul>li:hover>.sub-menu {
+    top: 54px;
+}
+ul.show{
+   opacity:1;
+}
 .sub-menu {
     top: 68px;
     left: 0;

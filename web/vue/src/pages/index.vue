@@ -1,7 +1,7 @@
 
 <template>
     <div>
-        <section class='container'>
+        <section id='aa' class='container'>
             <section class='bulletin wrapper wow bounceInUp animated'>
                 <div class='bulletin_title'>
                     <i class='icon-mic'></i>
@@ -13,8 +13,13 @@
             </section>
             <section class='slides-sticky wrapper wow bounceInUp animated'>
                 <div class='slide-main slide-home'>
-                    <div class="swiper-container swiper-home swiper-container-horizontal swiper-container-fade">
-                        <img src="https://yfdxs.com/wp-content/themes/lensnews/images/slides/01.jpg"/>
+                    <div id="swiper1" class="swiper-container " >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style='background-image: url(https://yfdxs.com/wp-content/themes/lensnews/images/slides/01.jpg);'></div>
+                        <div class="swiper-slide" style='background-image: url(https://yfdxs.com/wp-content/themes/lensnews/images/slides/02.jpg);'></div>
+                        <div class="swiper-slide" style='background-image: url(https://yfdxs.com/wp-content/themes/lensnews/images/slides/03.jpg);'></div>
+                    </div>
+                    <div class="swiper-pagination">111</div>
                     </div>
                 </div>
                 <div class='sticky box triangle'>
@@ -184,7 +189,16 @@ export default {
         }
     },
     mounted(){
-       
+        new window.Swiper('#swiper1', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            spaceBetween: 0,
+            centeredSlides: false,
+            autoplay : 500,
+            loop : true,
+            autoplayDisableOnInteraction: true,
+            lazyLoading: true,  
+        })
     },
     methods:{
         

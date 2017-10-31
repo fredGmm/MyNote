@@ -77,12 +77,12 @@ a, input, textarea, b, button, i, span, figure img, img.avatar, ul.children, .po
     float: left;
     width: 800px;
 }
-.slide-home .swiper-container {
+/* .slide-home .swiper-container {
     margin: 0 auto;
     position: relative;
     overflow: hidden;
     z-index: 1;
-}
+} */
 .sticky {
     float: right;
     width: 376px;
@@ -289,4 +289,11 @@ a, input, textarea, b, button, i, span, figure img, img.avatar, ul.children, .po
 }
 .postgrid .figure img{
     height: 155px;
+}
+
+.slides-sticky{
+    height: 450px;
+}
+.slide-home .swiper-container{
+    height: 450px;
 }

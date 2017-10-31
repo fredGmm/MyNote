@@ -26,9 +26,9 @@
             <div class='header-menu right'>
                 <ul class='menu'>
                     <li><a href="javascript:;">首页</a></li>
-                    <li class='menu-item-has-children'>
+                    <li class='menu-item-has-children' @click="menushow()">
                         <a href="javascript:;">博客</a>
-                        <ul class='sub-menu'>
+                        <ul class='sub-menu' :class="{'show':mshow}">
                            <li><a href="javascript:;">纪录片</a></li>
                            <li><a href="javascript:;">动画短片</a></li>
                         </ul>
@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-        
+        mshow:false,
     }
   },
   created:function(){
@@ -66,7 +66,11 @@ export default {
 
   },
   methods:{
-
+      menushow(){
+          console.log(111)
+          var self = this;
+          self.mshow = !self.mshow;
+      }
   }
 }
 </script>
