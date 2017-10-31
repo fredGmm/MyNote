@@ -67,7 +67,6 @@ export default {
   },
   methods:{
       menushow(){
-          console.log(111)
           var self = this;
           self.mshow = !self.mshow;
       }
