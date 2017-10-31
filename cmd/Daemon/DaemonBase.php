@@ -52,6 +52,9 @@ abstract class DaemonBase
         'max_times'    => 0, //重启的最大次数
     ];
 
+    /**
+     * 构造函数，设置path.以及注册shutdown
+     */
     public function __construct()
     {
         $this->pid_file = '/tmp/' . get_class($this) . '.pid';
@@ -65,16 +68,21 @@ abstract class DaemonBase
         clearstatcache();
     }
 
+    /**
+     * 执行启动程序
+     * @param string $command
+     */
     public function run($command = 'start')
     {
-
         if(empty($command) || !in_array($command, ['start', 'stop', 'restart', 'status'])){
             $command = 'help';
         }
-
         $this->$command();
     }
 
+    /**
+     * 开始
+     */
     public function start()
     {
         $this->log('Starting daemon...', self::LOG_ECHO | self::LOG_FILE);
@@ -88,7 +96,6 @@ abstract class DaemonBase
                 $this->todo();
 
                 try {
-                    
                     $this->main();
                 }catch (Exception $e) {
                     var_dump($e);
@@ -98,13 +105,16 @@ abstract class DaemonBase
         }
     }
 
+    /**
+     * 停止
+     */
     public function stop()
     {
         if (!$pid = $this->getChildPid()) {
             $this->log('守护进程 GG', self::LOG_FILE);
             exit();
         }
-        var_dump(posix_kill($pid, SIGKILL));
+        posix_kill($pid, SIGKILL);
     }
 
     protected function stopAll()
@@ -141,11 +151,18 @@ abstract class DaemonBase
         $this->log($msg, self::LOG_ECHO);
     }
 
+    /**
+     * 帮助命令
+     */
     public function help()
     {
         echo 'start | stop | status | restart';
     }
 
+    /**
+     * 检测能否正常启动
+     * @return bool
+     */
     protected function check()
     {
         if ($pid = $this->getChildPid()) {
@@ -182,10 +199,13 @@ abstract class DaemonBase
         return TRUE;
     }
 
+    /**
+     * 创建子进程，并做好信号处理工作
+     */
     protected function daemonize()
     {
         //检查状态
-
+        $this->check();
         //fork 子进程
         $this->fork();
 
@@ -203,6 +223,10 @@ abstract class DaemonBase
        file_put_contents($this->pid_file, $this->child_pid);
     }
 
+    /**
+     * fork 子进程
+     * @return bool
+     */
     protected function fork()
     {
         $pid = pcntl_fork();
@@ -223,6 +247,9 @@ abstract class DaemonBase
         return true;
     }
 
+    /**
+     * 重启
+     */
     protected function autoRestart()
     {
         if((self::$config['max_times'] && $this->cnt >= self::$config['max_time']) ||
@@ -234,7 +261,6 @@ abstract class DaemonBase
 
         $this->cnt++;
     }
-
 
     public function getChildPid(){
         if(!file_exists($this->pid_file)){

@@ -6,6 +6,7 @@ use app\library\log\Adapter\File;
 use app\library\log\Config;
 use app\library\log\log;
 use app\library\log\Logger;
+use app\models\MongdbModel;
 use app\modules\food\model\FoodChooseModel;
 use Yii;
 use yii\filters\AccessControl;
@@ -48,6 +49,9 @@ class IndexController extends Controller
 //        if(!empty(Yii::$app->request->post())){
 //            var_dump(Yii::$app->request->post());exit;
 //        }
+
+        $res = MongdbModel::cmsInfo();
+        var_dump ( $res );
         return $this->render('Test');
     }
 

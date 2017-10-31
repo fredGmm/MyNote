@@ -9,18 +9,18 @@
             </div>
           <div class='top-menu right'>
             <div>
-                <router-link :to="{path:'index'}">地图</router-link>
-                <router-link :to="{path:'index'}">标签</router-link>
-                <router-link :to="{path:'index'}">链接</router-link>
-                <router-link :to="{path:'index'}">留言</router-link>
-                <router-link :to="{path:'index'}"><i></i>主题购买</router-link>
+                <router-link :to="{path:'index'}">苹果</router-link>
+                <router-link :to="{path:'index'}">香蕉</router-link>
+                <router-link :to="{path:'index'}">猕猴桃</router-link>
+                <router-link :to="{path:'index'}">葡萄</router-link>
+                <router-link :to="{path:'index'}"><i></i>水果购入</router-link>
             </div> 
           </div>
         </div>
         <div class='header-bottom'>
             <div class='img-c left'>
                 <router-link :to="{path:'index'}">
-                    <img src="https://yfdxs.com/wp-content/themes/lensnews/images/logo.jpg" alt="远方的雪山"> 
+                    <img src="./assets/images/juzi_logo2.jpg" alt="桔子吃饭"> 
                 </router-link>
             </div>
             <div class='header-menu right'>
@@ -31,12 +31,11 @@
                         <ul class='sub-menu' :class="{'show':mshow}">
                            <li><a href="javascript:;">纪录片</a></li>
                            <li><a href="javascript:;">动画短片</a></li>
-                        </ul>
                     </li>
-                    <li><a href="javascript:;">画廊</a></li>
-                    <li><a href="javascript:;">视频</a></li>
-                    <li><a href="javascript:;">商城</a></li>
-                    <li><a href="javascript:;">原创主题</a></li>
+                    <li><a href="javascript:;">水果</a></li>
+                    <li><a href="javascript:;">蔬菜</a></li>
+                    <li><a href="javascript:;">肉类</a></li>
+                    <li><a href="javascript:;">爬虫趣事</a></li>
                     <li><a href="javascript:;">关于</a></li>
                 </ul>
             </div>
