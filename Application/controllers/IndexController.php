@@ -49,7 +49,7 @@ class IndexController extends Controller
 //        if(!empty(Yii::$app->request->post())){
 //            var_dump(Yii::$app->request->post());exit;
 //        }
-
+        
         $res = MongdbModel::cmsInfo();
         var_dump ( $res );
         return $this->render('Test');

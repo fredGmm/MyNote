@@ -25,7 +25,8 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'error/404',
+            'errorView'   => 'app/views/error/login.php'
         ],
 
         'mailer' => [

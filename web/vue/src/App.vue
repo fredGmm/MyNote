@@ -31,6 +31,7 @@
                         <ul class='sub-menu' :class="{'show':mshow}">
                            <li><a href="javascript:;">纪录片</a></li>
                            <li><a href="javascript:;">动画短片</a></li>
+                        </ul>
                     </li>
                     <li><a href="javascript:;">水果</a></li>
                     <li><a href="javascript:;">蔬菜</a></li>
