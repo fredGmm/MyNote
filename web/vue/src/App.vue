@@ -29,14 +29,34 @@
                     <li class='menu-item-has-children' @click="menushow()">
                         <a href="javascript:;">博客</a>
                         <ul class='sub-menu' :class="{'show':mshow}">
-                           <li><a href="javascript:;">纪录片</a></li>
-                           <li><a href="javascript:;">动画短片</a></li>
+                           <li><a href="javascript:;">桂明明</a></li>
+                           <li><a href="javascript:;">罗双玥</a></li>
                         </ul>
                     </li>
-                    <li><a href="javascript:;">水果</a></li>
-                    <li><a href="javascript:;">蔬菜</a></li>
+                    <li class='menu-item-has-children' @click="menushow()">
+                        <a href="javascript:;">水果</a>
+                        <ul class='sub-menu' :class="{'show':mshow}">
+                           <li><a href="javascript:;">橘子</a></li>
+                           <li><a href="javascript:;">香蕉</a></li>
+                           <li><a href="javascript:;">苹果</a></li>
+                        </ul>
+                    </li>
+                    <li class='menu-item-has-children' @click="menushow()">
+                        <a href="javascript:;">蔬菜</a>
+                        <ul class='sub-menu' :class="{'show':mshow}">
+                           <li><a href="javascript:;">胡萝卜</a></li>
+                           <li><a href="javascript:;">白萝卜</a></li>
+                        </ul>
+                    </li>
+                  
                     <li><a href="javascript:;">肉类</a></li>
-                    <li><a href="javascript:;">爬虫趣事</a></li>
+                    <li class='menu-item-has-children' @click="menushow()">
+                        <a href="javascript:;">爬虫趣事</a>
+                        <ul class='sub-menu' :class="{'show':mshow}">
+                           <li><a href="javascript:;">bxj发帖分析</a></li>
+                           <li><a href="javascript:;">知乎故事会</a></li>
+                        </ul>
+                    </li>
                     <li><a href="javascript:;">关于</a></li>
                 </ul>
             </div>
