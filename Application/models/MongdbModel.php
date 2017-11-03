@@ -13,7 +13,7 @@ class MongdbModel extends ActiveRecord
     //指定集合名称
     public static function collectionName()
     {
-        return 'webpage';
+        return 'web_page';
     }
 
     //定义字段属性
@@ -23,6 +23,8 @@ class MongdbModel extends ActiveRecord
             '_id',
             'article_content',
             'title',
+            'images',
+            'category',
             'timestamp'
         ];
     }
@@ -80,12 +82,24 @@ class MongdbModel extends ActiveRecord
         $row = $query->select(['id,article_content','title','timestamp'])
             ->from ( self::collectionName() )
             ->where(['title' => '11111']);
+
 //            ->average('age');//age的平均值
         //->max('age');//age最大的值
         //->min('age');//age最小的值
         //->sum('ccy');//ccy所有列相加的和
         //->count('_id');//当前数据总数
         return $row->all();
+    }
+
+    public static function getArticleList($page)
+    {
+        $query = new Query ();
+        $data = $query->select(['id','article_content','images','type','title','timestamp'])
+            ->from ( self::collectionName() )
+            ->offset($page)
+            ->limit(100);
+
+        return $data->all();
     }
 
     //查询文档 - 可用于分页列表
