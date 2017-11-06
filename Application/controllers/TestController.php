@@ -83,4 +83,9 @@ class TestController extends Controller
 
         var_dump($result);
     }
+
+    public function actionInternals()
+    {
+        
+    }
 }

@@ -91,6 +91,11 @@ class MongdbModel extends ActiveRecord
         return $row->all();
     }
 
+    /**
+     * 分页查询文档
+     * @param $page
+     * @return array
+     */
     public static function getArticleList($page)
     {
         $query = new Query ();
@@ -102,6 +107,18 @@ class MongdbModel extends ActiveRecord
         return $data->all();
     }
 
+    /**
+     * 查询文档总数
+     * @return int
+     */
+    public static function getCount()
+    {
+
+        $count = (new Query ())->select(['id,article_content','title','timestamp'])
+            ->from ( self::collectionName() )
+            ->count("_id");
+        return $count;
+    }
     //查询文档 - 可用于分页列表
     public static function selectInfo(){
         $query = new Query ();

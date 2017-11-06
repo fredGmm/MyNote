@@ -69,9 +69,6 @@ class HupuController extends Controller
 
                 }
             }
-
-
-
     }
 
 }
