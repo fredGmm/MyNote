@@ -86,6 +86,28 @@ class TestController extends Controller
 
     public function actionInternals()
     {
-        
+
+        $so = \scws_new();
+        $so->set_charset('utf-8');
+// 这里没有调用 set_dict 和 set_rule 系统会自动试调用 ini 中指定路径下的词典和规则文件
+        $so->send_text("我是一个中国人,我会C++语言,我也有很多T恤衣服");
+        echo "<pre>";
+        while ($tmp = $so->get_result())
+        {
+            print_r($tmp);
+        }
+        $so->close();
+    }
+
+    public function actionDivisionword(){
+        $sh = scws_open();
+        scws_set_charset($sh, 'utf-8');
+        scws_set_dict($sh, '/usr/local/scws/etc/dict.utf8.xdb');
+        scws_set_rule($sh, '/usr/local/scws/etc/rules.utf8.ini');
+        $text = "刁康是个帅比，会打球，能幽默，还特么年薪30万";
+        scws_send_text($sh, $text);
+        $top = scws_get_tops($sh, 100);
+        echo "<pre>";
+        print_r($top);
     }
 }

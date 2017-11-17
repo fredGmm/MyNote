@@ -9,6 +9,7 @@ namespace app\crontab;
 
 use app\models\MongdbModel;
 use app\models\ScrapArticle;
+use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use PHPUnit\Framework\Constraint\Exception;
 use yii\console\Controller;
 use yii\helpers\Console;
@@ -30,45 +31,74 @@ class HupuController extends Controller
     /**
      * 从 mongo里取数据 ，存入MySQL
      */
-    public function actionArticleToMysql(){
+    public function actionArticleToMysql($category='lol'){
+        $count = MongdbModel::getCount(['category' => 'bxj']);
 
-            for ($page=99; $page<1000000;$page++) {
-                $this->stdout('页数：' . $page .PHP_EOL, Console::FG_BLUE);
-                $article_list = MongdbModel::getArticleList($page);
-                foreach ($article_list as $k => $article) {
-                    $article_url = $article['_id'];
-                    $article_content = $article['article_content'];
-                    $article_title = $article['title'];
-                    $images       = $article['images'];
-                    # $time = (array)$article['timestamp'];
-                    preg_match('#^.*/(\w+)\.html.*#',$article_url,$m);
-                    if (!isset($m[1]) || !is_numeric($m[1])) {
-                        continue;
+        $page_total = ceil($count / 100);
+        $page_size = 100;
+
+        $update_count = 0;
+        for ($page=0; $page<=$page_total;$page++) {
+            $this->stdout('页数：' . $page .PHP_EOL, Console::FG_BLUE);
+            $start = ($page - 1) * $page_size;
+            $article_list = MongdbModel::getArticleList($start,$page_size, $category);
+
+            foreach ($article_list as $k => $article) {
+                $article_url = $article['_id'];
+                $article_content = $article['article_content'];
+                $article_title = $article['title'];
+                $images       = $article['images'];
+                # $time = (array)$article['timestamp'];
+                preg_match('#^.*/(\w+)\.html.*#',$article_url,$m);
+
+                if (!isset($m[1]) || !is_numeric($m[1])) {
+                    continue;
+                }
+                try{
+                    $articleModel = new ScrapArticle();
+                    $isExist = $articleModel->findOne(['id'=>$m[1]]);
+
+                    if(!$isExist){
+                        $articleModel->id = $m[1];
+                        $articleModel->url = $article_url;
+                        $articleModel->title = $article_title;
+                        $articleModel->category = $article['category'];
+
+                        preg_match_all('/[\s\x{4e00}-\x{9fff}a-zA-Z0-9#\[\]\{\}\’\”=+\-\(\)*&%$@]+/iu', $article_content, $matches);
+                        $article_content = join('', $matches[0]);
+
+                        $articleModel->article_content = $article_content;
+                        $articleModel->images = json_encode($images);
+                        $articleModel->create_time = time();
+                        $articleModel->save();
+                    }else{
+                        $status = $articleModel->updateAll(['category' => 'bxj'],['id'=>$m[1]]);
+                        $status && $update_count++;
+                        $status && $this->stdout('更新条数：' . $update_count . 'id:'. $m[1] .PHP_EOL, Console::FG_BLUE);
                     }
-                    try{
-                        $articleModel = new ScrapArticle();
-                        if(!$articleModel->findOne(['id'=>$m[1]])){
-                            $articleModel->id = $m[1];
-                            $articleModel->url = $article_url;
-                            $articleModel->title = $article_title;
-
-                            preg_match_all('/[\s\x{4e00}-\x{9fff}a-zA-Z0-9#\[\]\{\}\’\”=+\-\(\)*&%$@]+/iu', $article_content, $matches);
-                            $article_content = join('', $matches[0]);
-
-                            $articleModel->article_content = $article_content;
-                            $articleModel->images = json_encode($images);
-                            $articleModel->create_time = time();
-                            $articleModel->save();
-                        }
-                    }catch (\Exception $e){
-                        echo mb_detect_encoding($article_content, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
-                        echo  $e->getMessage() .PHP_EOL;
-                        echo $m[1];
-                        exit;
-                    }
+                }catch (\Exception $e){
+                   // echo mb_detect_encoding($article_content, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+                    echo  $e->getMessage() .PHP_EOL;
+                    echo $m[1] . PHP_EOL;
+                    var_dump($article);
 
                 }
+
             }
+        }
+    }
+
+    public function actionDivisionWordHandle()
+    {
+        $sh = scws_open();
+        scws_set_charset($sh, 'utf-8');
+        scws_set_dict($sh, '/usr/local/scws/etc/dict.utf8.xdb');
+        scws_set_rule($sh, '/usr/local/scws/etc/rules.utf8.ini');
+        $text = "刁康是个帅比，会打球，能幽默，还特么年薪30万";
+        scws_send_text($sh, $text);
+        $top = scws_get_tops($sh, 100);
+        echo "<pre>";
+        print_r($top);
     }
 
 }

@@ -94,15 +94,20 @@ class MongdbModel extends ActiveRecord
     /**
      * 分页查询文档
      * @param $page
+     * @param $page_size
      * @return array
      */
-    public static function getArticleList($page)
+    public static function getArticleList($start, $page_size=100, $category = '')
     {
         $query = new Query ();
-        $data = $query->select(['id','article_content','images','type','title','timestamp'])
+        $data = $query->select(['id','article_content','images','type','category','title','timestamp'])
             ->from ( self::collectionName() )
-            ->offset($page)
-            ->limit(100);
+            ->offset($start)
+            ->limit($page_size);
+
+        if(!empty($category)) {
+            $data->where(['category' => $category]);
+        }
 
         return $data->all();
     }
@@ -111,13 +116,15 @@ class MongdbModel extends ActiveRecord
      * 查询文档总数
      * @return int
      */
-    public static function getCount()
+    public static function getCount($where = [])
     {
 
         $count = (new Query ())->select(['id,article_content','title','timestamp'])
-            ->from ( self::collectionName() )
-            ->count("_id");
-        return $count;
+            ->from ( self::collectionName() );
+        if($where){
+            $count->where($where);
+        }
+        return $count->count();
     }
     //查询文档 - 可用于分页列表
     public static function selectInfo(){
