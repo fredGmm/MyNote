@@ -36,4 +36,9 @@ class HomeController extends Controller
         //  $this->getView()->registerAssetBundle(AssetBundle::className());
         return $this->redirect('/vue/dist/index.html');
     }
+
+    public function actionSlides()
+    {
+        
+    }
 }
