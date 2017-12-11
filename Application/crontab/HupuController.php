@@ -7,8 +7,10 @@
 
 namespace app\crontab;
 
+use app\library\Common;
 use app\models\MongdbModel;
 use app\models\ScrapArticle;
+use app\models\WxbTitleModel;
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use PHPUnit\Framework\Constraint\Exception;
 use yii\console\Controller;
@@ -99,6 +101,38 @@ class HupuController extends Controller
         $top = scws_get_tops($sh, 100);
         echo "<pre>";
         print_r($top);
+    }
+
+    public function actionWxbTitleApart()
+    {
+        $word_arr = [];
+        $sh = scws_open();
+        scws_set_charset($sh, 'utf-8');
+        scws_set_dict($sh, '/usr/local/scws/etc/dict.utf8.xdb');
+        scws_set_rule($sh, '/usr/local/scws/etc/rules.utf8.ini');
+        $ret = WxbTitleModel::find()->asArray()->all();
+        foreach ($ret as $rk => $rv){
+            scws_send_text($sh, $rv['title']);
+            $apart_words = scws_get_tops($sh, 4);
+            foreach ($apart_words as $apart_word){
+
+                if(isset($word_arr[$apart_word['word']]['times'])) {
+                    $word_arr[$apart_word['word']]['times'] += $apart_word['times'];
+                }else{
+                    $word_arr[$apart_word['word']]['times'] = $apart_word['times'];
+                }
+                if(isset($word_arr[$apart_word['word']]['weight'])) {
+                    $word_arr[$apart_word['word']]['weight'] = bcadd($word_arr[$apart_word['word']]['weight'],$apart_word['weight']);
+                }else{
+                    $word_arr[$apart_word['word']]['weight'] = $apart_word['weight'];
+                }
+
+            }
+        }
+
+        Common::sortArrByField($word_arr,'times',true);
+        $to_db_data = array_slice($word_arr,0,20);
+
     }
 
 }

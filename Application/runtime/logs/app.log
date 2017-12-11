@@ -1,0 +1,1693 @@
+2017-11-03 07:30:51 [-][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Unknown component ID: mongodb in /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/di/ServiceLocator.php:138
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2-mongodb/Query.php(71): yii\di\ServiceLocator->get('mongodb')
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2-mongodb/Query.php(198): yii\mongodb\Query->getCollection(NULL)
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2-mongodb/Query.php(324): yii\mongodb\Query->buildCursor(NULL)
+#3 /mnt/hgfs/www/kingdata/MyNote/Application/models/MongdbModel.php(92): yii\mongodb\Query->all()
+#4 /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php(31): app\models\MongdbModel::cmsInfo()
+#5 [internal function]: app\crontab\HupuController->actionArticleToMysql()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#8 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#9 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#10 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#11 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#12 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#14 {main}
+2017-11-03 07:30:51 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509694251.6634
+    'REQUEST_TIME' => 1509694251
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:37:32 [-][-][-][error][ParseError] ParseError: syntax error, unexpected 'return' (T_RETURN) in /mnt/hgfs/www/kingdata/MyNote/Application/models/MongdbModel.php:91
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('app\\models\\Mong...')
+#1 /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php(31): spl_autoload_call('app\\models\\Mong...')
+#2 [internal function]: app\crontab\HupuController->actionArticleToMysql()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#8 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#9 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#10 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#11 {main}
+2017-11-03 07:37:32 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509694652.7553
+    'REQUEST_TIME' => 1509694652
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:43:19 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: url in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:34
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 07:43:19 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509694999.8294
+    'REQUEST_TIME' => 1509694999
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:43:40 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: url in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:35
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 07:43:40 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509695019.9924
+    'REQUEST_TIME' => 1509695019
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:43:41 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: url in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:35
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 07:43:41 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509695021.7606
+    'REQUEST_TIME' => 1509695021
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:43:54 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: url in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:35
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 07:43:54 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509695034.3212
+    'REQUEST_TIME' => 1509695034
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:44:01 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: url in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:35
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 07:44:01 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509695041.3772
+    'REQUEST_TIME' => 1509695041
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:44:03 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: url in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:35
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 07:44:03 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509695043.0569
+    'REQUEST_TIME' => 1509695043
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:44:41 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: timestanp in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:36
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 07:44:41 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509695081.4401
+    'REQUEST_TIME' => 1509695081
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:55:35 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined property: MongoDB\BSON\UTCDateTime::$timestamp in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:38
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 07:55:35 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509695735.4888
+    'REQUEST_TIME' => 1509695735
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:56:05 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined property: MongoDB\BSON\UTCDateTime::$milliseconds in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:38
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 07:56:05 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509695765.5461
+    'REQUEST_TIME' => 1509695765
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:56:52 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined property: MongoDB\BSON\UTCDateTime::$milliseconds in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:40
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 07:56:52 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509695812.2538
+    'REQUEST_TIME' => 1509695812
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 07:57:39 [-][-][-][error][Error] Error: Cannot use object of type MongoDB\BSON\UTCDateTime as array in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:40
+Stack trace:
+#0 [internal function]: app\crontab\HupuController->actionArticleToMysql()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#9 {main}
+2017-11-03 07:57:39 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509695859.6828
+    'REQUEST_TIME' => 1509695859
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 08:05:01 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Attempt to assign property of non-object in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:42
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 08:05:00 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509696300.8418
+    'REQUEST_TIME' => 1509696300
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 08:05:29 [-][-][-][error][yii\db\Exception] yii\base\ErrorException: PDOStatement::bindValue() expects parameter 3 to be integer, string given in /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php:282
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php(226): yii\db\Command->bindPendingParams()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php(837): yii\db\Command->prepare()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php(454): yii\db\Command->execute()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(494): yii\db\mysql\Schema->insert()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(461): app\models\ScrapArticle->insertInternal()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/BaseActiveRecord.php(643): app\models\ScrapArticle->insert()
+#6 /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php(47): app\models\ScrapArticle->save()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): app\crontab\HupuController->actionArticleToMysql()
+#8 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#9 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#10 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#11 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#12 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#13 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#14 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#15 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#16 {main}
+
+Next yii\db\Exception: PDOStatement::bindValue() expects parameter 3 to be integer, string given
+Failed to prepare SQL: INSERT INTO `scrap_article` (`url`, `title`, `article_content`, `images`, `create_time`) VALUES (:qp0, :qp1, :qp2, :qp3, :qp4) in /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php:230
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php(837): yii\db\Command->prepare(false)
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php(454): yii\db\Command->execute()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(494): yii\db\Schema->insert('{{scrap_article...', Array)
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(461): yii\db\ActiveRecord->insertInternal(NULL)
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/BaseActiveRecord.php(643): yii\db\ActiveRecord->insert(true, NULL)
+#5 /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php(47): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\crontab\HupuController->actionArticleToMysql()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#9 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#10 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#11 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#12 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#13 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#15 {main}
+Additional Information:
+
+2017-11-03 08:05:28 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509696328.0441
+    'REQUEST_TIME' => 1509696328
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 08:06:49 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value in /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php:842
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php(842): PDOStatement->execute()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php(454): yii\db\Command->execute()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(494): yii\db\Schema->insert('{{scrap_article...', Array)
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(461): yii\db\ActiveRecord->insertInternal(NULL)
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/BaseActiveRecord.php(643): yii\db\ActiveRecord->insert(true, NULL)
+#5 /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php(47): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\crontab\HupuController->actionArticleToMysql()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#9 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#10 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#11 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#12 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#13 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#15 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+The SQL being executed was: INSERT INTO `scrap_article` (`url`, `title`, `article_content`, `images`, `create_time`) VALUES ('https://bbs.hupu.com/20188181.html', '[虎扑带你看S7] 英雄联盟2017全球总决赛观赛指南（更新决赛赛程）', '\n\n参赛队伍巡礼汇总：LPL赛区：EDG：[原创]2017 S7总决赛巡礼之EDG战队 RNG：[原创]2017 S7总决赛巡礼之RNG战队WE：[原创]2017 S7总决赛巡礼之WE战队LCK赛区：SKT：[原创]2017 S7总决赛巡礼之SKT战队SSG：[原创]2017 S7总决赛巡礼之SSG战队LMS赛区：FW：[原创]2017 S7总决赛巡礼之FW战队 AHQ：[原创]2017 S7总决赛巡礼之AHQ战队EU LCS赛区：G2：[原创]2017 S7总决赛巡礼之G2战队MSF：[原创]2017 S7总决赛巡礼之Misfits战队NA LCS赛区：TSM：[原创]2017 S7总决赛巡礼之Team SoloMid战队IMT：[原创]2017 S7总决赛巡礼之Immortals战队东南亚赛区：GAM：[原创]2017 S7总决赛巡礼之GAM战队一、简介英雄联盟全球总决赛（ World Championship）是英雄联盟中一年一度的最为盛大的比赛，全球总决赛是所有英雄联盟比赛项目中最高荣誉、最高含金量、最高竞技水平、最高知名度的比赛。全球总决赛迄今为止已经举办了S1-S6（S是season的缩写，赛季的意思）六届的比赛。参赛者均是来自各大赛区最顶尖水平的战队，只有在每一年的职业联赛中表现出色的队伍才有资格参赛，每个赛区根据规模和水平决定其在总决赛当中的名额，全球13个赛区分别是：中国LPL、韩国LCK、港澳台LMS、欧洲EULCS、北美NALCS、独联体CIS、巴西BR、东南亚SEA、北拉丁美洲LAN、南拉丁美洲LAS、土耳其TUR、大洋洲OCE、日本JPN。二、观看直播渠道三、比赛赛程今年2月8日，《英雄联盟》2017全球电竞赛事信息发布会在上海召开。发布会现场，《英雄联盟》正式对外公布了2017年全球总决赛的最新变动与规划——2017全球总决赛将于今年9月至11月落地中国，并增加全新的入围赛阶段。入围赛阶段：LPL、LMS、NA LCS、EU LCS四大赛区的3号种子与原外卡赛区的8支队伍共计12支队伍进行两轮入围赛，争夺进入小组赛的4个名额。第一轮：12支队伍随机分成四组，每组3队，分别进行组内的Bo1双循环小组赛，每个小组的前两名进入第二轮。第二轮：进入第二轮的8支队伍随机分成四组，每组2队，进行Bo5单败的淘汰赛，胜者将直接进入S7总决赛的正赛阶段。比赛城市：武汉比赛场馆：武汉体育中心比赛时间：9月23日—9月29日入围赛分组情况：9月12日进行了2017全球总决赛入围赛的抽签仪式，结果如下：A组：WE、GMB、LYNB组：C9、ONE、DWC组：FNC、YG、KLGD组：HKA、FB、RPG入围赛晋级战队：A组：WEB组：C9C组：FNCD组：FB小组赛阶段：12支正赛队伍及4支入围赛晋级队伍，共16支队伍随机分成四个小组，每组4队，分别进行组内的Bo1双循环小组赛，每个小组的前两名进入淘汰赛阶段。比赛城市：武汉比赛场馆：武汉体育中心比赛时间：10月5日—10月8日、10月12日—10月15日小组赛分组情况：9月29日进行了2017全球总决赛小组赛的抽签仪式，结果如下：A组：EDG、SKT、AHQ、C9B组：LZ、IMT、GAM、FNCC组：G2、SSG、RNG、FBD组：FW、MSF、TSM、WE小组赛晋级队伍：A组：SKT、C9B组：LZ、FNCC组：RNG、SSGD组：WE、MSF淘汰赛阶段：八强赛：进入淘汰赛的8支队伍重新进行抽签，4支小组第一战队将率先通过抽签决定A1、 B1、C1、D1的归属，而4支小组第二战队也将通过抽签排定A2、B2、C2、D2的座次。根据抽签结果，八强战队将在四分之一决赛中进行Bo5的捉对厮杀淘汰赛。比赛城市：广州比赛场馆：广州体育馆比赛时间：10月19日—10月22日半决赛：晋级半决赛的4支队伍进行Bo5淘汰赛。比赛城市：上海比赛场馆：上海东方体育中心比赛时间：10月28日—10月29日半决赛赛程：决赛：晋级决赛的2支队伍进行最后的Bo5淘汰赛，胜者将成为2017全球总决赛的冠军。比赛城市：北京比赛场馆：国家体育场 鸟巢比赛时间：11月4日决赛赛程：四、参赛队伍本赛季全球总决赛将会有来自13个赛区，共计24支队伍参加，其中12支战队晋级小组赛，另外12支战队将参加入围赛，赢取最后4张小组赛门票。小组赛参赛队伍LPL赛区：1号种子EDG、2号种子RNGLCK赛区：1号种子LZ、2号种子SKT、3号种子SSG（LCK 3号种子将不必参加入围赛自动晋级小组赛）LMS赛区：1号种子FW、2号种子AHQEU LCS赛区：1号种子G2、2号种子MSFNA LCS赛区：2号种子TSM、2号种子IMT（由于季中赛表现不佳，NA赛区失去1号种子资格）东南亚赛区：2号种子GIGABYTE Marines（由于季中赛表现出色，GAM为东南亚赛区争取到了二号种子资格，跳过入围赛，直接晋级小组赛。）入围赛参赛队伍一号种子池：LPL赛区：WEEU LCS赛区：FNCNA LCS赛区：C9LMS赛区：HongKong Attitude二号种子池：东南亚赛区：Young Generation土耳其赛区：1907 Fenerbahçe Esports独联体赛区：Gambit CIS巴西赛区：Team oNe eSports三号种子池：日本赛区：Rampage大洋洲赛区：Dire Wolves拉丁美洲南部赛区：Kaos Latin Gamers拉丁美洲北部赛区：Lyon Gaming\n', '[\"https:\\/\\/i3.hoopchina.com.cn\\/blogfile\\/201709\\/05\\/BbsImg15045990228625_173648784939419_1920x1200.jpg?x-oss-process=image\\/resize,w_800\\/format,jpg\",\"https:\\/\\/b1.hoopchina.com.cn\\/web\\/sns\\/bbs\\/images\\/placeholder.png\",\"https:\\/\\/b1.hoopchina.com.cn\\/post\\/smile\\/icon_ahh2.gif\"]', 1509696409) in /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php:636
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `sc...')
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php(454): yii\db\Command->execute()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(494): yii\db\Schema->insert('{{scrap_article...', Array)
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(461): yii\db\ActiveRecord->insertInternal(NULL)
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/BaseActiveRecord.php(643): yii\db\ActiveRecord->insert(true, NULL)
+#5 /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php(47): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\crontab\HupuController->actionArticleToMysql()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#9 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#10 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#11 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#12 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#13 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#15 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1364
+    [2] => Field 'id' doesn't have a default value
+)
+
+2017-11-03 08:06:49 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509696409.676
+    'REQUEST_TIME' => 1509696409
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 08:08:48 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: preg_match_all(): Compilation failed: unmatched parentheses at offset 6 in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:40
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): app\crontab\HupuController->actionArticleToMysql()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#9 {main}
+2017-11-03 08:08:48 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509696528.4012
+    'REQUEST_TIME' => 1509696528
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 08:09:02 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: preg_match_all(): Compilation failed: unmatched parentheses at offset 6 in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:40
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): app\crontab\HupuController->actionArticleToMysql()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#9 {main}
+2017-11-03 08:09:02 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509696542.2987
+    'REQUEST_TIME' => 1509696542
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 08:09:20 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: preg_match(): Compilation failed: unmatched parentheses at offset 6 in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:40
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): app\crontab\HupuController->actionArticleToMysql()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#9 {main}
+2017-11-03 08:09:20 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509696560.3533
+    'REQUEST_TIME' => 1509696560
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 08:09:33 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: preg_match(): Compilation failed: unmatched parentheses at offset 6 in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:40
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): app\crontab\HupuController->actionArticleToMysql()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#9 {main}
+2017-11-03 08:09:33 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509696573.4978
+    'REQUEST_TIME' => 1509696573
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 08:10:14 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: preg_match(): Compilation failed: unmatched parentheses at offset 7 in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:40
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): app\crontab\HupuController->actionArticleToMysql()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#9 {main}
+2017-11-03 08:10:14 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509696614.3884
+    'REQUEST_TIME' => 1509696614
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 08:12:15 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: preg_match(): Compilation failed: nothing to repeat at offset 5 in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:40
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): app\crontab\HupuController->actionArticleToMysql()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#9 {main}
+2017-11-03 08:12:15 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509696735.7099
+    'REQUEST_TIME' => 1509696735
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 09:12:10 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'images' at row 1 in /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php:842
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php(842): PDOStatement->execute()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php(454): yii\db\Command->execute()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(494): yii\db\Schema->insert('{{scrap_article...', Array)
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(461): yii\db\ActiveRecord->insertInternal(NULL)
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/BaseActiveRecord.php(643): yii\db\ActiveRecord->insert(true, NULL)
+#5 /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php(54): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\crontab\HupuController->actionArticleToMysql()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#9 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#10 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#11 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#12 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#13 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#15 {main}
+
+Next yii\db\Exception: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'images' at row 1
+The SQL being executed was: INSERT INTO `scrap_article` (`id`, `url`, `title`, `article_content`, `images`, `create_time`) VALUES (20614303, 'https://bbs.hupu.com/20614303.html', '养蜂人集卡交换帖，有需要的来（管理员注：养蜂人活动集中贴，另开合并）', '\n\n有哪个兄弟富余这个蜂巢卡片。不胜感激。 求赠送啊  掌盟id是张恩溥。大区恕瑞玛发自虎扑iPhone客户端\n', '[\"https:\\/\\/i10.hoopchina.com.cn\\/hupuapp\\/bbs\\/458\\/28567458\\/thread_28567458_20171031102530_s_709735_h_1334px_w_750px977700455.jpeg?x-oss-process=image\\/resize,w_800\\/format,jpeg\",\"https:\\/\\/i10.hoopchina.com.cn\\/hupuapp\\/bbs\\/255\\/29694255\\/thread_29694255_20171031103910_s_964824_h_1920px_w_1080px209479292.png?x-oss-process=image\\/resize,w_800\\/format,png\",\"https:\\/\\/b1.hoopchina.com.cn\\/web\\/sns\\/bbs\\/images\\/placeholder.png\",\"https:\\/\\/b1.hoopchina.com.cn\\/web\\/sns\\/bbs\\/images\\/placeholder.png\",\"https:\\/\\/b1.hoopchina.com.cn\\/web\\/sns\\/bbs\\/images\\/placeholder.png\"]', 1509700330) in /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php:636
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `sc...')
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php(454): yii\db\Command->execute()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(494): yii\db\Schema->insert('{{scrap_article...', Array)
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(461): yii\db\ActiveRecord->insertInternal(NULL)
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/BaseActiveRecord.php(643): yii\db\ActiveRecord->insert(true, NULL)
+#5 /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php(54): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\crontab\HupuController->actionArticleToMysql()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#9 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#10 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#11 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#12 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#13 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#15 {main}
+Additional Information:
+Array
+(
+    [0] => 22001
+    [1] => 1406
+    [2] => Data too long for column 'images' at row 1
+)
+
+2017-11-03 09:12:09 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509700329.6315
+    'REQUEST_TIME' => 1509700329
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 09:15:01 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x91\x8D\xEF\xBC...' for column 'article_content' at row 1 in /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php:842
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php(842): PDOStatement->execute()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php(454): yii\db\Command->execute()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(494): yii\db\Schema->insert('{{scrap_article...', Array)
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(461): yii\db\ActiveRecord->insertInternal(NULL)
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/BaseActiveRecord.php(643): yii\db\ActiveRecord->insert(true, NULL)
+#5 /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php(55): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\crontab\HupuController->actionArticleToMysql()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#9 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#10 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#11 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#12 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#13 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#15 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x91\x8D\xEF\xBC...' for column 'article_content' at row 1
+The SQL being executed was: INSERT INTO `scrap_article` (`id`, `url`, `title`, `article_content`, `images`, `create_time`) VALUES (20635080, 'https://bbs.hupu.com/20635080.html', '为什么我的加里奥上不去分', '\n\n看了s赛感觉加里奥很强👍，非ban即选，补刀很好补，游走也很快，就想玩加里奥，然后连跪6把，把把尽力局，前期保人还好，团战w闪嘲讽23个c位还是打不赢团战，这是为什么？比赛里都要先处理前排才打得到后排，但rank莫名其妙的我后排就死了，明明我粘着他们c位的.下路的人死了，塔快没血了，我传送来守塔，adc骂我回中路去，就知道乱跑，实际上我中路线已经清完了。发自虎扑Android客户端\n', '[]', 1509700501) in /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php:636
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `sc...')
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/Schema.php(454): yii\db\Command->execute()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(494): yii\db\Schema->insert('{{scrap_article...', Array)
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/ActiveRecord.php(461): yii\db\ActiveRecord->insertInternal(NULL)
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/db/BaseActiveRecord.php(643): yii\db\ActiveRecord->insert(true, NULL)
+#5 /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php(55): yii\db\BaseActiveRecord->save()
+#6 [internal function]: app\crontab\HupuController->actionArticleToMysql()
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#9 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#10 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#11 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#12 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#13 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#15 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1366
+    [2] => Incorrect string value: '\xF0\x9F\x91\x8D\xEF\xBC...' for column 'article_content' at row 1
+)
+
+2017-11-03 09:15:00 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509700500.5639
+    'REQUEST_TIME' => 1509700500
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 09:33:09 [-][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Use of undefined constant article_content - assumed 'article_content' in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:61
+Stack trace:
+#0 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php:57}()
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams()
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): app\crontab\HupuController->runAction()
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): app\crontab\HupuController->runAction()
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\console\Application->runAction()
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction()
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest()
+#7 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\console\Application->run()
+#8 {main}
+2017-11-03 09:33:09 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509701588.9887
+    'REQUEST_TIME' => 1509701588
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 09:34:04 [-][-][-][error][ParseError] ParseError: syntax error, unexpected ';', expecting ',' or ')' in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:55
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('app\\crontab\\Hup...')
+#1 [internal function]: spl_autoload_call('app\\crontab\\Hup...')
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(633): class_exists('app\\crontab\\Hup...')
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(591): yii\base\Module->createControllerByID('hupu')
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(517): yii\base\Module->createController('article-to-mysq...')
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#9 {main}
+2017-11-03 09:34:04 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509701644.1016
+    'REQUEST_TIME' => 1509701644
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 09:34:14 [-][-][-][error][ParseError] ParseError: syntax error, unexpected ';', expecting ',' or ')' in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:56
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('app\\crontab\\Hup...')
+#1 [internal function]: spl_autoload_call('app\\crontab\\Hup...')
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(633): class_exists('app\\crontab\\Hup...')
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(591): yii\base\Module->createControllerByID('hupu')
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(517): yii\base\Module->createController('article-to-mysq...')
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#9 {main}
+2017-11-03 09:34:14 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509701654.7011
+    'REQUEST_TIME' => 1509701654
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-03 09:34:17 [-][-][-][error][ParseError] ParseError: syntax error, unexpected ';', expecting ',' or ')' in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:56
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('app\\crontab\\Hup...')
+#1 [internal function]: spl_autoload_call('app\\crontab\\Hup...')
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(633): class_exists('app\\crontab\\Hup...')
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(591): yii\base\Module->createControllerByID('hupu')
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(517): yii\base\Module->createController('article-to-mysq...')
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#9 {main}
+2017-11-03 09:34:17 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 63374 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/mnt/hgfs/www/kingdata'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 63374 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1509701657.0378
+    'REQUEST_TIME' => 1509701657
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+    ]
+    'argc' => 2
+]
+2017-11-08 10:20:45 [-][-][-][error][Error] Error: Call to a member function toArray() on null in /mnt/hgfs/www/kingdata/MyNote/Application/crontab/HupuController.php:56
+Stack trace:
+#0 [internal function]: app\crontab\HupuController->actionArticleToMysql('bxj')
+#1 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#2 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#3 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Controller.php(128): yii\base\Controller->runAction('article-to-mysq...', Array)
+#4 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Module.php(523): yii\console\Controller->runAction('article-to-mysq...', Array)
+#5 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hupu/article-to...', Array)
+#6 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hupu/article-to...', Array)
+#7 /mnt/hgfs/www/kingdata/MyNote/vendor/yiisoft/yii2/base/Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /mnt/hgfs/www/kingdata/MyNote/yii(20): yii\base\Application->run()
+#9 {main}
+2017-11-08 10:16:44 [-][-][-][info][application] $_SERVER = [
+    'HOSTNAME' => 'fred'
+    'SELINUX_ROLE_REQUESTED' => ''
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'HISTSIZE' => '1000'
+    'SSH_CLIENT' => '192.168.1.102 58062 22'
+    'SELINUX_USE_CURRENT_RANGE' => ''
+    'QTDIR' => '/usr/lib64/qt-3.3'
+    'OLDPWD' => '/root'
+    'QTINC' => '/usr/lib64/qt-3.3/include'
+    'SSH_TTY' => '/dev/pts/1'
+    'USER' => 'root'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:'
+    'MAIL' => '/var/spool/mail/root'
+    'PATH' => '/usr/local/python/bin:/usr/local/mysql/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin'
+    'PWD' => '/mnt/hgfs/www/kingdata/MyNote'
+    'LANG' => 'zh_CN.UTF-8'
+    'SELINUX_LEVEL_REQUESTED' => ''
+    'HISTCONTROL' => 'ignoredups'
+    'SHLVL' => '1'
+    'HOME' => '/root'
+    'LOGNAME' => 'root'
+    'QTLIB' => '/usr/lib64/qt-3.3/lib'
+    'CVS_RSH' => 'ssh'
+    'SSH_CONNECTION' => '192.168.1.102 58062 192.168.1.111 22'
+    'LESSOPEN' => '|/usr/bin/lesspipe.sh %s'
+    'G_BROKEN_FILENAMES' => '1'
+    '_' => '/usr/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1510136204.6132
+    'REQUEST_TIME' => 1510136204
+    'argv' => [
+        0 => 'yii'
+        1 => 'hupu/article-to-mysql'
+        2 => 'bxj'
+    ]
+    'argc' => 3
+]

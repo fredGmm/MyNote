@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: bosheng2017
- * Date: 2017/11/3
- * Time: 15:59
+ * Date: 2017/11/30
+ * Time: 10:23
  */
 
 namespace app\models;
@@ -11,7 +11,10 @@ namespace app\models;
 
 use app\modules\base\model\BaseTable;
 
-class ScrapArticle extends BaseTable{
-    const TableName = 'scrap_article';
+class WxbTitleModel extends BaseTable{
+
+    const TableName = 'wxb_title';
+
     
+
 }

@@ -11,7 +11,8 @@ $modsName = [
     'user',
     'base',
     'food',
-    'admin'
+    'admin',
+    'ssnh'
 ];
 
 

@@ -56,7 +56,7 @@ class Common {
      * @param bool $desc
      * @param bool $ignoreCase 是否忽略大小写
      */
-    public function sortArrByField(&$array, $field, $desc = true, $ignoreCase = false)
+    public static function sortArrByField(&$array, $field, $desc = true, $ignoreCase = false)
     {
         $fieldArr = array();
         foreach ($array as $k => $v) {
