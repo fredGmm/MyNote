@@ -10,6 +10,10 @@ namespace app\modules\ssnh\controller;
 
 use app\modules\base\controller\BaseController;
 
+/**
+ * Class IndexController
+ * @package app\modules\ssnh\controller
+ */
 class IndexController extends BaseController{
 
 
