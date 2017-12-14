@@ -19,7 +19,10 @@ class IndexController extends BaseController{
 
     public function actionIndex(){
 
-        $this->view->title = '山水年华业务意见集合';
+        //后台左上标题设置
+        $this->view->title = '(●°u°●)​ 」乐趣爬虫后台';
+
+
         return $this->render(__FUNCTION__);
     }
 }

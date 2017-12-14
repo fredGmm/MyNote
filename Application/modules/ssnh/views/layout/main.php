@@ -17,7 +17,17 @@ use app\assets\AppAsset;
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <title><?= Html::encode($this->title) ?></title>
-    <link rel="stylesheet" href="<?php echo Yii::$app->getHomeUrl() . 'new-admin/layui-2.2.45/css/layui.css'; ?>">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" media="all" href="<?php echo Yii::$app->getHomeUrl() . 'new-admin/layui-2.2.45/css/layui.css'; ?>">
+
+    <link rel="stylesheet" href="/admin/css/font_eolqem241z66flxr.css" media="all" />
+    <link rel="stylesheet" href="/admin/css/main.css" media="all" />
 
 
 </head>
@@ -27,7 +37,7 @@ use app\assets\AppAsset;
     <div class="container">
         <div class="layui-layout layui-layout-admin">
             <div class="layui-header">
-                <div class="layui-logo">山水年华业主意见集合</div>
+                <div class="layui-logo"><?php echo $this->title; ?></div>
                 <!-- 头部区域（可配合layui已有的水平导航） -->
 <!--                <ul class="layui-nav layui-layout-left">-->
 <!--                    <li class="layui-nav-item " data-type="tabAdd"><a href="/ssnh/index/index">控制台</a></li>-->

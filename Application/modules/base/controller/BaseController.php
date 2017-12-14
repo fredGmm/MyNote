@@ -226,11 +226,11 @@ EOF
         exit;
     }
 
-    public  function jsonOk($data, $msg = '')
+    public  function jsonOk($data, $count = 0, $msg = '')
     {
         $resp = \Yii::$app->getResponse();
         $resp->format = yii\web\Response::FORMAT_JSON;
-        $resp->content = json_encode(['code' => 0, 'msg' => (string)$msg, 'data' => $data], JSON_UNESCAPED_UNICODE);
+        $resp->content = json_encode(['code' => 0, 'msg' => (string)$msg, 'count' => $count,'data' => $data], JSON_UNESCAPED_UNICODE);
         $resp->send();
         exit;
     }

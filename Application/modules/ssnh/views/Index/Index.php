@@ -5,7 +5,7 @@
         </ul>
         <div class="layui-tab-content clildFrame">
             <div class="layui-tab-item layui-show">
-                <iframe src="page/main.html"></iframe>
+                <iframe src="/new-admin/page/main.html"></iframe>
             </div>
         </div>
     </div>

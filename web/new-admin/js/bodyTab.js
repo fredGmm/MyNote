@@ -1,9 +1,4 @@
-/*
- @Author: 请叫我马哥
- @Time: 2017-04
- @Tittle: tab
- @Description: 点击对应按钮添加新窗口
- */
+
 var tabFilter, menu = [], liIndex, curNav, delMenu;
 layui.define(["element", "jquery"], function (exports) {
     var element = layui.element,
@@ -17,7 +12,7 @@ layui.define(["element", "jquery"], function (exports) {
             }
         };
 
-    alert($(".left-menu").html() == '');
+   
     //显示左侧菜单
     if ($(".left-menu").html() == '') {
 
