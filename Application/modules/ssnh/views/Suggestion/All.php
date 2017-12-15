@@ -8,13 +8,16 @@
 
         //第一个实例
         table.render({
-            elem: '#suggestion_tb'
+            elem: '#suggestion_tb',
+            width:1450
             ,url: '/ssnh/suggestion/list/' //数据接口
             ,page: true //开启分页
             ,cols: [[ //表头
-                {field: 'question_id', title: 'ID', width:60, sort: true, fixed: 'left'}
+                {field: 'question_id', title: 'ID', width:60, sort: true, fixed: 'left'},
+                {field:'question_type', title: '问题分类', width:150}
                 ,{field: 'question_text', title: '存在的问题', width:200}
-                ,{field: 'question_score', title: '业主在乎程度', width:500, sort: true}
+                ,{field: 'who_solve', title: '业主在乎程度', width:500}
+                ,{field: 'question_score', title: '业主在乎程度', width:500,}
             ]]
         });
 

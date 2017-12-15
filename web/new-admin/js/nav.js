@@ -50,7 +50,7 @@ var navs = [{
                 "spread": false
             },
             {
-                "title": "二级菜单2",
+                "title": "lol板块",
                 "icon": "&#xe631;",
                 "href": "/",
                 "spread": false
