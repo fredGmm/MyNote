@@ -54,6 +54,12 @@ var navs = [{
                 "icon": "&#xe631;",
                 "href": "/",
                 "spread": false
+            },
+            {
+                "title": "发帖分析",
+                "icon": "&#xe631;",
+                "href": "/ssnh/hupu/analyze",
+                "spread": false
             }
         ]
     },

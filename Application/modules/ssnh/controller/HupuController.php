@@ -31,4 +31,9 @@ class HupuController extends BaseController{
 
         $this->jsonOk($article_list['article_list'], $article_list['count']);
     }
+
+    public function actionAnalyze(){
+        
+        return $this->render(__FUNCTION__);
+    }
 }

@@ -1,10 +1,13 @@
 <div class="layui-inline">
 <i class="layui-icon" id="rili"  style="font-size: 40px; color: #1E9FFF;display : inline;">&#xe637;
-    <input type="text" style="height: 30px; width:200px;font-size: 30px;color: #1E9FFF;"   id="date_input" ></i>
+    <input type="text" style="height: 30px; width:200px;font-size: 30px;color: #1E9FFF;"   id="date_input" >
+    <button class="layui-btn" style="height: 40px; margin-top: 10px" id="sure_btn">确定</button>
+</i>
+
+
+
 </div>
-<div class="layui-inline">
- <button class="layui-btn" id="sure_btn">确定</button>
-</div>
+
 
 <table class="layui-table" lay-data="{ url:'/ssnh/hupu/article-list/', page:true, id:'article_list'}" >
     <thead>
@@ -23,6 +26,7 @@
 
 
 <table id="demo" lay-filter="test"  ></table>
+    
 
 <script>
     layui.use(['form','layer','jquery','table'],function() {
@@ -57,8 +61,4 @@
             trigger: 'click' //采用click弹出
         });
     });
-
-
-
-
 </script>
