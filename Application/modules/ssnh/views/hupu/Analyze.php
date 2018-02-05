@@ -13,20 +13,32 @@
 </head>
 <body>
 
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<div id="container" style="min-width: 500px; height: 400px;width: 500px; margin: 0 0"></div>
 
 <script>
     $(function () {
+        $.ajax({
+            type:'get',
+            url:'/ssnh/hupu/ajax-test',//请求数据的地址
+            success:function(data){
+
+                chart.series[0].setData(data.data);
+                chart.drilldown[0].setData(data.data);
+            },
+            error:function(e){
+            }
+        });
         // Create the chart
-        Highcharts.chart('container', {
+        var chart = Highcharts.chart('container', {
             chart: {
                 type: 'column'
             },
             title: {
-                text: '每个自然周每天发帖的数量条形图'
+                text: '发帖数量横向趋势条形图'
             },
             subtitle: {
-                text: '.'
+                text: '<a href="https://bbs.hupu.com">虎扑论坛</a>'
             },
             xAxis: {
                 type: 'category'
@@ -84,7 +96,7 @@
             drilldown: {
                 series: [{
                     name: 'Microsoft Internet Explorer',
-                    id: 'Microsoft Internet Explorer',
+                    id: 'nb',
                     data: [
                         [
                             'v11.0',
