@@ -31,12 +31,7 @@ var navs = [{
     //     "href": "page/systemParameter/systemParameter.html",
     //     "spread": false
     // },
-    {
-        "title": "山水年华意见集合",
-        "icon": "#icon-text;",
-        "href": "/ssnh/suggestion/all",
-        "spread": true
-    },
+
     {
         "title": "虎扑",
         "icon": "&#xe61c;",
@@ -56,12 +51,24 @@ var navs = [{
                 "spread": false
             },
             {
-                "title": "发帖分析",
+                "title": "湿乎乎板块",
+                "icon": "&#xe631;",
+                "href": "/",
+                "spread": false
+            },
+            {
+                "title": "教你发帖" ,
                 "icon": "&#xe631;",
                 "href": "/ssnh/hupu/analyze",
                 "spread": false
             }
         ]
+    },
+    {
+        "title": "山水年华意见集合",
+        "icon": "#icon-text;",
+        "href": "/ssnh/suggestion/all",
+        "spread": true
     },
     // {
     //     "title": "二级菜单演示",
