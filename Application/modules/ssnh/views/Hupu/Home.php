@@ -4,8 +4,6 @@
     <button class="layui-btn" style="height: 40px; margin-top: 10px" id="sure_btn">确定</button>
 </i>
 
-
-
 </div>
 
 
@@ -14,11 +12,11 @@
     <tr>
         <th lay-data="{field:'id', width:80, sort: true}">ID</th>
         <th lay-data="{field:'article_id', width:200}">文章id</th>
-        <th lay-data="{field:'article_title', width:500}">文章标题</th>
+        <th lay-data="{field:'article_title', width:300}">文章标题</th>
         <th lay-data="{field:'article_author_name',width:120}">作者昵称</th>
-        <th lay-data="{field:'post_date',width:200,sort:true}">发布日期</th>
+        <th lay-data="{field:'post_date',width:100,sort:true}">发布日期</th>
         <th lay-data="{field:'comment_num',sort:true,width:150}">评论数</th>
-        <th lay-data="{field:'browse_num',sort:true,width:200}">浏览数</th>
+        <th lay-data="{field:'browse_num',sort:true,width:150}">浏览数</th>
 
     </tr>
     </thead>

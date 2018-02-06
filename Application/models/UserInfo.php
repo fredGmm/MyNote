@@ -14,6 +14,6 @@ class UserInfo extends BaseTable{
 
     const TableName = 'user_info';
 
-    
+
 
 }
