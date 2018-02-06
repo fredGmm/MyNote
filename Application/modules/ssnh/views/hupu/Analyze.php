@@ -24,7 +24,8 @@
             success:function(data){
 
                 chart.series[0].setData(data.data);
-                chart.drilldown[0].setData(data.data);
+//                chart.drilldown[0].setData(data.data);
+
             },
             error:function(e){
             }
@@ -32,7 +33,92 @@
         // Create the chart
         var chart = Highcharts.chart('container', {
             chart: {
-                type: 'column'
+                type: 'column',
+                events: {
+                    drillup: function (e) {
+                        // 上钻回调事件
+                        console.log(e.seriesOptions);
+                    },
+                    drilldown: function (e) {
+
+                        console.log(e.point.id);
+                        $.ajax({
+                            type:'get',
+                            url:'/ssnh/hupu/ajax-test',//请求数据的地址
+                            success:function(data){
+                                console.log(e.point.id);
+                            },
+                            error:function(e){
+                            }
+                        });
+                        if (!e.seriesOptions) {
+                            var chart = this;
+                                drilldowns = {
+                                    'nnh': {
+                                        name: 'nnh',
+                                        data : [[
+                                            'v11.0',
+                                            24.13
+                                        ],
+                                        [
+                                            'v8.0',
+                                            17.2
+                                        ],
+                                        [
+                                            'v9.0',
+                                            8.11
+                                        ],
+                                        [
+                                            'v10.0',
+                                            5.33
+                                        ],
+                                        [
+                                            'v6.0',
+                                            1.06
+                                        ],
+                                        [
+                                            'v7.0',
+                                            0.5
+                                        ]
+                            ]
+                                },
+                                'Fruits': {
+                                        name: 'Fruits',
+                                        data: [
+                                            [
+                                                'v6.0',
+                                                1.06
+                                            ],
+                                            [
+                                                'v7.0',
+                                                0.5
+                                            ]
+                                        ]
+                                    },
+                                    'Cars': {
+                                        name: 'Cars',
+                                        data: [
+                                            [
+                                                'v6.0',
+                                                1.06
+                                            ],
+                                            [
+                                                'v7.0',
+                                                0.5
+                                            ]
+                                        ]
+                                    }
+                                },
+                                series = drilldowns[e.point.name];
+                            // Show the loading label
+                            chart.showLoading('Simulating Ajax ...');
+                            setTimeout(function () {
+                                chart.hideLoading();
+                                chart.addSeriesAsDrilldown(e.point, series);
+                            }, 1000);
+                        }
+                    }
+                }
             },
             title: {
                 text: '发帖数量横向趋势条形图'
@@ -94,6 +180,9 @@
                 }]
             }],
             drilldown: {
+                series: []
+            }
+           /* drilldown: {
                 series: [{
                     name: 'Microsoft Internet Explorer',
                     id: 'nb',
@@ -276,7 +365,7 @@
                         ]
                     ]
                 }]
-            }
+            }*/
         });
     });
 </script>

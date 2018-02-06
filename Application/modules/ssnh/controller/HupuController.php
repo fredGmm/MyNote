@@ -56,9 +56,10 @@ class HupuController extends BaseController{
         ];
         $data = [
             [
-                'name' => '星期一',
+                'name' => 'www',
                 'y' => 30,
-                'drilldown' => 'nb'
+                'id' => '4',
+                'drilldown' => 'true'
             ],
             [
                 'name' => '星期二',
