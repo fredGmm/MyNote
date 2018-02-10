@@ -38,6 +38,18 @@ class HupuController extends BaseController{
     }
 
     /**
+     * 通过 时间类型获取 相对应的帖子数
+     *
+     * @return void
+     */
+    public function actionArticleNumByTime()
+    {
+        $time_type = \Yii::$app->request->get('time_type', 'month');
+        $time_val = \Yii::$app->request->get('time_val', '');
+
+        
+    }
+    /**
      * @desc 用来测试的ajax 接口
      *
      * @return json

@@ -47,4 +47,16 @@ class HupuArticleListModel extends BaseTable {
         return ['article_list'=>$foods, 'count'=>$count];
     }
 
+    /**
+     * 根据时间类型 以及 时间来获取 相对应的数据
+     *
+     * @return array
+     */
+    public static function getDataByTime( $start, $end, $plate, $page, $page_size)
+    {
+        $data = self::find()->where(['>=','post_time', $start ])->all();
+
+
+        return $data;
+    }
 }
