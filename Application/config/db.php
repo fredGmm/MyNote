@@ -1,6 +1,6 @@
 <?php
 
-return [
+$dbArray =  [
     'db' => [
         'class' => 'yii\db\Connection',
         'dsn' => 'mysql:host=192.168.1.111;dbname=web_arashi',
@@ -15,5 +15,6 @@ return [
         'password' => 'xiaoming',
         'charset' => 'utf8',
     ]
-
 ];
+
+    return ['db' => $dbArray['db'], 'hupuDb'=> $dbArray['hupuDb'] ];

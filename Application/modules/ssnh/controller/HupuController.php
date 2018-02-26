@@ -9,6 +9,7 @@ namespace app\modules\ssnh\controller;
 
 use app\modules\base\controller\BaseController;
 use app\modules\ssnh\model\HupuArticleListModel;
+use app\modules\ssnh\model\PlatePostNumModel;
 
 class HupuController extends BaseController{
 
@@ -22,6 +23,9 @@ class HupuController extends BaseController{
         return $this->render(__FUNCTION__);
     }
 
+    /**
+     * 文章接口 （弃用）
+     */
     public function actionArticleList(){
 
         $page = \Yii::$app->request->get('page', 1);
@@ -32,27 +36,76 @@ class HupuController extends BaseController{
         $this->jsonOk($article_list['article_list'], $article_list['count']);
     }
 
+    /**
+     * @desc 图表分析页面
+     *
+     * @return string
+     */
     public function actionAnalyze(){
         
         return $this->render(__FUNCTION__);
     }
 
     /**
-     * 通过 时间类型获取 相对应的帖子数
+     * 获取所有版块的 每日发帖数量
      *
      * @return void
      */
-    public function actionArticleNumByTime()
+    public function actionAllPlateNum()
     {
-        $time_type = \Yii::$app->request->get('time_type', 'month');
-        $time_val = \Yii::$app->request->get('time_val', '');
+//        $time_type = \Yii::$app->request->get('time_type', 'month');
+//        $time_val = \Yii::$app->request->get('time_val', '');
 
-        
+        $date = \Yii::$app->request->get('date', date('Ymd', time()));
+        $plate_data = PlatePostNumModel::getPlateData($date);
+        $total_num = array_sum(array_column($plate_data, 'num')); // 各种板块总和
+
+        $table_data = [];
+        foreach ($plate_data as $pk => $pv){
+            $data['id'] = $pv['id'];
+            $data['plate'] = $pv['plate'];
+            $data['name'] = PlatePostNumModel::getPlateName($pv['plate']);
+            $data['y'] = (int)$pv['num']; //这里不转类型，highchart吃不消
+            $data['per'] = bcmul(round($pv['num'] / $total_num, 4) , 100, 2);
+//            $data['per'] = bcmul(round($pv['num'] / $total_num, 4) , 100);
+
+            $data['drilldown'] = 'true';
+            $table_data[] = $data;
+        }
+        $this->jsonOk($table_data);
     }
+
+    /**
+     * @desc 获取某一个板块该自然周 中每一天的发帖数量
+     *
+     * @return array
+     */
+    public function actionOnePlateNumByDate()
+    {
+        $plate_name = \Yii::$app->request->get('plate', 'bxj');
+      //  $date = \Yii::$app->request->get('date');
+
+        $today_date = date('Ymd', time() ); //strtotime("$date")
+
+        $start_date = date('Ymd', strtotime("$today_date last sunday") + 86400); //这个星期一
+        $end_date = date('Ymd', strtotime("$start_date") + 6*86400);
+
+        $plate_data = PlatePostNumModel::getOnePlateData($plate_name,$start_date, $end_date);
+        $table_data = ['name' => $plate_name, 'data' => []];
+
+        foreach ($plate_data as $pk => $plate){
+            $data['name'] = $plate['date'];
+            $data['y'] = (int)$plate['num']; //这里不转类型，highchart吃不消
+            $table_data['data'][] = $data;
+        }
+
+        $this->jsonOk($table_data);
+    }
+
     /**
      * @desc 用来测试的ajax 接口
      *
-     * @return json
+     * @return string
      */
     public function actionAjaxTest(){
         $param1 = \Yii::$app->request->get('param1', 'default_get_1');
@@ -76,32 +129,32 @@ class HupuController extends BaseController{
             [
                 'name' => '星期二',
                 'y' => 20,
-                'drilldown' => 'nbnbnbnbn'
+                'drilldown' => 'true'
             ],
             [
                 'name' => '星期三',
                 'y' => 40,
-                'drilldown' => 'nbnbnbnbn'
+                'drilldown' => 'true'
             ],
             [
                 'name' => '星期四',
                 'y' => 60,
-                'drilldown' => 'nbnbnbnbn'
+                'drilldown' => 'true'
             ],
             [
                 'name' => '星期五',
-                'y' => 70,
-                'drilldown' => 'nbnbnbnbn'
+                'y' => 700000,
+                'drilldown' => 'true'
             ],
             [
                 'name' => '星期六',
                 'y' => 80,
-                'drilldown' => 'nbnbnbnbn'
+                'drilldown' => 'true'
             ],
             [
                 'name' => '星期日',
                 'y' => 100,
-                'drilldown' => 'nbnbnbnbn'
+                'drilldown' => 'true'
             ],
         ];
         $this->jsonOk($data);

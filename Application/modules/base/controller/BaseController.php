@@ -244,7 +244,28 @@ EOF
         exit;
     }
 
+    /**
+     * @desc get方式接参
+     *
+     * @param $key
+     * @param $default
+     * @return array|mixed
+     */
+    public function get($key, $default)
+    {
+        return \Yii::$app->request->get($key, $default);
+    }
 
-
+    /**
+     * @desc post方式接参
+     *
+     * @param $key
+     * @param $default
+     * @return array|mixed
+     */
+    public function post($key, $default)
+    {
+        return \Yii::$app->request->post($key, $default);
+    }
     
 }

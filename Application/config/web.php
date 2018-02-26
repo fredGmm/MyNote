@@ -49,7 +49,8 @@ $config = [
         'log' => [
             'class' => 'app\library\log\Logger'
         ],
-        'db' => $db,
+        'db' => $db['db'],
+        'hupuDb' => $db['hupuDb'],
         'mongodb' => [
             'class' => 'yii\mongodb\Connection',
             # 有账户的配置
@@ -68,6 +69,8 @@ $config = [
     ],
     'params' => $params,
 ];
+//数据库 使用单独文件配置
+$config['components'] = array_merge($config['components'], $db);
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
