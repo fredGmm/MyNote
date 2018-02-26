@@ -42,7 +42,7 @@ var navs = [{
                 "title": "步行街",
                 "icon": "&#xe631;",
                 "href": "/ssnh/hupu/home",
-                "spread": falsif
+                "spread": false
             },
             {
                 "title": "lol板块",
