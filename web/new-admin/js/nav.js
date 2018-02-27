@@ -33,7 +33,7 @@ var navs = [{
     // },
 
     {
-        "title": "虎扑",
+        "title": "虎扑数据",
         "icon": "&#xe61c;",
         "href": "",
         "spread": false,
@@ -44,18 +44,18 @@ var navs = [{
                 "href": "/ssnh/hupu/home",
                 "spread": false
             },
-            {
-                "title": "lol板块",
-                "icon": "&#xe631;",
-                "href": "/",
-                "spread": false
-            },
-            {
-                "title": "湿乎乎板块",
-                "icon": "&#xe631;",
-                "href": "/",
-                "spread": false
-            },
+            // {
+            //     "title": "lol板块",
+            //     "icon": "&#xe631;",
+            //     "href": "/",
+            //     "spread": false
+            // },
+            // {
+            //     "title": "湿乎乎板块",
+            //     "icon": "&#xe631;",
+            //     "href": "/",
+            //     "spread": false
+            // },
             {
                 "title": "教你发帖" ,
                 "icon": "&#xe631;",
