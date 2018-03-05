@@ -9,6 +9,7 @@ namespace app\modules\ssnh\controller;
 
 use app\modules\base\controller\BaseController;
 use app\modules\ssnh\model\HupuArticleListModel;
+use app\modules\ssnh\model\HupuUserModel;
 use app\modules\ssnh\model\PlatePostNumModel;
 
 class HupuController extends BaseController{
@@ -92,14 +93,38 @@ class HupuController extends BaseController{
 
         $plate_data = PlatePostNumModel::getOnePlateData($plate_name,$start_date, $end_date);
         $table_data = ['name' => $plate_name, 'data' => []];
-
+        $total_num = array_sum(array_column($plate_data, 'num')); // 各种板块总和
         foreach ($plate_data as $pk => $plate){
             $data['name'] = $plate['date'];
             $data['y'] = (int)$plate['num']; //这里不转类型，highchart吃不消
+            $data['per'] = bcmul(round($plate['num'] / $total_num, 4) , 100, 2);
             $table_data['data'][] = $data;
+
         }
 
         $this->jsonOk($table_data);
+    }
+
+    /**
+     * @desc 性别的比例数据
+     *
+     * @return string
+     */
+    public function actionGenderData(){
+
+        $gender_data = HupuUserModel::getGenderData();
+        $pie_table_data = [];
+        foreach ($gender_data as $gk =>$gv){
+            $data['name'] = HupuUserModel::getGenderName($gv['gender']);
+            $data['y'] = (int)$gv['count'];
+            if($gv['gender'] == 2) {
+                $data['sliced'] = 'true';
+                $data['selected'] = 'true';
+            }
+
+            $pie_table_data[] = $data;
+        }
+        $this->jsonOk($pie_table_data);
     }
 
     /**

@@ -15,6 +15,10 @@
 
 
 <div id="container" style="min-width: 1500px; height: 400px;width: 500px; margin: 0 0"></div>
+<hr/>
+<div id="pie-chart" style="min-width:400px;width: 500px;height:400px;margin-left:20px"></div>
+<div>fsdafasdf</div>
+
 
 <script>
     $(function () {
@@ -38,10 +42,10 @@
                         console.log(e.seriesOptions);
                     },
                     drilldown: function (e) {
-                        console.log(e.point.id);
+                        console.log(e.point.plate);
                         $.ajax({
                             type: 'get',
-                            url: '/ssnh/hupu/one-plate-num-by-date',//请求数据的地址
+                            url: '/ssnh/hupu/one-plate-num-by-date?plate=' + e.point.plate ,//请求数据的地址
                             success: function (data) {
                                 console.log(data.data);
                                 if (!e.seriesOptions) {
@@ -344,6 +348,51 @@
              }]
              }*/
         });
+
+        $.ajax({
+            type: 'get',
+            url: '/ssnh/hupu/gender-data',//请求数据的地址
+            success: function (data) {
+                console.log(data.data);
+                pie_chart.series[0].setData(data.data);
+            },
+            error: function (e) {
+            }
+        });
+
+        var pie_chart = Highcharts.chart('pie-chart',{
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '活跃帖子中性别分布'
+            },
+            tooltip: {
+                headerFormat: '{series.name}<br>',
+                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '性别分布',
+                
+            }]
+        });
+
     });
 </script>
 </body>
