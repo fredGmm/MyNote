@@ -1,15 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: askuy
- * Date: 16-4-26
- * Time: 下午6:53
- */
+
 
 namespace Library\Core;
 
 
-use Douyu\Core\Di;
+
 
 class RedisBase
 {

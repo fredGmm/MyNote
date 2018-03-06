@@ -1,9 +1,4 @@
 <?php
-/**
- * @author askuy
- * @date: 2016/1/11
- * @Time: 10:28
- */
 
 namespace Library\Core;
 
