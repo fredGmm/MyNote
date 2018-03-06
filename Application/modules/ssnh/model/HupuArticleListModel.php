@@ -47,6 +47,8 @@ class HupuArticleListModel extends BaseTable {
         return ['article_list'=>$foods, 'count'=>$count];
     }
 
+
+
     /**
      * 根据时间类型 以及 时间来获取 相对应的数据
      *
@@ -58,5 +60,25 @@ class HupuArticleListModel extends BaseTable {
 
 
         return $data;
+    }
+
+    /**
+     * @desc 生成文章的迭代生成器，yield 占用少的内存
+     *
+     * @param $page
+     * @param $page_size
+     * @return \Generator
+     */
+    public static function articleIterator($page, $page_size){
+        $query = self::find()->orderBy('id desc');
+        $total_count = $query->count();
+        $page_max = $total_count / $page_size;
+
+        do{
+            $offset = ($page - 1) * $page_size;
+            $article_data =  $query->offset($offset)->limit($page_size)->asArray()->all();
+            $page++;
+            yield $article_data;
+        }while(count($article_data) < $page_size || ($page <= $page_max));
     }
 }

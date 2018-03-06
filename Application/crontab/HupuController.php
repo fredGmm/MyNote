@@ -8,9 +8,12 @@
 namespace app\crontab;
 
 use app\library\Common;
+use app\library\Essearch\CurdData;
 use app\models\MongdbModel;
 use app\models\ScrapArticle;
 use app\models\WxbTitleModel;
+use app\modules\ssnh\model\HupuArticleListModel;
+use app\modules\ssnh\model\HupuHotWordModel;
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use PHPUnit\Framework\Constraint\Exception;
 use yii\console\Controller;
@@ -31,7 +34,7 @@ class HupuController extends Controller
     }
 
     /**
-     * 从 mongo里取数据 ，存入MySQL
+     * 从 mongo里取数据 ，存入MySQL，后期放弃这种方案。觉得麻烦了
      */
     public function actionArticleToMysql($category='lol'){
         $count = MongdbModel::getCount(['category' => 'bxj']);
@@ -90,6 +93,9 @@ class HupuController extends Controller
         }
     }
 
+    /**
+     * 迅搜简易分词试试而已
+     */
     public function actionDivisionWordHandle()
     {
         $sh = scws_open();
@@ -103,36 +109,54 @@ class HupuController extends Controller
         print_r($top);
     }
 
-    public function actionWxbTitleApart()
+    /**
+     * 提取抓取到的标题中的热词
+     */
+    public function actionGetTitleHotWord()
     {
-        $word_arr = [];
-        $sh = scws_open();
-        scws_set_charset($sh, 'utf-8');
-        scws_set_dict($sh, '/usr/local/scws/etc/dict.utf8.xdb');
-        scws_set_rule($sh, '/usr/local/scws/etc/rules.utf8.ini');
-        $ret = WxbTitleModel::find()->asArray()->all();
-        foreach ($ret as $rk => $rv){
-            scws_send_text($sh, $rv['title']);
-            $apart_words = scws_get_tops($sh, 4);
-            foreach ($apart_words as $apart_word){
+        $page = 1;
+        $page_size = 3;
+        $article_iterator = HupuArticleListModel::articleIterator($page,$page_size);
 
-                if(isset($word_arr[$apart_word['word']]['times'])) {
-                    $word_arr[$apart_word['word']]['times'] += $apart_word['times'];
-                }else{
-                    $word_arr[$apart_word['word']]['times'] = $apart_word['times'];
-                }
-                if(isset($word_arr[$apart_word['word']]['weight'])) {
-                    $word_arr[$apart_word['word']]['weight'] = bcadd($word_arr[$apart_word['word']]['weight'],$apart_word['weight']);
-                }else{
-                    $word_arr[$apart_word['word']]['weight'] = $apart_word['weight'];
-                }
-
-            }
+        $data = [
+            'word' => '中文',
+            'number' => 32,
+            'date' =>  20180307,
+            'type' => 'bxj',
+            'create_time' => time()
+        ];
+        (new HupuHotWordModel())->addHotWord($data);
+        exit;
+        foreach ($article_iterator as $article_list){
+           foreach ($article_list as $key => $article){
+               $result = CurdData::analyzeDocument($article['article_title']);
+            
+           }
         }
-
-        Common::sortArrByField($word_arr,'times',true);
-        $to_db_data = array_slice($word_arr,0,20);
-
     }
 
+
+    /**
+     * 脚本测试用
+     */
+    public function actionTest(){
+        $page = 1;
+        $page_size = 10;
+
+//        $data = HupuArticleListModel::getArticleList($page, $page_size);
+//
+//        $count = 0;
+//        foreach ($data['article_list'] as $dk =>$dv){
+//            $result = CurdData::writeDocument($dv['id'],CurdData::$type[0],$dv);
+//            if($result){
+//                echo $count++ ;
+//            }
+//        }
+//        exit;
+//        var_dump($data);exit;
+//       var_dump(CurdData::deleteDocument(3, CurdData::$type[0]));
+//        var_dump(CurdData::analyzeDocument('逼格好厉害'));
+//        var_dump(CurdData::search(CurdData::$type[0], ['article_title' => '步行街'],$page, $page_size));
+
+    }
 }

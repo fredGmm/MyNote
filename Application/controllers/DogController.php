@@ -14,7 +14,7 @@ class DogController extends BaseController{
 
     public function actionYou()
     {
-        $data = Common::curlHtml('https://dog.ceo/api/breeds/image/random');
+        $data = Common::curl('https://dog.ceo/api/breeds/image/random');
 
         return $this->render('You', ['data' => $data]);
     }

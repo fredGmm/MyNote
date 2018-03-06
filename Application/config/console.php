@@ -28,7 +28,7 @@ $config = [
             'dsn' => 'mongodb://192.168.1.111:27017/hupu',
 
         ],
-        'db' => $db,
+//        'db' => $db,
     ],
     'params' => $params,
     /*
@@ -39,7 +39,7 @@ $config = [
     ],
     */
 ];
-
+$config['components'] = array_merge($config['components'], $db);
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'gii';

@@ -110,4 +110,14 @@ class TestController extends Controller
         echo "<pre>";
         print_r($top);
     }
+
+    public function actionSteal(){
+        echo "这是 偷盗的 教材网的</br>";
+        echo "<img src =\"https://files.dodoedu.com/resize/386x350/attachments/d1b1f34e9bc55f083c48b494180622d3.gif\">";
+
+        echo "<hr>";
+        echo "<br/>";
+        echo "这里是盗取 fred的网站</br>";
+        echo "<img src=\"http://data.kinggui.com/src/images/about2.jpg\">";
+    }
 }
