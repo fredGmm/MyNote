@@ -1,9 +1,4 @@
 <?php
-/**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
- */
 
 namespace app\crontab;
 
@@ -94,7 +89,7 @@ class HupuController extends Controller
     }
 
     /**
-     * 迅搜简易分词试试而已
+     * 迅搜简易分词试试而已,使用utf-8词典
      */
     public function actionDivisionWordHandle()
     {
@@ -111,28 +106,56 @@ class HupuController extends Controller
 
     /**
      * 提取抓取到的标题中的热词
+     *
+     * @return array
      */
     public function actionGetTitleHotWord()
     {
         $page = 1;
-        $page_size = 3;
-        $article_iterator = HupuArticleListModel::articleIterator($page,$page_size);
+        $page_size = 1000;
+        $article_iterator = HupuArticleListModel::articleIterator($page,$page_size, ['post_date' => date('Y-m-d', time())]);
 
-        $data = [
-            'word' => '中文',
-            'number' => 32,
-            'date' =>  20180307,
-            'type' => 'bxj',
-            'create_time' => time()
-        ];
-        (new HupuHotWordModel())->addHotWord($data);
-        exit;
+        $add_count = 0; //这一次脚本添加了多少词
+        $update_count = 0; // 这一次
+
+        $today_date = date('Ymd', time());
+        /** 使用迭代器更加省 内存 */
         foreach ($article_iterator as $article_list){
-           foreach ($article_list as $key => $article){
-               $result = CurdData::analyzeDocument($article['article_title']);
-            
+            /** 空的生成器时 可跳出 */
+           if(empty($article_list)){
+               break;
            }
+           foreach ($article_list as $key => $article){
+               $words = CurdData::analyzeDocument($article['article_title'], CurdData::IK_SMART);
+               $this->stdout($article['id'] . ' : ' . $article['article_title'] . PHP_EOL, Console::FG_BLUE);
+               if(!empty($words)){
+                   foreach ($words as $word) {
+                       $insert_data = [
+                           'word' => $word['token'],
+                           'number' => 1,
+                           'date' => $today_date,
+                           'type' => $article['plate'],
+                           'create_time' => time(),
+                       ];
+                       $is_exist = HupuHotWordModel::find()
+                           ->where(['word' =>$word['token'],'date' => $today_date, 'type' => $article['plate'] ])
+                           ->one();
+                       if($is_exist){
+                            $num = (int)$is_exist->number + 1;
+                           $is_exist->number = $num;
+                           $update_status = $is_exist->save();
+                           $update_status && ($update_count++);
+                       }else{
+                           $status = (new HupuHotWordModel())->addHotWord($insert_data);
+                           $status && ($add_count++);
+                       }
+                   }
+               }
+           }
+
         }
+
+        printf("本次运行共添加了%d条热词，更新词的出现次数%d次", $add_count, $update_count);
     }
 
 
@@ -155,7 +178,7 @@ class HupuController extends Controller
 //        exit;
 //        var_dump($data);exit;
 //       var_dump(CurdData::deleteDocument(3, CurdData::$type[0]));
-//        var_dump(CurdData::analyzeDocument('逼格好厉害'));
+        var_dump(CurdData::analyzeDocument('逼格好厉害的吗'));
 //        var_dump(CurdData::search(CurdData::$type[0], ['article_title' => '步行街'],$page, $page_size));
 
     }

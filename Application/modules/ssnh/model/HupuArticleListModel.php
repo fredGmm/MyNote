@@ -14,6 +14,11 @@ use app\modules\base\model\BaseTable;
  */
 class HupuArticleListModel extends BaseTable {
 
+    /**
+     * 脚本跑的最大页面，调试或者限制用
+     */
+    const MAX_PAGE = 10;
+
     const TableName = 'hupu_article_list';
 
     public static function getDb()
@@ -58,7 +63,6 @@ class HupuArticleListModel extends BaseTable {
     {
         $data = self::find()->where(['>=','post_time', $start ])->all();
 
-
         return $data;
     }
 
@@ -67,18 +71,22 @@ class HupuArticleListModel extends BaseTable {
      *
      * @param $page
      * @param $page_size
+     * @param $where 查询的特定条件
      * @return \Generator
      */
-    public static function articleIterator($page, $page_size){
+    public static function articleIterator($page, $page_size,$where = []){
         $query = self::find()->orderBy('id desc');
+        if($where){
+            $query->where($where);
+        }
         $total_count = $query->count();
         $page_max = $total_count / $page_size;
-
         do{
             $offset = ($page - 1) * $page_size;
+
             $article_data =  $query->offset($offset)->limit($page_size)->asArray()->all();
             $page++;
             yield $article_data;
-        }while(count($article_data) < $page_size || ($page <= $page_max));
+        }while(count($article_data) < $page_size || ($page <= $page_max) || ($page > self::MAX_PAGE));
     }
 }

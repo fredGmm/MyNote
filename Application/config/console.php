@@ -13,12 +13,13 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'log' => [
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
+            'class' => 'app\library\log\Logger'
+//            'targets' => [
+//                [
+//                    'class' => 'yii\log\FileTarget',
+//                    'levels' => ['error', 'warning'],
+//                ],
+//            ],
         ],
         'mongodb' => [
             'class' => 'yii\mongodb\Connection',
