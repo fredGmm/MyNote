@@ -8,7 +8,9 @@
 namespace app\modules\ssnh\controller;
 
 use app\modules\base\controller\BaseController;
+use app\modules\ssnh\model\BigPlateDataModel;
 use app\modules\ssnh\model\HupuArticleListModel;
+use app\modules\ssnh\model\HupuHotWordModel;
 use app\modules\ssnh\model\HupuUserModel;
 use app\modules\ssnh\model\PlatePostNumModel;
 
@@ -38,7 +40,7 @@ class HupuController extends BaseController{
     }
 
     /**
-     * @desc 图表分析页面
+     * @desc 小话题图表分析页面
      *
      * @return string
      */
@@ -128,6 +130,54 @@ class HupuController extends BaseController{
     }
 
     /**
+     * @return string
+     */
+    public function actionPlate(){
+        return $this->render(__FUNCTION__);
+    }
+
+    /**
+     * 大板块之间的对比
+     *
+     * @return array
+     */
+    public function actionBigPlate(){
+        $date = $this->get('date', date('Ymd'));
+        $big_plate_data = BigPlateDataModel::getDataByDate($date);
+        $pie_table_data = [];
+        foreach ($big_plate_data as $ak => $plate_data) {
+            $data['name'] = BigPlateDataModel::$big_plate_array[$plate_data['big_plate']];
+            $data['y'] = (int)$plate_data['day_post_num'];
+
+            if($plate_data['big_plate'] == 'bxj') {
+                $data['sliced'] = 'true';
+                $data['selected'] = 'true';
+            }
+
+            $pie_table_data[] = $data;
+        }
+        $this->jsonOk($pie_table_data);
+    }
+
+    /**
+     * 热词接口
+     *
+     * @return array
+     */
+    public function actionHotWord(){
+        $plate = $this->get('plate', '');
+
+        $hot_word_data = HupuHotWordModel::getHotWord($plate);
+        $table_data = [];
+        foreach ($hot_word_data as $hk => $hot_data){
+            $data['name'] = $hot_data['word'];
+            $data['weight'] = (int)$hot_data['number'];
+            $table_data[] = $data;
+        }
+        $this->jsonOk($table_data);
+    }
+
+    /**
      * @desc 用来测试的ajax 接口
      *
      * @return string
@@ -182,6 +232,7 @@ class HupuController extends BaseController{
                 'drilldown' => 'true'
             ],
         ];
-        $this->jsonOk($data);
+        $this->jsonOk([[ 'name' => '第一','weight'=> 5] ,[ 'name' => '第二','weight'=> 1],[ 'name' => '第三','weight'=> 1],[ 'name' => '第四','weight'=> 1]]);
+//        $this->jsonOk([ '第一'=> 10 , '第er'=> 10, '第san'=> 10, '第si'=> 10]);
     }
 }

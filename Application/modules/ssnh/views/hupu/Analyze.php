@@ -17,7 +17,8 @@
 <div id="container" style="min-width: 1500px; height: 400px;width: 500px; margin: 0 0"></div>
 <hr/>
 <div id="pie-chart" style="min-width:400px;width: 500px;height:400px;margin-left:20px"></div>
-<div>fsdafasdf</div>
+<hr/>
+
 
 
 <script>
@@ -360,6 +361,17 @@
             }
         });
 
+        $.ajax({
+            type: 'get',
+            url: '/ssnh/hupu/big-plate',//请求数据的地址
+            success: function (data) {
+                console.log(data.data);
+                big_plate_chart.series[0].setData(data.data);
+            },
+            error: function (e) {
+            }
+        });
+
         var pie_chart = Highcharts.chart('pie-chart',{
             chart: {
                 plotBackgroundColor: null,
@@ -389,7 +401,39 @@
             series: [{
                 type: 'pie',
                 name: '性别分布',
-                
+
+            }]
+        });
+        var big_plate_chart = Highcharts.chart('big-plate-chart',{
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '活跃帖子中性别分布'
+            },
+            tooltip: {
+                headerFormat: '{series.name}<br>',
+                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '性别分布',
+
             }]
         });
 

@@ -27,8 +27,12 @@ class HupuArticleListModel extends BaseTable {
     }
 
 
+    /**
+     * @desc 存新的食物信息
+     * @param $food_info
+     * @return bool
+     */
     public static function saveNewFood($food_info){
-
         $food_choose_model = new self;
         $food_choose_model->food_name = $food_info['food_name'];
         $food_choose_model->food_price = $food_info['price'];
@@ -43,6 +47,12 @@ class HupuArticleListModel extends BaseTable {
         return $food_choose_model->save();
     }
 
+    /**
+     * @desc 取得文章列表
+     * @param $page
+     * @param int $page_size
+     * @return array
+     */
     public static function getArticleList($page, $page_size = 2){
 
         $start = ($page - 1) * $page_size;
@@ -69,9 +79,9 @@ class HupuArticleListModel extends BaseTable {
     /**
      * @desc 生成文章的迭代生成器，yield 占用少的内存
      *
-     * @param $page
-     * @param $page_size
-     * @param $where 查询的特定条件
+     * @param $page int
+     * @param $page_size int
+     * @param $where array 查询的特定条件
      * @return \Generator
      */
     public static function articleIterator($page, $page_size,$where = []){
