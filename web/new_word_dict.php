@@ -32,6 +32,20 @@ $s = <<<'EOF'
 排行榜
 正负值
 爆发
+女生节
+哈登
+丑恩
+大帝
+恩比德
+贾森基德
+泰伦卢
+一米九八
+库兹马
+保罗
+阿德
+德罗赞
+流言板
+路人王
 EOF;
 header('Last-Modified: '.gmdate('D, d M Y H:i:s', time()).' GMT', true, 200);
 header('ETag: "5816f349-19"');
