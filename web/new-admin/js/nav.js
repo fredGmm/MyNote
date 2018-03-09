@@ -57,37 +57,17 @@ var navs = [{
             //     "spread": false
             // },
             {
-                "title": "教你发帖" ,
+                "title": "帖子分析" ,
                 "icon": "&#xe631;",
                 "href": "/ssnh/hupu/analyze",
                 "spread": true
+            },
+            {
+                "title": "7大板块横向对比" ,
+                "icon": "&#xe631;",
+                "href": "/ssnh/hupu/plate",
+                "spread": true
             }
         ]
-    },
-    {
-        "title": "山水年华意见集合",
-        "icon": "#icon-text;",
-        "href": "/ssnh/suggestion/all",
-        "spread": true
-    },
-    // {
-    //     "title": "二级菜单演示",
-    //     "icon": "&#xe61c;",
-    //     "href": "",
-    //     "spread": false,
-    //     "children": [
-    //         {
-    //             "title": "二级菜单1",
-    //             "icon": "&#xe631;",
-    //             "href": "",
-    //             "spread": false
-    //         },
-    //         {
-    //             "title": "二级菜单2",
-    //             "icon": "&#xe631;",
-    //             "href": "",
-    //             "spread": false
-    //         }
-    //     ]
-    // }
-    ]
+    }
+    ];

@@ -38,7 +38,7 @@ class RedisBase
     public function __construct()
     {
         if(!$this->configMaster) {
-            $logger = \Douyu\Core\Di::getDefault()->getRedisLogger();
+//            $logger = \Douyu\Core\Di::getDefault()->getRedisLogger();
             $logger->error('redis config error');
             $logger->disableDelayWrite();
         }

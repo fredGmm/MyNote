@@ -3,8 +3,7 @@
 namespace Library\WAB;
 
 use Library\Core\RedisBase;
-use Library\WAB\db\Privilege;
-use Library\WAB\db\Shop;
+
 
 /**
  * Class Redis 封装了专门用于边看边买业务的存取方法

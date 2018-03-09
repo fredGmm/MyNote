@@ -7,6 +7,7 @@ use app\library\Essearch\CurdData;
 use app\models\MongdbModel;
 use app\models\ScrapArticle;
 use app\models\WxbTitleModel;
+use app\modules\ssnh\model\BigPlateDataModel;
 use app\modules\ssnh\model\HupuArticleListModel;
 use app\modules\ssnh\model\HupuHotWordModel;
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
@@ -16,7 +17,7 @@ use yii\helpers\Console;
 
 /**
  *  crontab 脚本，mongodb 数据到 mysql
- */
+*/
 class HupuController extends Controller
 {
     /**
@@ -113,7 +114,7 @@ class HupuController extends Controller
     {
         $page = 1;
         $page_size = 1000;
-        $article_iterator = HupuArticleListModel::articleIterator($page,$page_size, ['post_date' => date('Y-m-d', time())]);
+        $article_iterator = HupuArticleListModel::articleIterator($page,$page_size, ['post_date' => date('Y-m-d', time()), 'is_analyze' => 0]);
 
         $add_count = 0; //这一次脚本添加了多少词
         $update_count = 0; // 这一次
@@ -126,6 +127,7 @@ class HupuController extends Controller
                break;
            }
            foreach ($article_list as $key => $article){
+
                $words = CurdData::analyzeDocument($article['article_title'], CurdData::IK_SMART);
                $this->stdout($article['id'] . ' : ' . $article['article_title'] . PHP_EOL, Console::FG_BLUE);
                if(!empty($words)){
@@ -151,35 +153,61 @@ class HupuController extends Controller
                        }
                    }
                }
+               HupuArticleListModel::updateAll(['is_analyze' => 1], ['id' => $article['id']]);
            }
-
         }
 
         printf("本次运行共添加了%d条热词，更新词的出现次数%d次", $add_count, $update_count);
     }
 
-
     /**
-     * 脚本测试用
+     *
      */
-    public function actionTest(){
-        $page = 1;
-        $page_size = 10;
+    public function actionBigPlateData()
+    {
+        /** 使用 暴力尝试方法 获取到的 这些接口 */
+        $api_array = [
+            'nba'               => 'https://bbs.hupu.com/get_nav?fup=1',  # nba论坛
+            'site'              => 'https://bbs.hupu.com/get_nav?fup=7',  # 站务论坛
+            'sports'            => 'https://bbs.hupu.com/get_nav?fup=41', #综合体育论坛
+            'financial'         => 'https://bbs.hupu.com/get_nav?fup=42', # 彩票中心
+            'hupu_society'      => 'https://bbs.hupu.com/get_nav?fup=114',  # 虎扑社团
+            'bxj_main'          => 'https://bbs.hupu.com/get_nav?fup=174',  #步行街主干道
+            'china_football'    => 'https://bbs.hupu.com/get_nav?fup=198',  #中国足球论坛
+            'cba'               => 'https://bbs.hupu.com/get_nav?fup=232',   # CBA论坛
+            'equipment'         => 'https://bbs.hupu.com/get_nav?fup=233',    # 装备论坛
+            'electronic_sports' => 'https://bbs.hupu.com/get_nav?fup=234',    # 游戏电竞
+            'self_plate'        => 'https://bbs.hupu.com/get_nav?fup=238',    # 自建板块
+        ];
 
-//        $data = HupuArticleListModel::getArticleList($page, $page_size);
-//
-//        $count = 0;
-//        foreach ($data['article_list'] as $dk =>$dv){
-//            $result = CurdData::writeDocument($dv['id'],CurdData::$type[0],$dv);
-//            if($result){
-//                echo $count++ ;
-//            }
-//        }
-//        exit;
-//        var_dump($data);exit;
-//       var_dump(CurdData::deleteDocument(3, CurdData::$type[0]));
-        var_dump(CurdData::analyzeDocument('逼格好厉害的吗'));
-//        var_dump(CurdData::search(CurdData::$type[0], ['article_title' => '步行街'],$page, $page_size));
+        $today_date = date('Ymd');
+        foreach ($api_array as $plate => $url){
+            $result = Common::curl($url);
+            if($result['status'] == 200 && !empty($result['data'])){
+                $post_num_data = array_column($result['data'],'tpostnum');
+                $post_num = array_sum($post_num_data);
+                $insert_data = [
+                    'big_plate' => $plate,
+                    'day_post_num' => $post_num,
+                    'date' => $today_date,
+                    'data_json' => json_encode($result['data']),
+                    'create_time' => time()
+                ];
 
+                $is_exist = BigPlateDataModel::find()
+                    ->where(['big_plate' => $plate,'date' => $today_date ])
+                    ->one();
+
+                if($is_exist){
+                    $is_exist->day_post_num = $post_num;
+                    $is_exist->save();
+                }else{
+                    (new BigPlateDataModel())->addPlateData($insert_data);
+                }
+            }
+        }
+
+        $this->stdout('脚本完毕' . PHP_EOL, Console::FG_GREEN);
     }
+
 }
