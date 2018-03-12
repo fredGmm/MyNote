@@ -119,10 +119,7 @@ class HupuController extends BaseController{
         foreach ($gender_data as $gk =>$gv){
             $data['name'] = HupuUserModel::getGenderName($gv['gender']);
             $data['y'] = (int)$gv['count'];
-            if($gv['gender'] == 2) {
-                $data['sliced'] = 'true';
-                $data['selected'] = 'true';
-            }
+            $data['per'] =(int)ceil(($gv['count'] / 800));
 
             $pie_table_data[] = $data;
         }

@@ -132,6 +132,9 @@ class HupuController extends Controller
                $this->stdout($article['id'] . ' : ' . $article['article_title'] . PHP_EOL, Console::FG_BLUE);
                if(!empty($words)){
                    foreach ($words as $word) {
+                       if($word['token'] == 'jrs') {
+                           $word['token'] = 'jr';
+                       }
                        $insert_data = [
                            'word' => $word['token'],
                            'number' => 1,

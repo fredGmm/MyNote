@@ -30,15 +30,12 @@ use app\assets\AppAsset;
 
 
 </head>
-<body  class="layui-layout-body">
+<body class="main_body">
+<div  class="layui-layout layui-layout-admin">
 <?php $this->beginBody() ?>
         <?= $content ?>
-            <div class="layui-footer">
-                <!-- 底部固定区域 -->
-            </div>
-
 <?php $this->endBody() ?>
-</body>
-
+</div>
 </html>
 <?php $this->endPage() ?>
+

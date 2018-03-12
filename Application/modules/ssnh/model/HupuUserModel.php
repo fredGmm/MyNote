@@ -31,6 +31,7 @@ class HupuUserModel extends BaseTable
     {
         $gender_data = self::find()->select(['gender','count' => new Expression('count(*)')])
             ->groupBy('gender')
+            ->orderBy('gender')
             ->asArray()
             ->all();
 

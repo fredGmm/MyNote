@@ -21,15 +21,46 @@
 
 <div id="hot-word" style="min-width:400px;width: 500px;height:400px;margin-left:20px; float: left"></div>
 <hr/>
-<span style="height:100px; width:1px; border-right:1px #000 solid" ><img width="100px" height="100px" src="/static/img/male7.ico"></span>
+<div id="male" ></div>
+<div id="female" style="margin-top: 20px"></div>
+<div id="help" style="margin-top: 20px"></span></div>
+<hr/>
+
+<!--<span ><img width="20px" height="20px" src="/static/img/male7.ico"></span>-->
 <!--<div style="height:100px; width:1px; border-left:1px #000 solid"></div>-->
-<span><img width="100px" height="100px" src="/static/img/female.ico"></span>
-<span><img width="100px" height="100px" src="/static/img/help.ico"></span>
+<!--<span><img width="100px" height="100px" src="/static/img/female.ico"></span>-->
+<!--<span><img width="100px" height="100px" src="/static/img/help.ico"></span>-->
 
 
 
 <script>
     $(function () {
+        $.ajax({
+            type: 'get',
+            url: '/ssnh/hupu/gender-data',//请求数据的地址
+            success: function (data) {
+                console.log(data.data[0].y);
+                $("#male").append("<span style='width:80px;display:inline-block'>男jr:  </span>" + data.data[0].y );
+                for(var i=0;i<data.data[0].per;i++){
+                    $("#male").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/male7.ico\"></span>");
+                }
+
+                $("#female").append("<span style='width:80px;display:inline-block'>女jr: </span>"+ data.data[1].y + "");
+                for(var j=0;j<data.data[1].per;j++){
+                    $("#female").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/female.ico\"></span>");
+                }
+
+                $("#help").append(" <span style='width:80px;display:inline-block'>无性别jr:</span>"+data.data[2].y);
+                for(var k=0;k<data.data[2].per;k++){
+                    $("#help").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/help.ico\"></span>");
+                }
+
+            },
+            error: function (e) {
+            }
+        });
+
+
         $.ajax({
             type: 'get',
             url: '/ssnh/hupu/hot-word',//请求数据的地址
