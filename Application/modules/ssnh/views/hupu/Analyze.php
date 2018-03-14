@@ -14,7 +14,7 @@
 <body>
 
 
-<div id="container"  style="min-width: 1500px; height: 400px;width: 2000px; margin: 0 0"></div>
+<div id="container"  style="min-width: 1500px; height: 400px;width: 1000px; margin: 0 0"></div>
 <hr/>
 <div id="pie-chart" style="min-width:400px;width: 500px;height:400px;margin-left:20px"></div>
 <hr/>

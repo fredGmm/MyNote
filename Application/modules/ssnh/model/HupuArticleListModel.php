@@ -8,6 +8,7 @@
 namespace app\modules\ssnh\model;
 
 use app\modules\base\model\BaseTable;
+use yii\db\Expression;
 
 /**
  *
@@ -65,14 +66,17 @@ class HupuArticleListModel extends BaseTable {
 
 
     /**
-     * 根据时间类型 以及 时间来获取 相对应的数据
+     * 取得每小时发帖数目数据，板块区分
      *
      * @return array
      */
-    public static function getDataByTime( $start, $end, $plate, $page, $page_size)
+    public static function getDataByHour($date)
     {
-        $data = self::find()->where(['>=','post_time', $start ])->all();
-
+        $data = self::find()
+            ->select(['plate','post_hour','count' => new Expression('count(*)')])
+            ->where(['post_date' => $date ])
+            ->groupBy('plate,post_hour')
+            ->asArray()->all();
         return $data;
     }
 

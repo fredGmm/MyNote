@@ -175,6 +175,31 @@ class HupuController extends BaseController{
     }
 
     /**
+     * 每天按照小时的发帖趋势图数据
+     *
+     * @return array
+     */
+    public function actionPostNumLineByHour(){
+        $date = $this->get('date', date('Y-m-d'));
+        $data = HupuArticleListModel::getDataByHour($date);
+        $bxj  = []; //步行街折线数据
+        $lol  = []; //lol折现数据
+        $vote = []; //湿乎乎折线数据
+        foreach ($data as $dk => $dv) {
+            if ($dv['plate'] == 'bxj') {
+                $bxj[] = ['y' => (int)$dv['count'], 'name' => $dv['post_hour'] . '时'];
+            } elseif ($dv['plate'] == 'lol') {
+                $lol[] = ['y' => (int)$dv['count'], 'name' => $dv['post_hour'] . '时'];
+            } elseif ($dv['plate'] == 'vote') {
+                $vote[] = ['y' => (int)$dv['count'], 'name' => $dv['post_hour'] . '时'];
+            } else {
+            }
+        }
+        $line_data = [['name' => '步行街', 'data' => $bxj], ['name' => '英雄联盟', 'data' => $lol], ['name' => '湿乎乎', 'data' => $vote]];
+        $this->jsonOk($line_data);
+    }
+
+    /**
      * @desc 用来测试的ajax 接口
      *
      * @return string
@@ -229,7 +254,12 @@ class HupuController extends BaseController{
                 'drilldown' => 'true'
             ],
         ];
-        $this->jsonOk([[ 'name' => '第一','weight'=> 5] ,[ 'name' => '第二','weight'=> 1],[ 'name' => '第三','weight'=> 1],[ 'name' => '第四','weight'=> 1]]);
+        $this->jsonOk([
+            ['name' => 'jb', 'data' => [['y' => 24, 'name' => 'gg'], ['y' => 32, 'name' => 'kk'], ['y' => 42, 'name' => 'jj']]],
+            ['name' => 'ok', 'data' => [['y' => 31, 'name' => 'gg'], ['y' => 43, 'name' => 'kk'], ['y' => 34, 'name' => 'jj']]],
+            ['name' => 'lala', 'data' => [['y' => 23, 'name' => 'gg'], ['y' => 43, 'name' => 'kk'], ['y' => 23, 'name' => 'jj']]],
+            ['name' => 'coco', 'data' => [['y' => 43, 'name' => 'gg'], ['y' => 43, 'name' => 'kk'], ['y' => 54, 'name' => 'jj']]]
+        ]);
 //        $this->jsonOk([ '第一'=> 10 , '第er'=> 10, '第san'=> 10, '第si'=> 10]);
     }
 }
