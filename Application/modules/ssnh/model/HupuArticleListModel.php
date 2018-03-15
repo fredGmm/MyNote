@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: fred
+ * User: fredGui
  * Date: 2017/9/3
  * Time: 21:06
  */
@@ -62,6 +62,25 @@ class HupuArticleListModel extends BaseTable {
         
         return ['article_list'=>$foods, 'count'=>$count];
     }
+
+    /**
+     * @desc 取得文章来源的地址
+     *
+     * @return array
+     */
+    public static function getArticleFrom(){
+
+    }
+
+    /**
+     * @desc 在线时间的统计
+     *
+     * @return array
+     */
+    public static function onlineTimeData(){
+
+    }
+
 
 
 

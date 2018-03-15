@@ -200,6 +200,24 @@ class HupuController extends BaseController{
     }
 
     /**
+     * 统计发帖来自 iPhone,Android，web的比例
+     *
+     * @return string
+     */
+    public function actionGetArticleFrom(){
+
+    }
+
+    /**
+     * 在线时间的统计
+     *
+     * @return string
+     */
+    public function actionOnlineTime(){
+
+    }
+
+    /**
      * @desc 用来测试的ajax 接口
      *
      * @return string

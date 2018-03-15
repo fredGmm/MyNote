@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>装修注意事项</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>装修注意事项</h2>
+<h3>客厅</h3>
+<blockquote>
+<ol>
+<li>
+<p>客厅可铺设地砖，但是尽量避免选择白色的，避免弄脏不好清理。建议选择灰色或暖黄色。</p>
+</li>
+<li>
+<p>如果家里有年龄较小的孩子，则尽量选用木地板—— 避免了地砖质感硬和凉的缺陷。</p>
+</li>
+<li>
+<p>做电视背景墙或者沙发背景墙，材料的选择性较丰富——如壁纸、壁画、瓷砖等均可。个人推荐使用石膏线条+乳胶漆，造价经济、且风格灵活百搭。</p>
+</li>
+</ol>
+</blockquote>
+<h3>卧室装修</h3>
+<blockquote>
+<ol>
+<li>
+<p>卧室内地板的铺设不同于客厅，颜色要尽量选择浅色。特别是老人和小孩的房间，个人推荐柔和的暖色调地板。（除了材料环保外，我们的设计理念还要重视“视觉环保”）</p>
+</li>
+<li>
+<p>卧室内不要打太多衣柜，适量即可，避免浪费空间。并且衣柜的颜色建议选用暗色系，因为太鲜艳的柜门会与暖色调的地板形成强烈的视觉违和感。（经过大量业主实测验证过的哦）    ps. 柜门建议选用推拉式而非传统的开合式。（美观与实用并重）</p>
+</li>
+<li>
+<p>飘窗，这是我们卧室改造的重中之重。[调皮]建议打造出一个休闲空间，下面可以设计出一个收纳柜，充分提高空间利用率。</p>
+</li>
+</ol>
+</blockquote>
+<h3>厨房设计</h3>
+<blockquote>
+<ol>
+<li>
+<p>厨房的台面选材很重要，个人建议用石英石台面：①.硬度比较大，使用寿命长。②石英石台面相对于人造石来说，物理性质特殊，最不易渗透油渍，便于清理。</p>
+</li>
+<li>
+<p>厨房布局里往往最容易被忽略细节问题是水槽和龙头。[嘘]水槽建议选择台下盆，便于清理。龙头应该尽量选择手背式，方便、卫生。</p>
+</li>
+<li>
+<p>橱柜，一般选用L式造型的橱柜。但是要注意吊柜与地柜数量的搭配。<strong>个人建议，可以少做些地柜，留出一部分空间做拉篮，既节省了地柜的造价又提高了厨房的整体空间利用率。</strong></p>
+</li>
+</ol>
+</blockquote>
+<h3>阳台</h3>
+<blockquote>
+<p>1.阳台是整套房子里空间比较小的区域，但是如果能充分利用，也能在整体家装设计里起到画龙点睛的作用哦[愉快]
+2.阳台虽小，作用很全。可以划分成两个区域：</p>
+<ul>
+<li>休闲区：养盆栽、挂鸟笼、晒太阳，根据个人生活习惯而定。</li>
+<li>功能区:通常为节省卫生间的空间，可将洗衣机放置在阳台一侧。洗衣机上方打一组阳台柜，放洗衣粉衣架等杂物，同时洗衣机旁边要做一个拖把池。（当然如果同时作为晾晒区，那就必须做好阳台地面的防水层和排水系统）</li>
+</ul>
+</blockquote>
+<h3>卫生间</h3>
+<blockquote>
+<p>1.地砖！地砖！地砖！重要的事情说三遍！多少业主的实际经验告诉我们，千万不要铺小的马赛克地砖，太容易藏污纳垢了，虽然好看，但真心不好打理啊。 个人建议，卫生间尽量铺防滑的小块的地砖，40*40尺寸即可。</p>
+<p>2.盥洗台，尽量选择一体式，就是上面带梳妆镜下面带小柜的那种。既美观，又节省空间，而且比较经济.</p>
+<p>3.卫生间里的柜子嘛，不要选落地的，平时有个管道堵塞啊、漏水啊等问题，方便处理。
+PS:洁具卫具一定要选择一线品牌，坚决不能省！毕竟卫生间是个相对封闭且潮湿的环境，二流品牌的产品很难保证使用寿命。</p>
+</blockquote>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

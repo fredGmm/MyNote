@@ -1,9 +1,9 @@
 var navs = [{
-    "title": "后台首页",
+    "title": "首页",
     "icon": "icon-computer",
     "href": "new-admin/page/main.html",
     "spread": false
-},
+    },
     // {
     //     "title": "食物列表",
     //     "icon": "icon-text",
@@ -69,5 +69,27 @@ var navs = [{
                 "spread": true
             }
         ]
+    },
+    {
+        "title": "闲杂文档",
+        "icon": "&#xe61c;",
+        "href": "",
+        "spread": false,
+        "children": [
+            {
+                "title": "装修小记" ,
+                "icon": "&#xe631;",
+                "href": "/doc/装修注意事项.html",
+                "spread": true
+            },
+            {
+                "title": "装修顺序" ,
+                "icon": "&#xe631;",
+                "href": "/doc/装修初步顺序.html",
+                "spread": true
+            },
+
+        ]
     }
-    ];
+
+];
