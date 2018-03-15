@@ -85,7 +85,7 @@ var navs = [{
             {
                 "title": "装修顺序" ,
                 "icon": "&#xe631;",
-                "href": "/doc/装修初步顺序.html",
+                "href": "/doc/2.html",
                 "spread": true
             },
 
