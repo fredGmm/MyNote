@@ -205,7 +205,16 @@ class HupuController extends BaseController{
      * @return string
      */
     public function actionGetArticleFrom(){
-
+        $from_data = HupuArticleListModel::getArticleFrom();
+        $pie_table_data = [];
+        foreach ($from_data as $fk =>$fv){
+            if(!empty($fv['post_from'])) {
+                $data['name'] = $fv['post_from'];
+                $data['y'] = (int)$fv['count'];
+                $pie_table_data[] = $data;
+            }
+        }
+        $this->jsonOk($pie_table_data);
     }
 
     /**

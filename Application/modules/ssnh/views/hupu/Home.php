@@ -35,6 +35,7 @@
     </tr>
     </thead>
 </table>
+<div id="artcile_post_from" style="min-width:400px;width: 500px;height:400px;margin-left:20px"></div>
 <hr>
 <div id="line-chart" style="max-width:800px;height:400px"></div>
 
@@ -69,6 +70,7 @@
         });
     });
     $(function () {
+        
         $.ajax({
             type: 'get',
             url: '/ssnh/hupu/post-num-line-by-hour',//请求数据的地址
@@ -81,6 +83,50 @@
             },
             error: function (e) {
             }
+        });
+
+        $.ajax({
+            type: 'get',
+            url: '/ssnh/hupu/get-article-from',//请求数据的地址
+            success: function (data) {
+                console.log(data.data);
+                artcile_post_from.series[0].setData(data.data);
+            },
+            error: function (e) {
+            }
+        });
+
+        var artcile_post_from = Highcharts.chart('artcile_post_from',{
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '活跃帖子中性别分布'
+            },
+            tooltip: {
+                headerFormat: '{series.name}<br>',
+                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '终端分布',
+
+            }]
         });
 
         var line_chart = Highcharts.chart('line-chart', {

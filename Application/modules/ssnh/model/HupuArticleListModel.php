@@ -11,7 +11,7 @@ use app\modules\base\model\BaseTable;
 use yii\db\Expression;
 
 /**
- *
+ * 文章列表model类
  */
 class HupuArticleListModel extends BaseTable {
 
@@ -69,7 +69,12 @@ class HupuArticleListModel extends BaseTable {
      * @return array
      */
     public static function getArticleFrom(){
-
+        $from_data = self::find()
+            ->select(['post_from','count' => new Expression('count(*)')])
+            ->groupBy('post_from')
+            ->asArray()
+            ->all();
+        return $from_data;
     }
 
     /**
@@ -80,10 +85,7 @@ class HupuArticleListModel extends BaseTable {
     public static function onlineTimeData(){
 
     }
-
-
-
-
+    
     /**
      * 取得每小时发帖数目数据，板块区分
      *
@@ -116,7 +118,6 @@ class HupuArticleListModel extends BaseTable {
         $page_max = $total_count / $page_size;
         do{
             $offset = ($page - 1) * $page_size;
-
             $article_data =  $query->offset($offset)->limit($page_size)->asArray()->all();
             $page++;
             yield $article_data;

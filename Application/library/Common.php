@@ -69,4 +69,46 @@ class Common {
         $sort = $desc ? SORT_DESC : SORT_ASC;
         array_multisort($fieldArr, $sort, $array);
     }
+
+    /**
+     * 数组转为xml数据
+     *
+     * @throws \RuntimeException | string
+     */
+    public static function arrayToXml($array){
+        if(!is_array($array) || count($array) <= 0) {
+            throw new \RuntimeException("数组数据异常！");
+        }
+        $xml = "<xml>";
+        foreach ($array as $key=>$val) {
+            if (is_numeric($val)){
+                $xml.="<".$key.">".$val."</".$key.">";
+            }else{
+                $xml.="<".$key."><![CDATA[".$val."]]></".$key.">";
+            }
+        }
+        $xml.="</xml>";
+
+        return $xml;
+    }
+
+    /**
+     * 将xml转为array
+     *
+     * @param string $xml
+     *
+     * @throws \RuntimeException
+     * @return array
+     */
+    public static function xmlToArray($xml)
+    {
+        if(!$xml){
+            throw new \RuntimeException("xml数据异常！");
+        }
+        //将XML转为array
+        //禁止引用外部xml实体
+        libxml_disable_entity_loader(true);
+        $array = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        return $array;
+    }
 }
