@@ -88,6 +88,12 @@ var navs = [{
                 "href": "/doc/2.html",
                 "spread": true
             },
+            {
+                "title": "验房注意事项" ,
+                "icon": "&#xe631;",
+                "href": "/doc/验房注意事项.html",
+                "spread": true
+            },
 
         ]
     }
