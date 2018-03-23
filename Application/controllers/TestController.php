@@ -99,16 +99,15 @@ class TestController extends Controller
         $so->close();
     }
 
-    public function actionDivisionword(){
-        $sh = scws_open();
-        scws_set_charset($sh, 'utf-8');
-        scws_set_dict($sh, '/usr/local/scws/etc/dict.utf8.xdb');
-        scws_set_rule($sh, '/usr/local/scws/etc/rules.utf8.ini');
-        $text = "刁康是个帅比，会打球，能幽默，还特么年薪30万";
-        scws_send_text($sh, $text);
-        $top = scws_get_tops($sh, 100);
-        echo "<pre>";
-        print_r($top);
+    /**
+     * 支付宝的回调通知测试下
+     */
+    public function actionAli(){
+        $all_post = $_POST;
+        $json = json_encode($all_post);
+        \Yii::$app->log->info($json);
+        echo 'success';
+
     }
 
     public function actionSteal(){
