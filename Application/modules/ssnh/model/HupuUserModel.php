@@ -37,4 +37,23 @@ class HupuUserModel extends BaseTable
 
         return $gender_data;
     }
+
+    /**
+     * @desc 在线时间的统计
+     *
+     * @return array
+     */
+    public static function onlineTimeData(){
+        $data = self::find()
+            ->select(
+                [
+                    'online' => new Expression('ELT(INTERVAL(h.online_time,0, 100, 300,500,700, 1000,2000,5000), \'less100\', \'100to300\', \'500to700\', \'700to1000\',\'1000to2000\',\'2000to5000\',\'more5000\')'),
+                    'count'=> new Expression('(h.online_time)') ])
+            ->groupBy(new Expression('ELT(INTERVAL(h.online_time,0, 100, 300,500,700, 1000,2000,5000), \'less100\', \'100to300\', \'500to700\', \'700to1000\',\'1000to2000\',\'2000to5000\',\'more5000\')'))
+            ->from('hupu_user as h')
+            ->asArray()
+            ->all();
+        return $data;
+    }
+
 }

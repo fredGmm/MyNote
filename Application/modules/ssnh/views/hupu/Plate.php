@@ -26,6 +26,8 @@
 <div id="help" style="margin-top: 20px"></span></div>
 <hr/>
 
+<div id="online-time" style="min-width:400px;height:400px;float: left"></div>
+
 
 
 <script>
@@ -97,6 +99,10 @@
                headerFormat: '{series.name}<br>',
                 pointFormat: '{point.name}: <b>{point.y}篇</b>'
             },
+            credits: {
+                text: 'fredGui的github',
+                href: 'https://github.com/fredGmm'
+            },
             plotOptions: {
                 pie: {
                     allowPointSelect: true,
@@ -115,7 +121,69 @@
                 name: ' '
             }]
         });
+        $.ajax({
+            type: 'get',
+            url: '/ssnh/hupu/ajax-test',//请求数据的地址
+            success: function (data) {
+//                console.log(data.data);
+                online_time.series[0].setData(data.data);
+            }
+        });
+        var online_time = Highcharts.chart('online-time',{
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,
+                plotShadow: false
+            },
+            title: {
+                text: '浏览器<br>占比',
+                align: 'center',
+                verticalAlign: 'middle',
+                y: 50
+            },
+            tooltip: {
+                headerFormat: '{series.name}<br>',
+                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b><br>总共100人'
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: true,
+                        distance: -50,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white',
+                            textShadow: '0px 1px 2px black'
+                        }
+                    },
+                    startAngle: -90,
+                    endAngle: 90,
+                    center: ['50%', '75%']
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '浏览器占比',
+                innerSize: '50%',
+//                data: [
+//                    ['Firefox',   45.0],
+//                    ['IE',       26.8],
+//                    ['Chrome', 12.8],
+//                    ['Safari',    8.5],
+//                    ['Opera',     6.2],
+//                    {
+//                        name: '其他',
+//                        y: 0.7,
+//                        dataLabels: {
+//                            // 数据比较少，没有空间显示数据标签，所以将其关闭
+//                            enabled: false
+//                        }
+//                    }
+//                ]
+            }]
+        });
     });
+
 </script>
 </body>
 </html>

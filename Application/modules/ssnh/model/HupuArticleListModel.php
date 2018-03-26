@@ -76,15 +76,7 @@ class HupuArticleListModel extends BaseTable {
             ->all();
         return $from_data;
     }
-
-    /**
-     * @desc 在线时间的统计
-     *
-     * @return array
-     */
-    public static function onlineTimeData(){
-
-    }
+    
     
     /**
      * 取得每小时发帖数目数据，板块区分

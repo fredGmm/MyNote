@@ -223,7 +223,11 @@ class HupuController extends BaseController{
      * @return string
      */
     public function actionOnlineTime(){
+        //一年以下，1，2,3,4,5年以上
+        $data = HupuUserModel::onlineTimeData();
 
+        var_dump($data);exit;
+        
     }
 
     /**
@@ -281,12 +285,7 @@ class HupuController extends BaseController{
                 'drilldown' => 'true'
             ],
         ];
-        $this->jsonOk([
-            ['name' => 'jb', 'data' => [['y' => 24, 'name' => 'gg'], ['y' => 32, 'name' => 'kk'], ['y' => 42, 'name' => 'jj']]],
-            ['name' => 'ok', 'data' => [['y' => 31, 'name' => 'gg'], ['y' => 43, 'name' => 'kk'], ['y' => 34, 'name' => 'jj']]],
-            ['name' => 'lala', 'data' => [['y' => 23, 'name' => 'gg'], ['y' => 43, 'name' => 'kk'], ['y' => 23, 'name' => 'jj']]],
-            ['name' => 'coco', 'data' => [['y' => 43, 'name' => 'gg'], ['y' => 43, 'name' => 'kk'], ['y' => 54, 'name' => 'jj']]]
-        ]);
+        $this->jsonOk([['Firefox', 45.0],['IE',26.8],['Chrome',12.8],['Safari',8.5]]);
 //        $this->jsonOk([ '第一'=> 10 , '第er'=> 10, '第san'=> 10, '第si'=> 10]);
     }
 }
