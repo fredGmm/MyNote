@@ -15,10 +15,8 @@
 </head>
 <body>
 
-
-
+大板块分布图
 <div id="big-plate-chart" style="min-width:400px;width: 500px;height:400px;margin-left:20px;float: left"></div>
-
 <div id="hot-word" style="min-width:400px;width: 500px;height:400px;margin-left:20px; float: left"></div>
 <hr/>
 <div id="male" ></div>
@@ -27,8 +25,8 @@
 <hr/>
 
 <div id="online-time" style="min-width:400px;height:400px;float: left"></div>
-
-
+<hr/>
+<div id="reg-time" style="min-width:400px;width: 1200px;height:400px"></div>
 
 <script>
     $(function () {
@@ -41,7 +39,6 @@
                 for(var i=0;i<data.data[0].per;i++){
                     $("#male").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/male.ico\"></span>");
                 }
-
                 $("#female").append("<span style='width:80px;display:inline-block'>女jr: </span>"+ data.data[1].y + "");
                 for(var j=0;j<data.data[1].per;j++){
                     $("#female").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/female.ico\"></span>");
@@ -123,9 +120,10 @@
         });
         $.ajax({
             type: 'get',
-            url: '/ssnh/hupu/ajax-test',//请求数据的地址
+            url: '/ssnh/hupu/online-time',//请求数据的地址
             success: function (data) {
 //                console.log(data.data);
+                online_time.series[0].count = data.count;
                 online_time.series[0].setData(data.data);
             }
         });
@@ -136,14 +134,14 @@
                 plotShadow: false
             },
             title: {
-                text: '浏览器<br>占比',
+                text: '在线时长<br>占比<br>',
                 align: 'center',
                 verticalAlign: 'middle',
                 y: 50
             },
             tooltip: {
-                headerFormat: '{series.name}<br>',
-                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b><br>总共100人'
+                headerFormat: '{series.name}:{series.count}人<br>',
+                pointFormat: '在线{point.name}h: <b>占{point.percentage:.1f}%</b><br>'
             },
             plotOptions: {
                 pie: {
@@ -163,24 +161,77 @@
             },
             series: [{
                 type: 'pie',
-                name: '浏览器占比',
+                name: '总人数',
                 innerSize: '50%',
-//                data: [
-//                    ['Firefox',   45.0],
-//                    ['IE',       26.8],
-//                    ['Chrome', 12.8],
-//                    ['Safari',    8.5],
-//                    ['Opera',     6.2],
-//                    {
-//                        name: '其他',
-//                        y: 0.7,
-//                        dataLabels: {
-//                            // 数据比较少，没有空间显示数据标签，所以将其关闭
-//                            enabled: false
-//                        }
-//                    }
-//                ]
+                count:0
             }]
+        });
+
+        $.ajax({
+            type: 'get',
+            url: '/ssnh/hupu/reg-time',//请求数据的地址
+            success: function (data) {
+//                console.log(data.data);
+                for (let i = 0;i < data.data.length;i++){
+//                    console.log(data.data[s]);
+                    reg_time.addSeries(data.data[i]);
+                }
+            }
+        });
+        var reg_time = Highcharts.chart('reg-time',{
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '堆叠柱形图'
+            },
+            xAxis: {
+                categories: ['2004年', '2005年', '2006年', '2007年', '2008年', '2009年', '2010年', '2011年', '2012年', '2013年', '2014年','2015年', '2016年', '2017年', '2018年']
+//                categories: ['2004年', '2005年', '2006年']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '水果消费总量'
+                },
+                stackLabels: {
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    }
+                }
+            },
+            legend: {
+                align: 'right',
+                x: -30,
+                verticalAlign: 'top',
+                y: 25,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                borderColor: '#CCC',
+                borderWidth: 1,
+                shadow: false
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.x + '</b><br/>' +
+                        this.series.name + ': ' + this.y + '<br/>' +
+                        '总量: ' + this.point.stackTotal;
+                }
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                        style: {
+                            textShadow: '0 0 3px black'
+                        }
+                    }
+                }
+            },
         });
     });
 

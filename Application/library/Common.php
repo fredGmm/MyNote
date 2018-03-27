@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: bosheng2017
+ * User: FredGui
  * Date: 2017/8/29
  * Time: 14:31
  */
@@ -110,5 +110,25 @@ class Common {
         libxml_disable_entity_loader(true);
         $array = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
         return $array;
+    }
+
+    /**
+     * 二维数组中，以某个值作为数组键名
+     *
+     * @param array  $data   二维数组
+     * @param string $column 字段
+     *
+     * @return array
+     */
+    public static function putValToKey($data, $column = 'id')
+    {
+        $map = [];
+        if (empty($data) || !is_array($data)) {
+            return [];
+        }
+        foreach ($data as $dk => $dv) {
+            $map[$dv[$column]] = $dv;
+        }
+        return $map;
     }
 }

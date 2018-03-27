@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bosheng2017
- * Date: 2017/10/20
- * Time: 11:49
- */
 
 include './DaemonBase.php';
 

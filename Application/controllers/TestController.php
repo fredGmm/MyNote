@@ -119,4 +119,37 @@ class TestController extends Controller
         echo "这里是盗取 fred的网站</br>";
         echo "<img src=\"http://data.kinggui.com/src/images/about2.jpg\">";
     }
+
+    public function Tree($data = [], $pid = 0, $cot = 0){
+        if(isset($data[$pid])) {
+            foreach ($data[$pid] as $val){
+                if($val['pid'] == $pid) {
+                    $val['cot'] = $cot;
+                    $this->tree_data = $val;
+                    $this->Tree($data, $val['id'], $cot + 1);
+                }
+            }
+        }
+        return $this->tree_data;
+    }
+
+    public function tree2($items, $id = 'id', $pid='pid',$son="child"){
+        $tree = [];
+        $tmpMap = [];
+        foreach ($items as $item){
+            $tmpMap[$item[$id]] = $items;
+        }
+        foreach ($items as $item){
+            if(isset($tmpMap[$item[$pid]])){
+                $tmpMap[$item[$pid]][$son][] = &$tmpMap[$item[$id]];
+            }else{
+                $tree[] = &$tmpMap[$item[$id]];
+            }
+        }
+
+        unset($tmpMap);
+        return $tree;
+    }
+
+
 }

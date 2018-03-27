@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bosheng2017
- * Date: 2017/11/8
- * Time: 17:39
- */
 
 namespace Library\Image;
 

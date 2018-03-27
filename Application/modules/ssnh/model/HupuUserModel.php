@@ -39,20 +39,43 @@ class HupuUserModel extends BaseTable
     }
 
     /**
-     * @desc 在线时间的统计
+     * @desc 在线时间的统计。 在线时长 在一个时间段区间内的用户数
      *
      * @return array
      */
-    public static function onlineTimeData(){
-        $data = self::find()
+    public static function onlineTimeData($where = []){
+        $query = self::find()
             ->select(
                 [
-                    'online' => new Expression('ELT(INTERVAL(h.online_time,0, 100, 300,500,700, 1000,2000,5000), \'less100\', \'100to300\', \'500to700\', \'700to1000\',\'1000to2000\',\'2000to5000\',\'more5000\')'),
-                    'count'=> new Expression('(h.online_time)') ])
-            ->groupBy(new Expression('ELT(INTERVAL(h.online_time,0, 100, 300,500,700, 1000,2000,5000), \'less100\', \'100to300\', \'500to700\', \'700to1000\',\'1000to2000\',\'2000to5000\',\'more5000\')'))
+                    'online_time' => new Expression('ELT(INTERVAL(h.online_time,0, 50,100, 300,500,700, 1000,2000,5000), \'0~50\',\'50~100\',\'100~300\', \'300~500\', \'500~700\', \'700~1000\',\'1000~2000\',\'2000~5000\',\'5000以上\')'),
+                    'count'=> new Expression('count(h.online_time)'),
+                 //   'year' => new Expression('YEAR(reg_time)')
+                ]);
+         if($where) {
+             $query->where($where);
+         }
+         $data = $query ->groupBy(new Expression('ELT(INTERVAL(h.online_time,0, 50,100, 300,500,700, 1000,2000,5000), \'0~50\',\'50~100\',\'100~300\', \'300~500\', \'500~700\', \'700~1000\',\'1000~2000\',\'2000~5000\',\'5000以上\')'))
+           // ->addGroupBy(new Expression('YEAR(reg_time)'))
+            ->orderBy('h.online_time')
             ->from('hupu_user as h')
             ->asArray()
             ->all();
+        return $data;
+    }
+
+    /**
+     * 获取注册时间的数据
+     *
+     * @return array
+     */
+    public static function getRegData(){
+        $data = self::find()->select([
+            'reg_year' => new Expression('YEAR(reg_time)'),
+            'count' => new Expression('count(*)')
+        ])
+            ->groupBy(new Expression('YEAR(reg_time)'))
+            ->asArray()->all();
+
         return $data;
     }
 

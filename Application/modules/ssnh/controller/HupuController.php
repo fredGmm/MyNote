@@ -1,18 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bosheng2017
- * Date: 2017/12/14
- * Time: 15:07
- */
+
 namespace app\modules\ssnh\controller;
 
+use app\library\Common;
 use app\modules\base\controller\BaseController;
 use app\modules\ssnh\model\BigPlateDataModel;
 use app\modules\ssnh\model\HupuArticleListModel;
 use app\modules\ssnh\model\HupuHotWordModel;
 use app\modules\ssnh\model\HupuUserModel;
 use app\modules\ssnh\model\PlatePostNumModel;
+use yii\db\Expression;
 
 class HupuController extends BaseController{
 
@@ -223,12 +220,55 @@ class HupuController extends BaseController{
      * @return string
      */
     public function actionOnlineTime(){
-        //一年以下，1，2,3,4,5年以上
+        //
         $data = HupuUserModel::onlineTimeData();
+        $user_count = array_sum(array_column($data,'count'));
 
-        var_dump($data);exit;
-        
+        array_walk($data,function(&$v){
+            $v = [$v['online_time'],(int)$v['count']];
+//            $v['count'] = (int)$v['count'];
+//            $v['per'] = bcmul(round($v['count'] / $user_count, 4), 100, 2) . '%';
+        });
+        $this->jsonOk($data, $user_count);
     }
+
+    public function actionRegTime(){
+        var_dump('dsaf' == 0);exit;
+        $data = HupuUserModel::getRegData();
+        $year = date('Y', time()); //今年的年份
+        $table_data = [
+            ['name' => '0~50','data' => [21,32,32,32,32,32,32,32]],
+            ['name' => '50~100','data' => [21,32,32,32,32,32,32,32]],
+            ['name' => '100~300','data' => [21,32,32,32,32,32,32,32]],
+            ['name' => '300~500','data' => [21,32,32,32,32,32,32,32]],
+            ['name' => '500~700','data' => [21,32,32,32,32,32,32,32]],
+            ['name' => '700~1000','data' => [21,32,32,32,32,32,32,32]],
+            ['name' => '1000~2000','data' => [21,32,32,32,32,32,32,32]],
+            ['name' => '2000~5000','data' => [21,32,32,32,32,32,32,32]],
+            ['name' => '5000以上','data' => [21,32,32,32,32,32,32,32]],
+        ];
+
+        $table_data_names = array_column($table_data, 'name');
+        
+//        foreach ($data as $dk => &$dv) {
+//            $online_in_year = HupuUserModel::onlineTimeData(new Expression('YEAR(reg_time) = '. $dv['reg_year']));
+//            $online_in_year = Common::putValToKey($online_in_year, 'online_time');
+//            $dv['year'] = $year - $dv['reg_year'];
+//            $dv['online_in_year'] = $online_in_year;
+//            foreach ($online_in_year as $range => $ov) {
+//                $table_name_index = array_search($range, $table_data_names);
+//                $table_data[$table_name_index]['data'][$dv['reg_year'] ] = (int)$ov['count'];
+////                var_dump($table_name_index,$ov,$dv,$table_data);exit;
+//            }
+//
+//        }
+//        foreach ($table_data as &$tv){
+//            $tv['data'] = array_values($tv['data']);
+//        }
+//        var_dump($table_data);exit;
+        $this->jsonOk($table_data);
+    }
+
 
     /**
      * @desc 用来测试的ajax 接口
@@ -285,7 +325,6 @@ class HupuController extends BaseController{
                 'drilldown' => 'true'
             ],
         ];
-        $this->jsonOk([['Firefox', 45.0],['IE',26.8],['Chrome',12.8],['Safari',8.5]]);
 //        $this->jsonOk([ '第一'=> 10 , '第er'=> 10, '第san'=> 10, '第si'=> 10]);
     }
 }
