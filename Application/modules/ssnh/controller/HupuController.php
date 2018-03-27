@@ -233,39 +233,38 @@ class HupuController extends BaseController{
     }
 
     public function actionRegTime(){
-        var_dump('dsaf' == 0);exit;
         $data = HupuUserModel::getRegData();
         $year = date('Y', time()); //今年的年份
         $table_data = [
-            ['name' => '0~50','data' => [21,32,32,32,32,32,32,32]],
-            ['name' => '50~100','data' => [21,32,32,32,32,32,32,32]],
-            ['name' => '100~300','data' => [21,32,32,32,32,32,32,32]],
-            ['name' => '300~500','data' => [21,32,32,32,32,32,32,32]],
-            ['name' => '500~700','data' => [21,32,32,32,32,32,32,32]],
-            ['name' => '700~1000','data' => [21,32,32,32,32,32,32,32]],
-            ['name' => '1000~2000','data' => [21,32,32,32,32,32,32,32]],
-            ['name' => '2000~5000','data' => [21,32,32,32,32,32,32,32]],
-            ['name' => '5000以上','data' => [21,32,32,32,32,32,32,32]],
+            ['name' => '0~50','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+            ['name' => '50~100','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+            ['name' => '100~300','data' =>[0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+            ['name' => '300~500','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+            ['name' => '500~700','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+            ['name' => '700~1000','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+            ['name' => '1000~2000','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+            ['name' => '2000~5000','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+            ['name' => '5000以上','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
         ];
 
         $table_data_names = array_column($table_data, 'name');
         
-//        foreach ($data as $dk => &$dv) {
-//            $online_in_year = HupuUserModel::onlineTimeData(new Expression('YEAR(reg_time) = '. $dv['reg_year']));
-//            $online_in_year = Common::putValToKey($online_in_year, 'online_time');
-//            $dv['year'] = $year - $dv['reg_year'];
-//            $dv['online_in_year'] = $online_in_year;
-//            foreach ($online_in_year as $range => $ov) {
-//                $table_name_index = array_search($range, $table_data_names);
-//                $table_data[$table_name_index]['data'][$dv['reg_year'] ] = (int)$ov['count'];
-////                var_dump($table_name_index,$ov,$dv,$table_data);exit;
-//            }
-//
-//        }
+        foreach ($data as $dk => &$dv) {
+            $online_in_year = HupuUserModel::onlineTimeData(new Expression('YEAR(reg_time) = '. $dv['reg_year']));
+            $online_in_year = Common::putValToKey($online_in_year, 'online_time');
+            $dv['year'] = $year - $dv['reg_year'];
+            $dv['online_in_year'] = $online_in_year;
+            foreach ($online_in_year as $range => $ov) {
+                $table_name_index = array_search($range, $table_data_names);
+                $table_data[$table_name_index]['data'][$dv['reg_year']] = (int)$ov['count'];
+//                var_dump($table_name_index,$ov,$dv,$table_data);exit;
+            }
+
+        }
 //        foreach ($table_data as &$tv){
 //            $tv['data'] = array_values($tv['data']);
 //        }
-//        var_dump($table_data);exit;
+        var_dump($table_data);exit;
         $this->jsonOk($table_data);
     }
 
