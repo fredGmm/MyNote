@@ -10,31 +10,25 @@ namespace app\controllers;
 use app\library\Common;
 use Library\Image\ImageHandle;
 
+/**
+ * 发现了一个获取狗狗图片的接口，就用这个控制器展示下
+ * Class DogController
+ * @package app\controllers
+ */
 class DogController extends BaseController{
 
-    public function actionYou()
+    //接口的域名，可前去看文档
+    const DOG_API_DOMAIN = 'https://dog.ceo';
+
+    //暂时用到的接口
+    public static $apis = [
+        'random' => '/api/breeds/image/random', //随机获得一张狗图片
+//        'list'   => '/api/breeds/list'   //返回一组狗图片
+    ];
+
+    public function actionRandomOneDog()
     {
         $data = Common::curl('https://dog.ceo/api/breeds/image/random');
-
         return $this->render('You', ['data' => $data]);
-    }
-
-    public function actionCheckYellow()
-    {
-        $domain = 'www.xxx.com';
-        $name = 'uu836.mp4';
-        for($year = 2016; $year<2018; $year++){
-            for($month=1;$month<13;$month++){
-                $url = $domain . '/' . $year . '/'. $month . '/' . $name;
-
-                $is_exist = ImageHandle::fileIsExist($url);
-                if($is_exist) {
-                    echo $url;
-                }
-                echo "<br/>";
-            }
-        }
-
-        exit;
     }
 }

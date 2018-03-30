@@ -10,6 +10,11 @@ namespace app\controllers;
 
 use yii\web\Controller;
 
+/**
+ * 控制基类
+ * Class BaseController
+ * @package app\controllers
+ */
 class BaseController extends Controller {
     
 }
