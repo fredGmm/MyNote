@@ -16,7 +16,7 @@ class HupuController extends BaseController{
     /**
      * 首页面
      */
-    public $layout = 'iframe_main';
+    public $layout = 'admin_main';
 
     public function actionHome(){
 
@@ -236,7 +236,7 @@ class HupuController extends BaseController{
         $data = HupuUserModel::getRegData();
         $year = date('Y', time()); //今年的年份
         $table_data = [
-            ['name' => '0~50','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+            ['name' => '0~50','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],//2004年~2018年
             ['name' => '50~100','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
             ['name' => '100~300','data' =>[0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
             ['name' => '300~500','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
@@ -246,7 +246,6 @@ class HupuController extends BaseController{
             ['name' => '2000~5000','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
             ['name' => '5000以上','data' => [0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
         ];
-
         $table_data_names = array_column($table_data, 'name');
         
         foreach ($data as $dk => &$dv) {
@@ -256,15 +255,9 @@ class HupuController extends BaseController{
             $dv['online_in_year'] = $online_in_year;
             foreach ($online_in_year as $range => $ov) {
                 $table_name_index = array_search($range, $table_data_names);
-                $table_data[$table_name_index]['data'][$dv['reg_year']] = (int)$ov['count'];
-//                var_dump($table_name_index,$ov,$dv,$table_data);exit;
+                $table_data[$table_name_index]['data'][$dv['reg_year'] - 2004] = (int)$ov['count'];
             }
-
         }
-//        foreach ($table_data as &$tv){
-//            $tv['data'] = array_values($tv['data']);
-//        }
-        var_dump($table_data);exit;
         $this->jsonOk($table_data);
     }
 

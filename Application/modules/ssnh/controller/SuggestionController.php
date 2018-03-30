@@ -15,7 +15,7 @@ class SuggestionController extends BaseController{
     /**
      * 首页面
      */
-    public $layout = 'iframe_main';
+    public $layout = 'admin_main';
 
     public function actionAll(){
 

@@ -25,15 +25,13 @@ use app\assets\AppAsset;
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" media="all" href="<?php echo Yii::$app->getHomeUrl() . 'new-admin/layui-2.2.45/css/layui.css'; ?>">
-
-    <link rel="stylesheet" href="/admin/css/font_eolqem241z66flxr.css" media="all" />
-    <link rel="stylesheet" href="/admin/css/main.css" media="all" />
+    <link rel="stylesheet" href="/new-admin/css/font_eolqem241z66flxr.css" media="all" />
+    <link rel="stylesheet" href="/new-admin/css/main.css" media="all" />
 
 
 </head>
 <body  class="layui-layout-body">
 <?php $this->beginBody() ?>
-
     <div class="container">
         <div class="layui-layout layui-layout-admin">
             <div class="layui-header">

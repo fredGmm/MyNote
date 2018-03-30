@@ -13,7 +13,9 @@
 </head>
 <body>
 
-
+ <span class="layui-breadcrumb">
+     <a href="/">虎扑数据</a><a href="/demo/">步行街</a><a><cite>图表</cite></a>
+ </span>
 <div id="container"  style="min-width: 1500px; height: 400px;width: 1000px; margin: 0 0"></div>
 <hr/>
 <div id="pie-chart" style="min-width:400px;width: 500px;height:400px;margin-left:20px"></div>
