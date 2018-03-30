@@ -5,4 +5,4 @@
 /* @var $model app\models\LoginForm */
 
 ?>
-<div>error</div>
+<div>找不到页面</div>

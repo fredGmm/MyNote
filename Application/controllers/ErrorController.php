@@ -13,13 +13,14 @@ use app\models\ContactForm;
 class ErrorController extends Controller
 {
     /**
+     * 独立操作
      * @inheritdoc
      */
     public function actions()
     {
         return [
             'error'   => [
-                'class' => 'yii\web\ErrorAction',
+                'class' => 'yii\web\ErrorAction', //错误页面指向这个action，然后再路由中定义好页面
             ],
         ];
     }
@@ -31,12 +32,4 @@ class ErrorController extends Controller
 
         return $this->render('404.php');
     }
-
-
-    public function actionNoPermission(){
-        
-    }
-    
-    
-    
 }
