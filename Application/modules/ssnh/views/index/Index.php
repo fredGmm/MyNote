@@ -7,8 +7,8 @@
         <div class="layui-tab-content clildFrame">
             <div class="layui-tab-item layui-show">
 <!--                <iframe <!--src="/new-admin/page/main.html"-->
-                <!DOCTYPE html>
-                <html>
+                <!DOCTYPE html html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                <html xmlns="http://www.w3.org/1999/xhtml">
                 <head>
                     <meta charset="utf-8">
                     <meta name="renderer" content="webkit">
@@ -17,8 +17,102 @@
                     <meta name="apple-mobile-web-app-status-bar-style" content="black">
                     <meta name="apple-mobile-web-app-capable" content="yes">
                     <meta name="format-detection" content="telephone=no">
+                    <link rel="stylesheet" type="text/css" href="/src/css/ssnh/style.css"/>
                 </head>
                 <body class="childrenBody">
+                <!-- 上方内容 -->
+                <div class="box">
+                    <div class="head">
+                        <span>热门</span>
+                        <a href="#">更多></a>
+                    </div>
+                    <!-- 图片内容 -->
+                    <ul>
+                        <li>
+                            <div class="deatil">
+                                <h2>夕阳中海</h2>
+                                <p>在夕阳下泛着橘色的大海和山</p>
+                                <a href="#">开始进入</a>
+                            </div>
+                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
+                        </li>
+
+                        <!--第二个图片-->
+                        <li>
+                            <div class="deatil">
+                                <h2>山清水秀</h2>
+                                <p>秀丽的河山</p>
+                                <a href="#">点击进入</a>
+                            </div>
+                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
+                        </li>
+
+                        <!--第3个图片-->
+                        <li>
+                            <div class="deatil">
+                                <h2>平静的海</h2>
+                                <p>紫色的平静的大海</p>
+                                <a href="#">点击进入</a>
+                            </div>
+                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
+                        </li>
+
+                        <!--第4个图片-->
+                        <li>
+                            <div class="deatil">
+                                <h2>沙滩大海</h2>
+                                <p>海浪拍打沙滩，偶尔有吹上来小螃蟹</p>
+                                <a href="#">点击进入</a>
+                            </div>
+                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
+                        </li>
+
+
+                        <!--第5个图片-->
+                        <li>
+                            <div class="deatil">
+                                <h2>山清水秀</h2>
+                                <p>平静的溪水流淌在山脉之间</p>
+                                <a href="#">点击进入</a>
+                            </div>
+                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
+                        </li>
+
+
+                        <!--第6个图片-->
+                        <li>
+                            <div class="deatil">
+                                <h2>幻象大海</h2>
+                                <p>像虚幻出来的景色一样</p>
+                                <a href="#">点击进入</a>
+                            </div>
+                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
+                        </li>
+
+
+                        <!--第7个图片-->
+                        <li>
+                            <div class="deatil">
+                                <h2>雄鹰展翅</h2>
+                                <p>我也希望能像鹰一样飞翔</p>
+                                <a href="#">点击进入</a>
+                            </div>
+                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
+                        </li>
+
+
+                        <!--第4个图片-->
+                        <li>
+                            <div class="deatil">
+                                <h2>静谧丛林</h2>
+                                <p>早晨泛着红色的光的丛林显得格外动人</p>
+                                <a href="#">点击进入</a>
+                            </div>
+                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
+                        </li>
+                    </ul>
+                </div>
+
 <!--                <div class="panel_box row" style=" color: red;">-->
 <!--                    <div class="panel col" >-->
 <!--                        <a href="javascript:;" data-url="page/message/message.html">-->
