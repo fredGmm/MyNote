@@ -17,7 +17,7 @@
                     <meta name="apple-mobile-web-app-status-bar-style" content="black">
                     <meta name="apple-mobile-web-app-capable" content="yes">
                     <meta name="format-detection" content="telephone=no">
-                    <link rel="stylesheet" type="text/css" href="/src/css/ssnh/style.css"/>
+                    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
                 </head>
                 <body class="childrenBody">
                 <!-- 上方内容 -->
