@@ -1,4 +1,13 @@
 <?php
+/**
+ * @author FredGui
+ * @version 2017-10-15
+ * @modify  2017-10-15
+ * @description eslasticsearch工具的封装
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
+ */
 
 namespace app\library\Essearch;
 

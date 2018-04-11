@@ -1,4 +1,13 @@
 <?php
+/**
+ * @author FredGui
+ * @version 2017-10-15
+ * @modify  2017-10-15
+ * @description 后台定时任务，清洗已爬取的虎扑数据
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
+ */
 
 namespace app\crontab;
 
@@ -6,22 +15,18 @@ use app\library\Common;
 use app\library\Essearch\CurdData;
 use app\models\MongdbModel;
 use app\models\ScrapArticle;
-use app\models\WxbTitleModel;
 use app\modules\ssnh\model\BigPlateDataModel;
 use app\modules\ssnh\model\HupuArticleListModel;
 use app\modules\ssnh\model\HupuHotWordModel;
-use phpDocumentor\Reflection\DocBlock\Tags\Var_;
-use PHPUnit\Framework\Constraint\Exception;
 use yii\console\Controller;
 use yii\helpers\Console;
 
 /**
- *  crontab 脚本，mongodb 数据到 mysql
+ *  定时任务脚本，对已有数据处理
 */
 class HupuController extends Controller
 {
     /**
-     *
      * @param string $message the message to be echoed.
      */
     public function actionIndex($message = '后台跑起')
@@ -64,7 +69,7 @@ class HupuController extends Controller
                         $articleModel->url = $article_url;
                         $articleModel->title = $article_title;
                         $articleModel->category = $article['category'];
-
+                        //包含非utf-8 的字符会有麻烦，需要处理下
                         preg_match_all('/[\s\x{4e00}-\x{9fff}a-zA-Z0-9#\[\]\{\}\’\”=+\-\(\)*&%$@]+/iu', $article_content, $matches);
                         $article_content = join('', $matches[0]);
 
@@ -82,15 +87,13 @@ class HupuController extends Controller
                     echo  $e->getMessage() .PHP_EOL;
                     echo $m[1] . PHP_EOL;
                     var_dump($article);
-
                 }
-
             }
         }
     }
 
     /**
-     * 迅搜简易分词试试而已,使用utf-8词典
+     * 迅搜，简义分词的尝试，使用utf-8词典； 已经弃用了，改为 elasticsearch 了
      */
     public function actionDivisionWordHandle()
     {
@@ -127,7 +130,6 @@ class HupuController extends Controller
                break;
            }
            foreach ($article_list as $key => $article){
-
                $words = CurdData::analyzeDocument($article['article_title'], CurdData::IK_SMART);
                $this->stdout($article['id'] . ' : ' . $article['article_title'] . PHP_EOL, Console::FG_BLUE);
                if(!empty($words)){
@@ -135,6 +137,7 @@ class HupuController extends Controller
                        if($word['token'] == 'jrs') {
                            $word['token'] = 'jr';
                        }
+                       /** 得到的新的词汇 */
                        $insert_data = [
                            'word' => $word['token'],
                            'number' => 1,
@@ -142,6 +145,11 @@ class HupuController extends Controller
                            'type' => $article['plate'],
                            'create_time' => time(),
                        ];
+                       /**
+                        * todo 有则更新，无则插入 这里可以优化下
+                        *
+                        * @see http://www.cnblogs.com/guixiaoming/p/8672343.html
+                        */
                        $is_exist = HupuHotWordModel::find()
                            ->where(['word' =>$word['token'],'date' => $today_date, 'type' => $article['plate'] ])
                            ->one();
@@ -164,7 +172,9 @@ class HupuController extends Controller
     }
 
     /**
+     * 使用’暴力破解'的方式，拿到了 fup的值，然后就根据接口轻松获取每个版块的数据了
      *
+     * @return string
      */
     public function actionBigPlateData()
     {
@@ -196,11 +206,14 @@ class HupuController extends Controller
                     'data_json' => json_encode($result['data']),
                     'create_time' => time()
                 ];
-
                 $is_exist = BigPlateDataModel::find()
                     ->where(['big_plate' => $plate,'date' => $today_date ])
                     ->one();
-
+                /**
+                 * todo 有则更新，无则插入 这里可以优化下
+                 *
+                 * @see http://www.cnblogs.com/guixiaoming/p/8672343.html
+                 */
                 if($is_exist){
                     $is_exist->day_post_num = $post_num;
                     $is_exist->save();
@@ -209,8 +222,6 @@ class HupuController extends Controller
                 }
             }
         }
-
         $this->stdout('脚本完毕' . PHP_EOL, Console::FG_GREEN);
     }
-
 }

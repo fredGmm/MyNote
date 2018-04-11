@@ -1,7 +1,20 @@
 <?php
-
+/**
+ * @author FredGui
+ * @version 2017-9-6
+ * @modify  2017-9-6
+ * @description 文件处理的类
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
+ */
 namespace Library\Image;
 
+/**
+ * 文件处理
+ *
+ * @package Library\Image
+ */
 class ImageHandle{
     /**
      * 检测远程文件是否存在
@@ -79,9 +92,12 @@ class ImageHandle{
 
     /**
      * 下载远程文件
-     * @param $file_url
+     *
+     * @param string $file_url 文件地址
      * @param $save_path
      * @param $is_big
+     *
+     * @throws RuntimeException
      * @return string
      */
     public static function downRemoteFile($file_url, $save_path = '/tmp/api', $is_big = 0){
@@ -91,7 +107,7 @@ class ImageHandle{
 
         /** 检查目录权限 */
         if(!is_dir($save_path) || !is_writable($save_path)) {
-            throw new RuntimeException('save path must be directory and writable', 9001);
+            throw new \RuntimeException('save path must be directory and writable', 9001);
         }
         /** 大文件下载 */
         if($is_big) {
@@ -101,7 +117,7 @@ class ImageHandle{
             $size = $header['Content-Length'];
             $fp = fopen($file_url, 'rb');
             if ($fp === false){
-                throw new RuntimeException('file open fail');
+                throw new \RuntimeException('file open fail');
             }
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
@@ -111,7 +127,6 @@ class ImageHandle{
             header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
             header('Pragma: public');
             header('Content-Length: ' . $size);
-
             ob_clean();
             ob_end_flush();
             set_time_limit(0);
@@ -126,10 +141,7 @@ class ImageHandle{
             fclose($fp);
             return $file_path;
         }
-
         $content = file_get_contents($file_url);
-
-
         file_put_contents($file_path,$content);
         return $file_path;
     }

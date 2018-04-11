@@ -4,6 +4,10 @@ namespace app\library\log;
 
 use app\library\log\Adapter\File;
 
+/**
+ * 日志类
+ * @package app\library\log
+ */
 class Logger
 {
     /**
@@ -650,9 +654,5 @@ class Logger
         // 消息采用 Record Separator 0x1C 来分割, 方便分析
         $msg = implode("\x1C", $columns);
         $this->error($msg);
-    }
-
-    public function tttt(){
-        return $this->t;
     }
 }

@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * @author FredGui
+ * @version 2017-10-15
+ * @modify  2017-10-15
+ * @description 首页控制器
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
+ */
 namespace app\crontab;
 
 use app\library\Common;
@@ -12,7 +20,7 @@ use yii\helpers\Console;
 class TestController extends Controller
 {
     /**
-     * 脚本来 找寻hupu中分类id，以此可以获取每个版块下的宏观信息
+     * 暴力方法：脚本来 找寻hupu中板块分类（fup_id）id，以此可以获取每个版块下的宏观信息
      *
      * @return null
      */

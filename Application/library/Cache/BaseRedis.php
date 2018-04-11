@@ -1,9 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: fred
- * Date: 2017/9/6
- * Time: 21:53
+ * @author FredGui
+ * @version 2017-9-6
+ * @modify  2017-9-6
+ * @description 首页控制器
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
  */
 
 namespace app\library\Cache;

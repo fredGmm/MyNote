@@ -6,12 +6,12 @@
 }
 body{
     font-family:"微软雅黑";
-    background-color:#ddd;
+    /*background-color:#ddd;*/
 }
 .box{
     width:760px;
     height:600px;
-    background:#fff;
+    background:#d9f797;
     margin:30px auto;
     padding:20px;
 }
