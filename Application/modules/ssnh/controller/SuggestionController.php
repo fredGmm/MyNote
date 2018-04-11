@@ -1,9 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: FredGui
- * Date: 2017/12/14
- * Time: 17:20
+ * @author FredGui
+ * @version 2017-10-15
+ * @modify  2017-3-11
+ * @description 虎扑数据的处理输出
+ * @link http://www.cnblogs.com/guixiaoming
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
  */
 
 namespace app\modules\ssnh\controller;

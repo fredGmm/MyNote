@@ -1,9 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: fredGui
- * Date: 2017/9/3
- * Time: 21:06
+ * @author FredGui
+ * @version 2017-10-15
+ * @modify  2017-10-15
+ * @description 文章模型
+ * @link http://www.cnblogs.com/guixiaoming
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
  */
 namespace app\modules\ssnh\model;
 
@@ -20,6 +23,7 @@ class HupuArticleListModel extends BaseTable {
      */
     const MAX_PAGE = 10;
 
+    //重写表名
     const TableName = 'hupu_article_list';
 
     public static function getDb()

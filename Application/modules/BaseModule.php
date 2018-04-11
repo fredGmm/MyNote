@@ -1,9 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: fred
- * Date: 2017/8/15
- * Time: 21:52
+ * @author FredGui
+ * @version 2017-8-19
+ * @modify  2017-8-19
+ * @description 模块加载
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
  */
 namespace app\modules;
 
@@ -18,7 +21,9 @@ class BaseModule extends Module
 
     const MainLayoutName = 'main';
 
-    //经常 变动的 在外部 定义变量， 方便 继承后 直接赋值改动
+    /**
+     * 初始化，经常 变动的 在外部 定义变量， 方便 继承后 直接赋值改动
+     */
     public function init()
     {
         $this->controllerNamespace = __NAMESPACE__ . self::CtrlNameSpace;

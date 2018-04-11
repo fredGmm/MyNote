@@ -1,9 +1,23 @@
 <?php
+/**
+ * @author FredGui
+ * @version 2017-8-19
+ * @modify  2017-8-19
+ * @description 模块的基类模型
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
+ */
+
 namespace app\modules\base\model;
 
 use yii;
 use yii\db\ActiveRecord;
 
+/**
+ * 模块的基类的model
+ * @package app\modules\base\model
+ */
 Abstract class BaseTable extends ActiveRecord
 {
     const TableName = 'no_select_table';

@@ -1,9 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: fred
- * Date: 2017/8/30
- * Time: 22:32
+ * @author FredGui
+ * @version 2017-8-19
+ * @modify  2017-8-19
+ * @description 模块的基类，各个公用可以在这里编写
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
  */
 
 namespace app\modules\base\controller;
@@ -16,9 +19,12 @@ use yii\web\AssetBundle;
 use yii\web\Controller;
 use yii\web\View;
 
+/**
+ * 模块的基类控制器
+ * @package app\modules\base\controller
+ */
 Abstract class BaseController extends Controller
 {
-
 
     //路径 相关
     protected $_fullIdPath; //内容格式: mod/ctrl/act
@@ -31,6 +37,10 @@ Abstract class BaseController extends Controller
         return $this->layout = "{$this->module->id}_{$this->action->controller->id}_{$layoutName}";
     }
 
+    /**
+     * 这个是yii2里面行为控制，我也没咋用
+     * @return array
+     */
     public function behaviors()
     {
         return [
@@ -60,7 +70,13 @@ Abstract class BaseController extends Controller
         ];
     }
 
-    //在 执行所有 action 之前 执行
+    /**
+     * 在 执行所有 action 之前 执行
+     *
+     * @param yii\base\Action $action
+     *
+     * @return bool
+     */
     public function beforeAction($action)
     {
         $this->_modId = $this->module->id;
@@ -70,6 +86,16 @@ Abstract class BaseController extends Controller
         return true;
     }
 
+    /**
+     * 重写的渲染的方法，自动载入js，css，以及可能用的全局js变量【版本值，csrf token啥的】
+     *
+     * @param string $view 视图
+     * @param array $viewParams
+     * @param array $jsVars
+     *
+     * @return string
+     * @throws yii\base\InvalidConfigException
+     */
     public function render($view, $viewParams = [], $jsVars =[])
     {
         $this->getView()->registerAssetBundle(AssetBundle::className());
@@ -92,19 +118,23 @@ var csrfToken = '$csrfToken';
 $addJsVarStr
 EOF
             , View::POS_HEAD);
-
-        //注册 资源文件
-      //  self::addPageScript();
-
-        //render 之前 自动 提交事务
-       // BaseTable::commitAllDBTrans();
-
+//        注册 资源文件
+//        self::addPageScript();
+//        render 之前 自动 提交事务
+//        BaseTable::commitAllDBTrans();
         return parent::render(str_replace('action', '', $view), $viewParams);
-
-
     }
 
-    //自定义 Render
+    /**
+     * 自定义的render，可以满足特定需要吧。也可以说有点多余了
+     *
+     * @param $funcName
+     * @param array $viewParms
+     * @param array $jsVars
+     * @param array $layoutParms
+     * @return string
+     * @throws yii\base\InvalidConfigException
+     */
     public function diyRender($funcName, $viewParms = [], $jsVars = [], $layoutParms = [])
     {
         $imgRootPath = "/images";

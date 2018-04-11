@@ -1,4 +1,13 @@
 <?php
+/**
+ * @author FredGui
+ * @version 2017-10-15
+ * @modify  2017-10-15
+ * @description 虎扑热词数据的处理
+ * @link http://www.cnblogs.com/guixiaoming
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
+ */
 
 namespace app\modules\ssnh\model;
 
@@ -6,6 +15,7 @@ use app\modules\base\model\BaseTable;
 
 class HupuHotWordModel extends BaseTable{
 
+    //表名
     const TableName = 'hupu_hot_word';
 
     public static function getDb()
@@ -18,7 +28,8 @@ class HupuHotWordModel extends BaseTable{
      * @param $data
      * @return bool
      */
-    public  function addHotWord($data){
+    public function addHotWord($data)
+    {
 
         return $this->diySaveAttribs($data);
     }
@@ -28,11 +39,12 @@ class HupuHotWordModel extends BaseTable{
      * @param $plate
      * @return array|\yii\db\ActiveRecord[]
      */
-    public static function getHotWord($plate){
-        $query = self::find()->select(['number','word'])
+    public static function getHotWord($plate)
+    {
+        $query = self::find()->select(['number', 'word'])
             ->where(['date' => date('Ymd')])
             ->orderBy('number desc');
-        if($plate){
+        if ($plate) {
             $query->andWhere(['type' => $plate]);
         }
         $data = $query->limit(50)->asArray()->all();

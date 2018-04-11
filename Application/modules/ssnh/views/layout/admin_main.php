@@ -6,9 +6,6 @@
 use yii\helpers\Html;
 use app\assets\AppAsset;
 
-//AppAsset::register($this);
-//AppAsset::addScript($this,'@web/admin/layui-2.2.45/layui.js');
-
 ?>
 <?php $this->beginPage() ?>
 
@@ -26,9 +23,6 @@ use app\assets\AppAsset;
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" media="all" href="<?php echo Yii::$app->getHomeUrl() . 'new-admin/layui-2.2.45/css/layui.css'; ?>">
     <script type="text/javascript"  src="<?php echo Yii::$app->getHomeUrl() . 'new-admin/layui-2.2.45/layui.js'; ?>"></script>
-
-
-
 </head>
 <body class="main_body">
 <div  class="layui-layout layui-layout-admin">
