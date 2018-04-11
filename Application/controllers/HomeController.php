@@ -1,24 +1,24 @@
 <?php
-
+/**
+ * @author FredGui
+ * @version 2017-10-15
+ * @modify  2017-10-15
+ * @description 首页控制器
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license  
+ */
 
 namespace app\controllers;
 
-use app\library\log\Adapter\File;
-use app\library\log\Config;
-use app\library\log\log;
-use app\library\log\Logger;
-use app\models\MongdbModel;
-use app\modules\food\model\FoodChooseModel;
-use Yii;
-use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
-use yii\web\AssetBundle;
+use yii;
 use yii\web\Controller;
-use yii\web\Response;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
 
+/**
+ * 首页面展示
+ *
+ * @package app\controllers
+ */
 class HomeController extends Controller
 {
     /**
@@ -28,12 +28,8 @@ class HomeController extends Controller
      */
     public function actionIndex()
     {
-        //  $this->getView()->registerAssetBundle(AssetBundle::className());
-        return $this->redirect('/vue/dist/index.html');
+       
     }
 
-    public function actionSlides()
-    {
-        
-    }
+
 }

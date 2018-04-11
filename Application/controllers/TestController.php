@@ -1,95 +1,54 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: fred
- * Desc: 控制器的测试入口
- * Date: 2017/9/3
- * Time: 20:05
+ * @author FredGui
+ * @version 2017-10-15
+ * @modify  2017-10-15
+ * @description 各种测试代码，有点乱-。-
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
  */
+
 namespace app\controllers;
 
 use yii\web\Controller;
-
+use \app\library\Cache\BaseRedis;
+/**
+ * 测试控制器
+ *
+ * @package app\controllers
+ */
 class TestController extends Controller
 {
+    /**
+     * redis 测试
+     */
     public function actionRedis()
     {
-        $redis = \app\library\Cache\BaseRedis::getInstance();
-        
-      //  $redis->set('test', date('Y-m-d H:i:m',time()), 3600);
-
+        /** 简单的证明下redis装好了 */
+        $redis = BaseRedis::getInstance();
+        $redis->set('test', date('Y-m-d H:i:m',time()), 3600);
         var_dump($redis->get('test'));
-
     }
 
-    public function actionAjax(){
-        var_dump($_POST);exit;
-        $id = \Yii::$app->request->post('foodName','青椒肉丝');
-        $type = \Yii::$app->request->post('foodChoose',3);
-
-        echo  json_encode(['id' => $id, 'type' => '肉类']);
-    }
-    
+    /**
+     * 将自己的日志类与yii2整合,todo:最好自动补全也完善下
+     */
     public function actionLog()
     {
-        \Yii::$app->log->warning('info log test');
+        \Yii::$app->log->info('info log test');
         \Yii::$app->log->warning('waring log test');
         \Yii::$app->log->error('error log test');
-
     }
 
-    public function actionVv()
-    {
-        echo 'v';
-    }
-
-    public function actionLiwei()
-    {
-        //服务器信息
-        $server = 'udp://192.168.1.111:9998';
-
-        //消息结束符号
-        $msg_eof = "\n";
-        $socket = stream_socket_server($server, $errno, $errstr, STREAM_SERVER_BIND);
-        if (!$socket) {
-            die("$errstr ($errno)");
-        }
-
-        do {
-            //接收客户端发来的信息
-            $inMsg = stream_socket_recvfrom($socket, 1024, 0, $peer);
-
-            //服务端打印出相关信息
-//            echo "Client : $peer\n";
-//            echo "Receive : {$inMsg}";
-            //给客户端发送信息
-            $outMsg = substr('你发送的消息是:' . $inMsg, 0, (strrpos($inMsg, $msg_eof))).' -- '.date("Y-m-d H:i:s\r\n");
-            stream_socket_sendto($socket, $outMsg, 0, $peer);
-
-        } while ($inMsg !== false);
-    }
-
-    public function actionCli(){
-        $ip = '192.168.1.111';
-        $port = '9998';
-        $sendMsg = '1111111111111';
-        $handle = stream_socket_client("udp://{$ip}:{$port}", $errno, $errstr);
-        if( !$handle ){
-            die("ERROR: {$errno} - {$errstr}\n");
-        }
-        fwrite($handle, $sendMsg."\n");
-        $result = fread($handle, 1024);
-        fclose($handle);
-
-        var_dump($result);
-    }
-
+    /**
+     * 迅搜，简义分词的尝试； 已经弃用了，改为 elasticsearch 了
+     */
     public function actionInternals()
     {
-
-        $so = \scws_new();
+        $so = \scws_new(); //需要安装相关的扩展
         $so->set_charset('utf-8');
-// 这里没有调用 set_dict 和 set_rule 系统会自动试调用 ini 中指定路径下的词典和规则文件
+        // 这里没有调用 set_dict 和 set_rule 系统会自动试调用 ini 中指定路径下的词典和规则文件
         $so->send_text("我是一个中国人,我会C++语言,我也有很多T恤衣服");
         echo "<pre>";
         while ($tmp = $so->get_result())
@@ -100,7 +59,7 @@ class TestController extends Controller
     }
 
     /**
-     * 支付宝的回调通知测试下
+     * 支付宝的回调通知，记录下
      */
     public function actionAli(){
         $all_post = $_POST;
@@ -110,6 +69,9 @@ class TestController extends Controller
 
     }
 
+    /**
+     * 写技术分享ppt，盗链的演示
+     */
     public function actionSteal(){
         echo "这是 偷盗的 教材网的</br>";
         echo "<img src =\"https://files.dodoedu.com/resize/386x350/attachments/d1b1f34e9bc55f083c48b494180622d3.gif\">";
@@ -120,6 +82,70 @@ class TestController extends Controller
         echo "<img src=\"http://data.kinggui.com/src/images/about2.jpg\">";
     }
 
+    /**
+     * 远程下载图片，当保存文件名称为空时则使用远程文件原来的名称
+     *
+     * @param string $url 图片地址
+     * @param string $save_dir 保存路径
+     * @param string $filename 文件名
+     * @param int $type 下载方式，默认使用curl
+     *
+     * @return array
+     */
+    public static function getImage($url,$save_dir='',$filename='',$type=0){
+        if(trim($url)==''){
+            return array('file_name'=>'','save_path'=>'','error'=>1);
+        }
+        if(trim($save_dir)==''){
+            $save_dir='./';
+        }
+        if(trim($filename)==''){//保存文件名
+            $ext=strrchr($url,'.');
+            if($ext!='.gif'&&$ext!='.jpg'){
+                return array('file_name'=>'','save_path'=>'','error'=>3);
+            }
+            $filename=time().$ext;
+        }
+        if(0!==strrpos($save_dir,'/')){
+            $save_dir.='/';
+        }
+        //创建保存目录
+        if(!file_exists($save_dir)&&!mkdir($save_dir,0777,true)){
+            return array('file_name'=>'','save_path'=>'','error'=>5);
+        }
+        //获取远程文件所采用的方法
+        if($type){
+            $ch=curl_init();
+            $timeout=5;
+            curl_setopt($ch,CURLOPT_URL,$url);
+            curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+            curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);
+            $img=curl_exec($ch);
+            curl_close($ch);
+        }else{
+            ob_start();
+            readfile($url);
+            $img=ob_get_contents();
+            ob_end_clean();
+        }
+        //$size=strlen($img);
+        //文件大小
+        $fp2=@fopen($save_dir.$filename,'a');
+        fwrite($fp2,$img);
+        fclose($fp2);
+        unset($img,$url);
+        return array('file_name'=>$filename,'save_path'=>$save_dir.$filename,'error'=>0);
+    }
+
+    /**
+     * 生成树,递归方式。（与下 方法比较）
+     *
+     * @param array $data
+     * @param int $pid
+     * @param int $cot
+     *
+     * @return mixed
+     */
     public function Tree($data = [], $pid = 0, $cot = 0){
         if(isset($data[$pid])) {
             foreach ($data[$pid] as $val){
@@ -133,6 +159,16 @@ class TestController extends Controller
         return $this->tree_data;
     }
 
+    /**
+     * 生成树，引用方式
+     *
+     * @param $items
+     * @param string $id
+     * @param string $pid
+     * @param string $son
+     *
+     * @return array
+     */
     public function tree2($items, $id = 'id', $pid='pid',$son="child"){
         $tree = [];
         $tmpMap = [];
@@ -146,10 +182,7 @@ class TestController extends Controller
                 $tree[] = &$tmpMap[$item[$id]];
             }
         }
-
         unset($tmpMap);
         return $tree;
     }
-
-
 }

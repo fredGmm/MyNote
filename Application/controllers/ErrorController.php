@@ -1,15 +1,24 @@
 <?php
+/**
+ * @author FredGui
+ * @version 2017-10-15
+ * @modify  2017-10-15
+ * @description 错误页面，包括404，无权限等
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
+ */
 
 namespace app\controllers;
 
-use Yii;
-use yii\filters\AccessControl;
+use yii;
 use yii\web\Controller;
-use yii\web\Response;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
 
+/**
+ * 错误控制器，结合独立操作使用
+ *
+ * @package app\controllers
+ */
 class ErrorController extends Controller
 {
     /**
@@ -26,7 +35,10 @@ class ErrorController extends Controller
     }
 
     /**
-     * 404 页面
+     * 404 页面， 由路由配置指向这来的
+     *
+     * @see config/web.php
+     * @return string
      */
     public function action404(){
 
