@@ -1,14 +1,20 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: FredGui
- * Date: 2017/8/29
- * Time: 14:31
+ * @author FredGui
+ * @version 2017-8-19
+ * @modify  2017-8-19
+ * @description 公共方法
+ * @link http://blog.kinggui.com
+ * @copyright Copyright (c) 2017 Digital Fun ,Ltd
+ * @license
  */
 namespace app\library;
 
+/**
+ * 一些公共的常用方法
+ * @package app\library
+ */
 class Common {
-
 
     /**
      * 封装curl方法

@@ -4,9 +4,9 @@
  * @version 2017-10-15
  * @modify  2017-10-15
  * @description 首页控制器
- * @link http://blog.kinggui.com
+ * @link http://www.cnblogs.com/guixiaoming
  * @copyright Copyright (c) 2017 Digital Fun ,Ltd
- * @license  
+ * @license
  */
 
 namespace app\controllers;

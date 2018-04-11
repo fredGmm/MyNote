@@ -42,23 +42,6 @@ class TestController extends Controller
     }
 
     /**
-     * 迅搜，简义分词的尝试； 已经弃用了，改为 elasticsearch 了
-     */
-    public function actionInternals()
-    {
-        $so = \scws_new(); //需要安装相关的扩展
-        $so->set_charset('utf-8');
-        // 这里没有调用 set_dict 和 set_rule 系统会自动试调用 ini 中指定路径下的词典和规则文件
-        $so->send_text("我是一个中国人,我会C++语言,我也有很多T恤衣服");
-        echo "<pre>";
-        while ($tmp = $so->get_result())
-        {
-            print_r($tmp);
-        }
-        $so->close();
-    }
-
-    /**
      * 支付宝的回调通知，记录下
      */
     public function actionAli(){
