@@ -32,6 +32,9 @@ class HupuController extends BaseController
      */
     public $layout = 'admin_main';
 
+    //虎扑论坛域
+    const HUPU_BBS_DOMAIN = 'https://bbs.hupu.com';
+
     /**
      * 首页面
      * @return string
@@ -295,6 +298,44 @@ class HupuController extends BaseController
         $this->jsonOk($table_data);
     }
 
+    /**
+     * 首页随机展示图片，目前资源有限，直接在目录下读取，然后随机展示了~~
+     */
+    public function actionGetImages(){
+        $image_path = dirname(\Yii::$app->getBasePath()) . '/web/static/img/hupu/';
+
+        $web_path =\Yii::getAlias('@web/static/img/hupu/');
+//        echo $image_path;exit;
+        $file_list = scandir($image_path);
+
+        //去除 .和..
+        $key1=array_search('.' ,$file_list);
+        array_splice($file_list,$key1,1);
+        $key2=array_search('..' ,$file_list);
+        array_splice($file_list,$key2,1);
+        $article_list = [];
+        foreach ($file_list as $fk => $fv) {
+            $image_info = explode('_', $fv);
+            $article_info = HupuArticleListModel::findOne(['article_id' => $image_info[1]]);
+            $article_url       = self::HUPU_BBS_DOMAIN . '/' . $image_info[1] . '.html';
+
+            $title = $article_info['article_title'] ?? '';
+            $article_list[$fk] = ['url' => $article_url, 'title' => $title];
+        }
+
+        $random_keys = array_rand($file_list, 8);
+        $image_list = [];
+        foreach ($random_keys as $rk => $rv) {
+
+            $image = [
+                'image_path' =>  $web_path . $file_list[$rv],
+                'image_url' => $article_list[$rk]['url'],
+                'title' => '标题：' . $article_list[$rk]['title'],
+            ];
+            $image_list[] = $image;
+        }
+        $this->jsonOk($image_list);
+    }
 
     /**
      * @desc 用来测试的ajax 接口

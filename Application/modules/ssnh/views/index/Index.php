@@ -18,100 +18,47 @@
                     <meta name="apple-mobile-web-app-capable" content="yes">
                     <meta name="format-detection" content="telephone=no">
                     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+                    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
                 </head>
                 <body class="childrenBody">
                 <!-- 上方内容 -->
                 <div class="box">
                     <div class="head">
                         <span>热门</span>
-                        <a href="#">更多></a>
+                        <a id="once_again" href="#">再来一波></a>
                     </div>
                     <!-- 图片内容 -->
-                    <ul>
-                        <li>
-                            <div class="deatil">
-                                <h2>夕阳中海</h2>
-                                <p>在夕阳下泛着橘色的大海和山</p>
-                                <a href="#">开始进入</a>
-                            </div>
-                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
-                        </li>
-
-                        <!--第二个图片-->
-                        <li>
-                            <div class="deatil">
-                                <h2>山清水秀</h2>
-                                <p>秀丽的河山</p>
-                                <a href="#">点击进入</a>
-                            </div>
-                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
-                        </li>
-
-                        <!--第3个图片-->
-                        <li>
-                            <div class="deatil">
-                                <h2>平静的海</h2>
-                                <p>紫色的平静的大海</p>
-                                <a href="#">点击进入</a>
-                            </div>
-                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
-                        </li>
-
-                        <!--第4个图片-->
-                        <li>
-                            <div class="deatil">
-                                <h2>沙滩大海</h2>
-                                <p>海浪拍打沙滩，偶尔有吹上来小螃蟹</p>
-                                <a href="#">点击进入</a>
-                            </div>
-                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
-                        </li>
-
-
-                        <!--第5个图片-->
-                        <li>
-                            <div class="deatil">
-                                <h2>山清水秀</h2>
-                                <p>平静的溪水流淌在山脉之间</p>
-                                <a href="#">点击进入</a>
-                            </div>
-                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
-                        </li>
-
-
-                        <!--第6个图片-->
-                        <li>
-                            <div class="deatil">
-                                <h2>幻象大海</h2>
-                                <p>像虚幻出来的景色一样</p>
-                                <a href="#">点击进入</a>
-                            </div>
-                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
-                        </li>
-
-
-                        <!--第7个图片-->
-                        <li>
-                            <div class="deatil">
-                                <h2>雄鹰展翅</h2>
-                                <p>我也希望能像鹰一样飞翔</p>
-                                <a href="#">点击进入</a>
-                            </div>
-                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
-                        </li>
-
-
-                        <!--第4个图片-->
-                        <li>
-                            <div class="deatil">
-                                <h2>静谧丛林</h2>
-                                <p>早晨泛着红色的光的丛林显得格外动人</p>
-                                <a href="#">点击进入</a>
-                            </div>
-                            <img src="/src/images/test.jpeg" width="160px" height="240px" alt=""/>
-                        </li>
-                    </ul>
+                    <ul></ul>
                 </div>
+                <script>
+                    $(function () {
+                        show_images();
+                        $("#once_again").click(function () {
+                            show_images();
+                        });
+                        function show_images() {
+                            $.ajax({
+                                type: 'get',
+                                url: '/ssnh/hupu/get-images',//请求数据的地址
+                                success: function (data) {
+                                    for(i=0; i<data.data.length; i++){
+                                        html = '<li><div class="deatil"><p>'+ data.data[i].title+'</p>' +
+                                            '<a href='+ data.data[i].image_url +' target="_blank">点击进入</a> </div> <img src='+ data.data[i].image_path + ' width="160px" height="240px" alt=""/></li>';
+                                        $(".box>ul").append(html);
+                                    }
+                                },
+                                error: function (e) {
+                                }
+                            });
+                        }
+
+
+
+
+                    })
+                </script>
+
+
 
 <!--                <div class="panel_box row" style=" color: red;">-->
 <!--                    <div class="panel col" >-->
