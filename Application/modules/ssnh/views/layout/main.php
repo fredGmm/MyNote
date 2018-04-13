@@ -30,10 +30,11 @@ use app\assets\AppAsset;
 
 
 </head>
-<body  class="layui-layout-body">
+<body  class="main_body">
+<div class="container">
+    <div class="layui-layout layui-layout-admin">
 <?php $this->beginBody() ?>
-    <div class="container">
-        <div class="layui-layout layui-layout-admin">
+
             <div class="layui-header">
                 <div class="layui-logo"><?php echo $this->title; ?></div>
                 <!-- 头部区域（可配合layui已有的水平导航） -->
@@ -71,9 +72,9 @@ use app\assets\AppAsset;
             <div class="layui-footer">
                 <!-- 底部固定区域 -->
             </div>
-        </div>
     </div>
 </div>
+
 
 
 <?php $this->endBody() ?>

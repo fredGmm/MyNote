@@ -5,7 +5,7 @@
         </ul>
 
         <div class="layui-tab-content clildFrame">
-            <div class="layui-tab-item layui-show">
+            <div class="layui-tab-item layui-show" style="overflow:auto; ">
 <!--                <iframe <!--src="/new-admin/page/main.html"-->
                 <!DOCTYPE html html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
                 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,6 +21,7 @@
                     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
                 </head>
                 <body class="childrenBody">
+
                 <!-- 上方内容 -->
                 <div class="box">
                     <div class="head">
@@ -30,6 +31,7 @@
                     <!-- 图片内容 -->
                     <ul></ul>
                 </div>
+
                 <script>
                     $(function () {
                         show_images();
@@ -51,14 +53,8 @@
                                 }
                             });
                         }
-
-
-
-
                     })
                 </script>
-
-
 
 <!--                <div class="panel_box row" style=" color: red;">-->
 <!--                    <div class="panel col" >-->
@@ -158,7 +154,6 @@
                 <!--&lt;!&ndash;</table> &ndash;&gt;-->
                 <!--</div>-->
                 <!--</div>-->
-
 
                 </body>
                 </html>
