@@ -137,4 +137,15 @@ class Common {
         }
         return $map;
     }
+
+    /**
+     * 生成应用app token
+     *
+     * @return string
+     */
+    public static function genAccessToken()
+    {
+
+        return md5(base64_encode(pack('N6', mt_rand(), mt_rand(), mt_rand(), mt_rand(), mt_rand(), uniqid())));
+    }
 }

@@ -46,6 +46,10 @@ $s = <<<'EOF'
 德罗赞
 流言板
 路人王
+唐斯
+蒂格
+虎扑
+帝格
 EOF;
 header('Last-Modified: '.gmdate('D, d M Y H:i:s', time()).' GMT', true, 200);
 header('ETag: "5816f349-19"');

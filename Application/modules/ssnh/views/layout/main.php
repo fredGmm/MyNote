@@ -4,9 +4,9 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use app\assets\AppAsset;
+use yii\web\AssetBundle;
 
-//AppAsset::register($this);
+//AssetBundle::register($this);
 //AppAsset::addScript($this,'@web/admin/layui-2.2.45/layui.js');
 
 ?>
@@ -81,9 +81,12 @@ use app\assets\AppAsset;
 </body>
 <script type="text/javascript"  src="<?php echo Yii::$app->getHomeUrl() . 'new-admin/layui-2.2.45/layui.js'; ?>"></script>
 
-<script type="text/javascript"  src="<?php echo Yii::$app->getHomeUrl() . 'new-admin/js/nav.js'; ?>"></script>
+<!--改为动态配置的方式了-->
+<!--<script type="text/javascript"  src="--><?php //echo Yii::$app->getHomeUrl() . 'new-admin/js/nav.js'; ?><!--"></script>-->
 
 <script type="text/javascript" src="<?php echo Yii::$app->getHomeUrl() . 'new-admin/js/leftNav.js'; ?>"></script>
+
+
 <script type="text/javascript" src="<?php echo Yii::$app->getHomeUrl() . 'new-admin/js/index.js'; ?>"></script>
 
 </html>

@@ -117,7 +117,8 @@ var csrfParam = '$csrfParam';
 var csrfToken = '$csrfToken';
 $addJsVarStr
 EOF
-            , View::POS_HEAD);
+            , View::POS_BEGIN);
+
 //        注册 资源文件
 //        self::addPageScript();
 //        render 之前 自动 提交事务
@@ -164,7 +165,6 @@ EOF
         $cacheflag = \Yii::$app->params['cacheflag'];
         //定义 Js 中 页面取数据的相对根路径, 与 页面图片相对根路径, 与图片目录根路径
         $this->view->registerJs(<<<EOF
-
 var imgRootUri='$imgRootPath/';
 var pageImgRootUri='$imgPath';
 var pageApiRootUri='/$this->_modId/$this->_ctrlId.';

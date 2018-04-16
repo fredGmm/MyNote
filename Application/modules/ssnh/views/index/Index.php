@@ -25,7 +25,7 @@
                 <!-- 上方内容 -->
                 <div class="box">
                     <div class="head">
-                        <span>热门</span>
+                        <span>虎扑福利</span>
                         <a id="once_again" href="#">再来一波></a>
                     </div>
                     <!-- 图片内容 -->
@@ -43,10 +43,13 @@
                                 type: 'get',
                                 url: '/ssnh/hupu/get-images',//请求数据的地址
                                 success: function (data) {
+
+                                    box_ul = $(".box>ul");
+                                    box_ul.empty();
                                     for(i=0; i<data.data.length; i++){
                                         html = '<li><div class="deatil"><p>'+ data.data[i].title+'</p>' +
                                             '<a href='+ data.data[i].image_url +' target="_blank">点击进入</a> </div> <img src='+ data.data[i].image_path + ' width="160px" height="240px" alt=""/></li>';
-                                        $(".box>ul").append(html);
+                                        box_ul.append(html);
                                     }
                                 },
                                 error: function (e) {

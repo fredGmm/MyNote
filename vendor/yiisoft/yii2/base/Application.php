@@ -444,7 +444,7 @@ abstract class Application extends Module
     public function getVendorPath()
     {
         if ($this->_vendorPath === null) {
-            $this->setVendorPath($this->getBasePath() . DIRECTORY_SEPARATOR . 'vendor');
+            $this->setVendorPath(dirname($this->getBasePath()) . DIRECTORY_SEPARATOR . 'vendor');
         }
 
         return $this->_vendorPath;
@@ -457,6 +457,7 @@ abstract class Application extends Module
     public function setVendorPath($path)
     {
         $this->_vendorPath = Yii::getAlias($path);
+
         Yii::setAlias('@vendor', $this->_vendorPath);
         Yii::setAlias('@bower', $this->_vendorPath . DIRECTORY_SEPARATOR . 'bower');
         Yii::setAlias('@npm', $this->_vendorPath . DIRECTORY_SEPARATOR . 'npm');
