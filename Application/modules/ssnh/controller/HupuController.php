@@ -36,10 +36,10 @@ class HupuController extends BaseController
     const HUPU_BBS_DOMAIN = 'https://bbs.hupu.com';
 
     /**
-     * 首页面
+     * 文章整体分析
      * @return string
      */
-    public function actionHome()
+    public function actionGlobalAnalysis()
     {
 
         return $this->render(__FUNCTION__);
