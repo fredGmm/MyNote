@@ -15,65 +15,50 @@
 </head>
 <body>
 
-大板块分布图
-<div id="big-plate-chart" style="min-width:400px;width: 500px;height:400px;margin-left:20px;float: left"></div>
-<div id="hot-word" style="min-width:400px;width: 500px;height:400px;margin-left:20px; float: left"></div>
-<hr/>
-<div id="male" ></div>
-<div id="female" style="margin-top: 20px"></div>
-<div id="help" style="margin-top: 20px"></span></div>
-<hr/>
 
-<div id="online-time" style="min-width:400px;height:400px;float: left"></div>
+<div style="margin:auto;">
+
+    <div id="big-plate-chart" style="height:300px; margin:0 auto;float: left"></div>
+    
+</div>
+
+
+<!--<hr/>-->
+<!--<div id="male" ></div>-->
+<!--<div id="female" style="margin-top: 20px"></div>-->
+<!--<div id="help" style="margin-top: 20px"></span></div>-->
+<!--<hr/>-->
+
+
 <hr/>
 <div id="reg-time" style="min-width:400px;width: 1200px;height:400px"></div>
 
 <script>
     $(function () {
-        $.ajax({
-            type: 'get',
-            url: '/ssnh/hupu/gender-data',//请求数据的地址
-            success: function (data) {
-                console.log(data.data[0].y);
-                $("#male").append("<span style='width:80px;display:inline-block'>男jr:  </span>" + data.data[0].y );
-                for(var i=0;i<data.data[0].per;i++){
-                    $("#male").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/male.ico\"></span>");
-                }
-                $("#female").append("<span style='width:80px;display:inline-block'>女jr: </span>"+ data.data[1].y + "");
-                for(var j=0;j<data.data[1].per;j++){
-                    $("#female").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/female.ico\"></span>");
-                }
+//        $.ajax({
+//            type: 'get',
+//            url: '/ssnh/hupu/gender-data',//请求数据的地址
+//            success: function (data) {
+//                console.log(data.data[0].y);
+//                $("#male").append("<span style='width:80px;display:inline-block'>男jr:  </span>" + data.data[0].y );
+//                for(var i=0;i<data.data[0].per;i++){
+//                    $("#male").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/male.ico\"></span>");
+//                }
+//                $("#female").append("<span style='width:80px;display:inline-block'>女jr: </span>"+ data.data[1].y + "");
+//                for(var j=0;j<data.data[1].per;j++){
+//                    $("#female").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/female.ico\"></span>");
+//                }
+//
+//                $("#help").append(" <span style='width:80px;display:inline-block'>无性别jr:</span>"+data.data[2].y);
+//                for(var k=0;k<data.data[2].per;k++){
+//                    $("#help").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/help.ico\"></span>");
+//                }
+//
+//            },
+//            error: function (e) {
+//            }
+//        });
 
-                $("#help").append(" <span style='width:80px;display:inline-block'>无性别jr:</span>"+data.data[2].y);
-                for(var k=0;k<data.data[2].per;k++){
-                    $("#help").append("<span style='margin-left: 10px'><img width=\"20px\" height=\"20px\" src=\"/static/img/help.ico\"></span>");
-                }
-
-            },
-            error: function (e) {
-            }
-        });
-
-
-        $.ajax({
-            type: 'get',
-            url: '/ssnh/hupu/hot-word',//请求数据的地址
-            success: function (data) {
-                console.log(data.data);
-                hot_word_chart.series[0].setData(data.data);
-            },
-            error: function (e) {
-            }
-        });
-        var hot_word_chart = Highcharts.chart('hot-word', {
-            series: [{
-                type: 'wordcloud'
-
-            }],
-            title: {
-                text: '热词'
-            }
-        });
 
         $.ajax({
             type: 'get',

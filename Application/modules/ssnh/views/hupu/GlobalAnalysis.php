@@ -24,9 +24,11 @@
 
 </div>
 <div style="margin:auto;">
-<div id="artcile_post_from" style="height:400px;margin:0 auto;float: left"></div>
-<div id="line-chart" style="max-width:1000px;margin:0 auto;height:400px;float: left"></div>
+    <!-- 热词展示 -->
+    <div id="hot-word" style="height:300px;margin:0 auto; float: left"></div>
 </div>
+<!-- 每小时发帖走势图 -->
+<div id="line-chart" style="max-width:1000px;margin:0 auto;height:400px;float: left"></div>
 
 <script>
     layui.use('table', function () {
@@ -96,67 +98,45 @@
     $(function () {
         $.ajax({
             type: 'get',
+            url: '/ssnh/hupu/hot-word',//请求数据的地址
+            success: function (data) {
+                hot_word_chart.series[0].setData(data.data);
+            },
+            error: function (e) {
+            }
+        });
+        var hot_word_chart = Highcharts.chart('hot-word', {
+            credits: {
+                text: 'fredGui的github',
+                href: 'https://github.com/fredGmm'
+            },
+            series: [{
+                type: 'wordcloud'
+            }],
+            title: {
+                text: '网友热词'
+            }
+        });
+        $.ajax({
+            type: 'get',
             url: '/ssnh/hupu/post-num-line-by-hour',//每小时的发帖数
             success: function (data) {
                 line_chart.addSeries(data.data[0]);
                 line_chart.addSeries(data.data[1]);
                 line_chart.addSeries(data.data[2]);
-                console.log(data.data);
+//                console.log(data.data);
             },
             error: function (e) {
             }
         });
-
-        $.ajax({
-            type: 'get',
-            url: '/ssnh/hupu/get-article-from',//请求数据的地址
-            success: function (data) {
-                console.log(data.data);
-                artcile_post_from.series[0].setData(data.data);
-            },
-            error: function (e) {
-            }
-        });
-
-        var artcile_post_from = Highcharts.chart('artcile_post_from', {
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
+        
+        var line_chart = Highcharts.chart('line-chart', {
+            title: {
+                text: '各时段发帖数走势图'
             },
             credits: {
                 text: 'fredGui的github',
                 href: 'https://github.com/fredGmm'
-            },
-            title: {
-                text: '发帖所用终端比例分布'
-            },
-            tooltip: {
-                headerFormat: '{series.name}<br>',
-                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                        style: {
-                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                        }
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: '终端分布',
-            }]
-        });
-
-        var line_chart = Highcharts.chart('line-chart', {
-            title: {
-                text: '各时段发帖数走势图'
             },
             subtitle: {
                 text: '数据来源：<a href="https://bbs.hupu.com" style="color: #0000ff" >虎扑论坛</a>'
@@ -199,7 +179,6 @@
         });
     })
 </script>
-
 
 <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
 <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>

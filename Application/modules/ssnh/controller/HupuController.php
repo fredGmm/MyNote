@@ -36,7 +36,7 @@ class HupuController extends BaseController
     const HUPU_BBS_DOMAIN = 'https://bbs.hupu.com';
 
     /**
-     * 文章整体分析
+     * 文章整体分析 页面
      * @return string
      */
     public function actionGlobalAnalysis()
@@ -44,9 +44,28 @@ class HupuController extends BaseController
 
         return $this->render(__FUNCTION__);
     }
+    /**
+     * 用户分析 页面
+     * @return string
+     */
+    public function actionUserAnalysis()
+    {
+
+        return $this->render(__FUNCTION__);
+    }
 
     /**
-     * 文章接口 （弃用）
+     * 板块对比 页面
+     *
+     * @return string
+     */
+    public function actionPlateAnalysis()
+    {
+        return $this->render(__FUNCTION__);
+    }
+
+    /**
+     * 文章接口,文章列表
      */
     public function actionArticleList()
     {
@@ -57,17 +76,6 @@ class HupuController extends BaseController
         $article_list = HupuArticleListModel::getArticleList($page, $page_size);
 
         $this->jsonOk($article_list['article_list'], $article_list['count']);
-    }
-
-    /**
-     * @desc 小话题图表分析页面
-     *
-     * @return string
-     */
-    public function actionAnalyze()
-    {
-
-        return $this->render(__FUNCTION__);
     }
 
     /**
@@ -143,14 +151,6 @@ class HupuController extends BaseController
             $pie_table_data[] = $data;
         }
         $this->jsonOk($pie_table_data);
-    }
-
-    /**
-     * @return string
-     */
-    public function actionPlate()
-    {
-        return $this->render(__FUNCTION__);
     }
 
     /**

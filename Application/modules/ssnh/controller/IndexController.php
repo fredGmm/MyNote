@@ -62,13 +62,13 @@ class IndexController extends BaseController{
                     [
                         "title"=>"板块对比" ,
                         "icon"=> "<img src='/static/img/pk.png'>",
-                        "href"=> "",
+                        "href"=> "/ssnh/hupu/plate-analysis",
                         "spread" => false
                     ],
                     [
                         "title"=>"用户分析" ,
                         "icon"=> "<img src='/static/img/user.png'>",
-                        "href"=> "",
+                        "href"=> "/ssnh/hupu/user-analysis",
                         "spread" => false
                     ],
                     [
@@ -81,7 +81,7 @@ class IndexController extends BaseController{
             ],
             [
                 "title" => "精彩书评",
-                'icon' => "<img src='/static/img/t-book.png'>",
+                'icon' => "<i class=\"layui-icon\" style=\"font-size: 16px; color: #FF4040;\">&#xe705;</i>", //<img src='/static/img/t-book16.png'> <i class="layui-icon" style="font-size: 16px; color: #1E9FFF;">&#xe705;</i>
                 'href' => '',
                 'spread' => false,
                 'children' => [
@@ -107,25 +107,25 @@ class IndexController extends BaseController{
             ],
             [
                 "title" => "相关技术",  //&#xe64e 代码
-                'icon' => "<img src='/static/img/technology.png'>",
+                'icon' => "<img src='/static/img/technology16.png'>",
                 'href' => '',
                 'spread' => false,
                 'children' => [
                     [
                         "title"=>"python爬虫" ,
-                        "icon"=> "<img src='/static/img/py.png'>",
+                        "icon"=> "<img src='/static/img/py16.png'>",
                         "href"=> "/doc/装修注意事项.html",
                         "spread" => false
                     ],
                     [
                         "title"=>"PHP之道" ,
-                        "icon"=> "<img src='/static/img/php.png'>",
+                        "icon"=> "<img src='/static/img/php16.png'>",
                         "href"=> "/doc/装修注意事项.html",
                         "spread" => false
                     ],
                     [
                         "title"=>"数据结构(c描述)" ,
-                        "icon"=> "<img src='/static/img/structure.png'>",
+                        "icon"=> "<img src='/static/img/structure16.png'>",
                         "href"=> "/doc/装修注意事项.html",
                         "spread" => false
                     ],
@@ -153,7 +153,7 @@ class IndexController extends BaseController{
             ],
             [
                 "title" => "杂谈",
-                'icon' => "&#xe705;",
+                'icon' => "<i class=\"layui-icon\" style=\"font-size: 16px; color: #FF6600;\">&#xe636;;</i>",
                 'href' => '/ssnh/hupu/home',
                 'spread' => false,
                 'children' => [
