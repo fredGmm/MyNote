@@ -6,13 +6,19 @@ function navBar(data){
 		}else{
 			ulHtml += '<li class="layui-nav-item">';
 		}
+
 		if(data[i].children != undefined && data[i].children.length > 0){
 			ulHtml += '<a href="javascript:;">';
 			if(data[i].icon != undefined && data[i].icon != ''){
 				if(data[i].icon.indexOf("icon-") != -1){
-					ulHtml += '<i class="iconfont '+data[i].icon+'" data-icon="'+data[i].icon+'"></i>';
+					 ulHtml += '<i class="iconfont '+data[i].icon+'" data-icon="'+data[i].icon+'"></i>';
 				}else{
-					ulHtml += '<i class="layui-icon" data-icon="'+data[i].icon+'">'+data[i].icon+'</i>';
+					//检测有木有自定义样式
+					if(data[i].icon.indexOf("style") != -1){
+						ulHtml += data[i].icon;
+					}else{
+						ulHtml += '<i class="layui-icon" data-icon="'+data[i].icon+'">'+data[i].icon+'</i>';
+					}
 				}
 			}
 			ulHtml += '<cite>'+data[i].title+'</cite>';

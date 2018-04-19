@@ -158,11 +158,28 @@ class IndexController extends BaseController{
                 'spread' => false,
                 'children' => [
                     [
-                        "title"=>"装修" ,
+                        "title"=>"验房注意事项" ,
                         "icon"=> "&#xe631;",
-                        "href"=> "/ssnh/hupu/home",
+                        "href"=> "/doc/验房注意事项.html",
                         "spread" => false,
-
+                    ],
+                    [
+                        "title"=>"装修顺序" ,
+                        "icon"=> "&#xe631;",
+                        "href"=> "/doc/2.html",
+                        "spread" => false,
+                    ],
+                    [
+                        "title"=>"装修注意事项" ,
+                        "icon"=> "&#xe631;",
+                        "href"=> "/doc/装修注意事项.html",
+                        "spread" => false,
+                    ],
+                    [
+                        "title"=>"拆砌墙验工" ,
+                        "icon"=> "&#xe631;",
+                        "href"=> "/doc/拆砌墙验工.html",
+                        "spread" => false,
                     ]
                 ]
             ]

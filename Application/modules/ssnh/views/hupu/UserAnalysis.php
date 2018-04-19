@@ -18,7 +18,7 @@
     <!-- 在线时间 -->
  <div id="online-time" style="margin:0 auto;height:300px;float: left"></div>
     <!-- 文章来自的终端占比-->
-    <div id="artcile_post_from" style="height:300px;margin:0 auto;float: left"></div>
+    <div id="artcile_post_from" style="margin:0 auto;float: left"></div>
 </div>
  <script>
      $(function () {
@@ -81,6 +81,10 @@
              }
          });
          var online_time = Highcharts.chart('online-time',{
+             credits: {
+                 text: 'fredGui的github',
+                 href: 'https://github.com/fredGmm'
+             },
              chart: {
                  plotBackgroundColor: null,
                  plotBorderWidth: 0,
@@ -129,17 +133,6 @@
              error: function (e) {
              }
          });
-
-//         $.ajax({
-//             type: 'get',
-//             url: '/ssnh/hupu/big-plate',//请求数据的地址
-//             success: function (data) {
-//                 console.log(data.data);
-//                 big_plate_chart.series[0].setData(data.data);
-//             },
-//             error: function (e) {
-//             }
-//         });
 
          var gender_distribution = Highcharts.chart('gender-distribution', {
              credits: {
