@@ -3,7 +3,7 @@ Interesting data
 
 [![Packagist](https://img.shields.io/packagist/v/meolu/walle-web.svg)]()  [![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](http://www.yiiframework.com/)
 
-演示地址：[数据展示](http://45.78.48.4 "演示地址")
+演示地址：[数据展示](http://data.kinggui.com "演示地址")
  这是一个将抓取数据直观展示的项目，利用一些图表将有用的数据信息传递出来的项目，同时保持自己编程的手感以及对数据的熟悉感。做这个项目的主要原因是，我在看论坛上看到别人发一些数据分析的帖子，但是都是提供一些分析后的图片，有好多对大数据感兴趣的同学不好参与，问了是怎么做以及怎么去分析，还有一些对爬虫感兴趣。因此，想聚合一批有开源精神的人来找寻数据之乐。
 
 ## 项目主要技术介绍
