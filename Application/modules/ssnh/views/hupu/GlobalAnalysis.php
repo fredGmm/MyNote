@@ -37,7 +37,7 @@
             table.render({
             elem: '#article_list'
             ,url: '/ssnh/hupu/article-list/'
-            ,cellMinWidth: 40 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,cellMinWidth: 40 //全局定义常规单元格的最小宽度
             ,cols: [[
                 {field:'id', title: 'ID',  sort: true, }
                 ,{field:'article_id', title: '文章id', }
@@ -45,7 +45,9 @@
                 ,{field:'article_author_name', title: '作者昵称',}
                 ,{field:'post_date', title: '发布日期',align: 'center'}
                 ,{field:'comment_num', title: '评论数', sort: true }
-                ,{field:'browse_num', title: '浏览数', sort: true}
+                ,{field:'browse_num', title: '浏览数', sort: true},
+                    {field:'article_url', title: '操作', sort: true}
+
             ]]
             ,id: 'tableReload'
             ,page: true

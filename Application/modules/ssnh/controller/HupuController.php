@@ -74,7 +74,14 @@ class HupuController extends BaseController
         $page_size = \Yii::$app->request->get('limit', 10);
 
         $article_list = HupuArticleListModel::getArticleList($page, $page_size);
+        if(empty($article_list['count'])) {
+            $this->jsonOk([], 0);
+        }
+        foreach ($article_list['article_list'] as $ak => &$article) {
+            $article_url = self::HUPU_BBS_DOMAIN . '/' . $article['article_id'] . '.html';
 
+            $article['article_url'] = "<a href=\"$article_url\"class=\"layui-btn  layui-btn-xs\" target='_blank' lay-event=\"detail\">查看</a>";
+        }
         $this->jsonOk($article_list['article_list'], $article_list['count']);
     }
 
