@@ -25,8 +25,8 @@
                 <!-- 上方内容 -->
                 <div class="box">
                     <div class="head">
-                        <span>虎扑福利</span>
-                        <a id="once_again" href="#">再来一波></a>
+                        <span>虎扑福利图</span>
+                        <a id="once_again" href="#" style="color: blue">再来一波></a>
                     </div>
                     <!-- 图片内容 -->
                     <ul></ul>

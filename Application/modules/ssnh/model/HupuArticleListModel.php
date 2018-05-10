@@ -119,4 +119,16 @@ class HupuArticleListModel extends BaseTable {
             yield $article_data;
         }while(count($article_data) < $page_size || ($page <= $page_max) || ($page > self::MAX_PAGE));
     }
+
+    /**
+     * @return bool|mixed|string
+     */
+    public static function getDataMaxDate()
+    {
+        //这里的日期是Y-m-d 格式，转换为Ymd 格式才能正确的使用max()
+        $ret = self::find()->select(['max_post_date' => new Expression('MAX(DATE_FORMAT(post_date,\'%Y%m%d\'))')])
+            ->asArray()->all();
+
+        return $ret[0]['max_post_date'] ?? date('Ymd');
+    }
 }

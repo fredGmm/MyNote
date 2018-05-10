@@ -23,12 +23,12 @@
     </div>
 
 </div>
-<div style="margin:auto;">
+<!--<div style="margin:auto;">-->
     <!-- 热词展示 -->
-    <div id="hot-word" style="height:300px;margin:0 auto; float: left"></div>
-</div>
+<!--    <div id="hot-word" style="height:300px;margin:0 auto; float: left"></div>-->
+<!--</div>-->
 <!-- 每小时发帖走势图 -->
-<div id="line-chart" style="max-width:1000px;margin:0 auto;height:400px;float: left"></div>
+<!--<div id="line-chart" style="max-width:1000px;margin:0 auto;height:400px;float: left"></div>-->
 
 <script>
     layui.use('table', function () {

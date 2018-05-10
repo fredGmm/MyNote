@@ -12,6 +12,7 @@
 namespace app\modules\ssnh\model;
 
 use app\modules\base\model\BaseTable;
+use yii\db\Expression;
 
 class HupuHotWordModel extends BaseTable{
 
@@ -36,13 +37,14 @@ class HupuHotWordModel extends BaseTable{
 
     /**
      * @desc 取得每个话题下的 热词
-     * @param $plate
+     * @param string $plate 板块
+     * @param string $date  日期
      * @return array|\yii\db\ActiveRecord[]
      */
-    public static function getHotWord($plate)
+    public static function getHotWord($plate, $date)
     {
         $query = self::find()->select(['number', 'word'])
-            ->where(['date' => date('Ymd')])
+            ->where(['date' => $date])
             ->orderBy('number desc');
         if ($plate) {
             $query->andWhere(['type' => $plate]);
@@ -50,5 +52,13 @@ class HupuHotWordModel extends BaseTable{
         $data = $query->limit(50)->asArray()->all();
 
         return $data;
+    }
+
+    public static function getDataMaxDate()
+    {
+        $ret = self::find()->select(['max_date' => new Expression('max(date)')])
+            ->asArray()->all();
+
+        return $ret[0]['max_date'] ?? date('Ymd');
     }
 }

@@ -10,6 +10,7 @@
  */
 namespace app\modules\ssnh\controller;
 
+use app\library\Cache\BaseRedis;
 use app\library\Common;
 use app\modules\base\controller\BaseController;
 use app\modules\ssnh\model\BigPlateDataModel;
@@ -191,9 +192,13 @@ class HupuController extends BaseController
      */
     public function actionHotWord()
     {
+        $date = $this->get('date', date('Ymd'));
         $plate = $this->get('plate', '');
+        $max_date = HupuHotWordModel::getDataMaxDate();
 
-        $hot_word_data = HupuHotWordModel::getHotWord($plate);
+        $date = ($date >= $max_date) ? $max_date : $date;
+        $hot_word_data = HupuHotWordModel::getHotWord($plate, $date);
+
         $table_data    = [];
         //需要给出 highchart 定的键值
         foreach ($hot_word_data as $hk => $hot_data) {
@@ -212,6 +217,12 @@ class HupuController extends BaseController
     public function actionPostNumLineByHour()
     {
         $date = $this->get('date', date('Y-m-d'));
+        $max_date = HupuArticleListModel::getDataMaxDate();
+
+        $max_date_time = strtotime($max_date);
+        $date_time = strtotime($date);
+        $date = $date_time >= $max_date_time ? date('Y-m-d', $max_date_time) : date('Y-m-d', $date_time);
+
         $data = HupuArticleListModel::getDataByHour($date);
         $bxj  = []; //步行街折线数据
         $lol  = []; //lol折现数据
@@ -309,38 +320,44 @@ class HupuController extends BaseController
      * 首页随机展示图片，目前资源有限，直接在目录下读取，然后随机展示了~~
      */
     public function actionGetImages(){
-        $image_path = dirname(\Yii::$app->getBasePath()) . '/web/static/img/hupu/';
+        $redis = BaseRedis::getInstance();
+        $image_list = json_decode($redis->get('getImagesList'), true);
+        if(empty($image_list)) {
+            $image_path = dirname(\Yii::$app->getBasePath()) . '/web/static/img/hupu/';
 
-        $web_path =\Yii::getAlias('@web/static/img/hupu/');
-//        echo $image_path;exit;
-        $file_list = scandir($image_path);
+            $web_path =\Yii::getAlias('@web/static/img/hupu/');
 
-        //去除 .和..
-        $key1=array_search('.' ,$file_list);
-        array_splice($file_list,$key1,1);
-        $key2=array_search('..' ,$file_list);
-        array_splice($file_list,$key2,1);
-        $article_list = [];
-        foreach ($file_list as $fk => $fv) {
-            $image_info = explode('_', $fv);
-            $article_info = HupuArticleListModel::findOne(['article_id' => $image_info[1]]);
-            $article_url       = self::HUPU_BBS_DOMAIN . '/' . $image_info[1] . '.html';
+            $file_list = scandir($image_path);
+            //去除 .和..
+            $key1=array_search('.' ,$file_list);
+            array_splice($file_list,$key1,1);
+            $key2=array_search('..' ,$file_list);
+            array_splice($file_list,$key2,1);
+            $article_list = [];
+            foreach ($file_list as $fk => $fv) {
+                $image_info = explode('_', $fv);
+                $article_info = HupuArticleListModel::findOne(['article_id' => $image_info[1]]);
+                $article_url       = self::HUPU_BBS_DOMAIN . '/' . $image_info[1] . '.html';
 
-            $title = $article_info['article_title'] ?? '';
-            $article_list[$fk] = ['url' => $article_url, 'title' => $title];
+                $title = $article_info['article_title'] ?? '';
+                $article_list[$fk] = ['url' => $article_url, 'title' => $title];
+            }
+
+            $random_keys = array_rand($file_list, 8);
+            $image_list = [];
+            foreach ($random_keys as $rk => $rv) {
+
+                $image = [
+                    'image_path' =>  $web_path . $file_list[$rv],
+                    'image_url' => $article_list[$rk]['url'],
+                    'title' => '标题：' . $article_list[$rk]['title'],
+                ];
+                $image_list[] = $image;
+            }
+
+            $redis->set('getImagesList', json_encode($image_list), 1800);
         }
 
-        $random_keys = array_rand($file_list, 8);
-        $image_list = [];
-        foreach ($random_keys as $rk => $rv) {
-
-            $image = [
-                'image_path' =>  $web_path . $file_list[$rv],
-                'image_url' => $article_list[$rk]['url'],
-                'title' => '标题：' . $article_list[$rk]['title'],
-            ];
-            $image_list[] = $image;
-        }
         $this->jsonOk($image_list);
     }
 
