@@ -28,8 +28,12 @@ class HomeController extends Controller
      */
     public function actionIndex()
     {
-       
+       echo '42134';exit;
     }
 
+    public function actionImage(){
 
+
+        return $this->render('image');
+    }
 }

@@ -12,7 +12,8 @@ $modsName = [
     'base',
     'food',
     'admin',
-    'ssnh'
+    'ssnh',
+    'book'
 ];
 
 

@@ -320,8 +320,9 @@ class HupuController extends BaseController
      * 首页随机展示图片，目前资源有限，直接在目录下读取，然后随机展示了~~
      */
     public function actionGetImages(){
-        $redis = BaseRedis::getInstance();
-        $image_list = json_decode($redis->get('getImagesList'), true);
+
+//        $redis = BaseRedis::getInstance();
+//        $image_list = json_decode($redis->get('getImagesList'), true);
         if(empty($image_list)) {
             $image_path = dirname(\Yii::$app->getBasePath()) . '/web/static/img/hupu/';
 
@@ -355,7 +356,7 @@ class HupuController extends BaseController
                 $image_list[] = $image;
             }
 
-            $redis->set('getImagesList', json_encode($image_list), 1800);
+//            $redis->set('getImagesList', json_encode($image_list), 1800);
         }
 
         $this->jsonOk($image_list);

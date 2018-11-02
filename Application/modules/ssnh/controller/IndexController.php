@@ -23,6 +23,7 @@ class IndexController extends BaseController
     /**
      * 首页页面
      *
+     * @throws
      * @return string
      */
     public function actionIndex()

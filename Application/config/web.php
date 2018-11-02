@@ -5,12 +5,12 @@ $db = require(__DIR__ . '/db.php');
 
 
 $config = [
-    'id' => 'lv_luo',
+    'id' => 'j-book',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => require(__DIR__ . '/module.php'),
     'defaultRoute'=>'index/index',
-    'runtimePath' => dirname(dirname(__DIR__)) . '/debug/',
+    'runtimePath' => dirname(dirname(__DIR__)) . '/runtime/',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -47,7 +47,15 @@ $config = [
             ],
         ],
         'log' => [
-            'class' => 'app\library\log\Logger'
+//            'class' => 'app\library\log\Logger',
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                ],
+            ],
+
         ],
         'db' => $db['db'],
         'hupuDb' => $db['hupuDb'],
@@ -78,14 +86,14 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['127.0.0.1', '::1', '*'],
     ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['127.0.0.1', '::1', '*'],
     ];
 }
 

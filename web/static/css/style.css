@@ -44,7 +44,7 @@ body{
 .box ul li .deatil{
     width:160px;
     height:240px;
-    background:rgba(0,0,0,0.7);
+    background:rgba(0,0,0,0.117);
     position:absolute;
     top:-240px;
     -webkit-transition:all 0.3s ease;/*适应ie，谷歌，苹果浏览器内核*/
@@ -78,5 +78,5 @@ body{
     margin:0 auto;
 }
 .box ul li:hover .deatil{
-    top:0;
+    top:0px;
 }
