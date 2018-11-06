@@ -28,7 +28,14 @@ class HomeController extends Controller
      */
     public function actionIndex()
     {
-       echo '42134';exit;
+
+        return $this->render('index.php');
+    }
+
+    public function actionDetail()
+    {
+//        $this->layout = false;
+        return $this->render('list.php');
     }
 
     public function actionImage(){
