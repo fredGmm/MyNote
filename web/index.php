@@ -13,4 +13,9 @@ require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
 $config = require(__DIR__ . '/../Application/config/web.php');
 
+$config = \yii\helpers\ArrayHelper::merge($config, require __DIR__ . '/../config/web.php');
+if (is_file(__DIR__ . '/../config/web-local.php')) {
+    $config = \yii\helpers\ArrayHelper::merge($config, require __DIR__ . '/../config/web-local.php');
+}
+
 (new yii\web\Application($config))->run();
