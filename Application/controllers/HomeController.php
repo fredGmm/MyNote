@@ -11,6 +11,7 @@
 
 namespace app\controllers;
 
+use app\models\HupuImages;
 use yii;
 use yii\web\Controller;
 
@@ -19,17 +20,21 @@ use yii\web\Controller;
  *
  * @package app\controllers
  */
-class HomeController extends Controller
+class HomeController extends \app\modules\base\controller\BaseController
 {
     /**
      * @desc  首页
      *
      * @return string
+     * @throws yii\base\InvalidConfigException
      */
     public function actionIndex()
     {
+        $images = HupuImages::find()->limit(10)->orderBy('create_time desc')->asArray()->all();
 
-        return $this->render('index.php');
+//        var_dump($images);exit;
+
+        return $this->render('index.php',['images' => $images], ['gmm' => 'fasfd'] );
     }
 
     public function actionDetail()

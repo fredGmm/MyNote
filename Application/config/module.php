@@ -13,7 +13,8 @@ $modsName = [
     'food',
     'admin',
     'ssnh',
-    'book'
+    'book',
+    'gmm'
 ];
 
 

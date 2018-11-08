@@ -53,6 +53,28 @@
     </nav><!-- #site-navigation -->
     <div id="primary" class="content-area">
         <div id="content" class="site-content archive" role="main">
+
+            <?php foreach ($images as $img): ?>
+
+
+            <article id="post-524" class="post-524 post type-post status-publish format-image has-post-thumbnail hentry category-love post_format-post-format-image" data-cols="4">
+                <div class="article-helper notloaded">
+                    <div class="post-preview transition animation animation-slide-up" data-url="/home/detail">
+                        <header class="entry-header full-width-image" data-url="/home/detail">
+                            <img width="400" height="400" src="<?php echo $img['origin_url'] ?? '' ?>" class="attachment-gk-portfolio-size size-gk-portfolio-size wp-post-image" alt="" />
+                            <h2 class="entry-title">
+                                <a href="/home/detail" rel="bookmark">
+                                    fsafda				</a>
+                            </h2>
+                        </header><!-- .entry-header -->
+                        <div class="entry-summary">
+                            <a href="/home/detail" rel="bookmark"><p>&#8221;哈哈哈哈</p>
+                            </a>
+                        </div><!-- .entry-summary -->
+                    </div>
+                </div>
+            </article><!-- #post -->
+            <?php endforeach; ?>
             <article id="post-524" class="post-524 post type-post status-publish format-image has-post-thumbnail hentry category-love post_format-post-format-image" data-cols="4">
                 <div class="article-helper notloaded">
                     <div class="post-preview transition animation animation-slide-up" data-url="http://www.j-book.cn/archives/524">

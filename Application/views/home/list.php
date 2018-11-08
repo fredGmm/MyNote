@@ -28,6 +28,9 @@
     <link rel='stylesheet' id='portfolio-ie8-css'  href='http://www.j-book.cn/wp-content/themes/gk-portfolio/css/ie8.css?ver=4.9.4' type='text/css' media='all' />
     <![endif]-->
 
+    <link rel="stylesheet" href="/layui/frame/layui/css/layui.css" media="all">
+    <script src="/layui/frame/layui/layui.js"></script>
+
 
 <body class="post-template-default single single-post postid-350 single-format-image">
 <!--[if lte IE 8]>
@@ -110,6 +113,18 @@
 
 
                                     <div class="col-xs-6 col-md-3">
+                                        <a href="#" class="thumbnail" data-img="http://www.j-book.cn/wp-content/gallery/e8a1a8e68385e5ba93/23164967_1533787930.jpg">
+                                            <img src="http://www.j-book.cn/wp-content/gallery/e8a1a8e68385e5ba93/23164967_1533787930.jpg" alt="...">
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-6 col-md-3">
+                                        <a href="#" class="thumbnail">
+                                            <img src="http://www.j-book.cn/wp-content/gallery/e8a1a8e68385e5ba93/23164967_1533787930.jpg" alt="...">
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-6 col-md-3">
                                         <a href="#" class="thumbnail">
                                             <img src="http://www.j-book.cn/wp-content/gallery/e8a1a8e68385e5ba93/23164967_1533787930.jpg" alt="...">
                                         </a>
@@ -147,7 +162,7 @@
     <div id="next-post"><a href="http://www.j-book.cn/archives/394" rel="next"><i class="fa fa-arrow-right"></i></a></div>
 
 </div><!-- #main -->
-</div><!-- #page -->
+
 <footer id="gk-footer" role="contentinfo">
     <div id="gk-social">
         <div class="social-menu">
@@ -172,6 +187,31 @@
     /* <![CDATA[ */
     var photocrati_ajax = { "url": "http:\/\/www.j-book.cn\/?photocrati_ajax=1", "wp_home_url": "http:\/\/www.j-book.cn", "wp_site_url": "http:\/\/www.j-book.cn", "wp_root_url": "http:\/\/www.j-book.cn", "wp_plugins_url": "http:\/\/www.j-book.cn\/wp-content\/plugins", "wp_content_url": "http:\/\/www.j-book.cn\/wp-content", "wp_includes_url": "http:\/\/www.j-book.cn\/wp-includes\/", "ngg_param_slug": "nggallery" };
     /* ]]> */
+</script>
+
+<script>
+    layui.use(['jquery','layer','form'],function(){
+        var $=layui.jquery
+            ,layer=layui.layer
+            ,form=layui.form;
+
+        $('.thumbnail img').click(function(){
+            console.log($(this).attr('src'));
+            var imgSrc=$(this).attr('src');
+            layer.open({
+                type:1
+                ,title:false
+                ,closeBtn:1
+                ,skin:'layui-layer-nobg' //layui-layer-rim
+                ,shadeClose:true
+                ,area:['auto','auto']
+                ,content:'<img src="'+imgSrc+'" ">'
+                ,scrollbar:false
+                , style: 'color:#333;text-align:left;font-size:11px;position:relative;',
+            })
+        })
+    });
+
 </script>
 
 </body>
