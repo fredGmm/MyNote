@@ -95,13 +95,14 @@
     <div class="layui-box layui-inline " style="margin-top:20px; margin-left:20px;border: 0px solid  ">
 
 <!--      <img id="itemImg" style="width:200px;height:200px" src="--><?php //echo  'https://images.weserv.nl/?url=' . $item['url'] ?? ''; ?><!--">-->
+<!--      <img id="itemImg" style="width:200px;height:200px" referrerPolicy="no-referrer" src="--><?php //echo   $item['url'] ?? ''; ?><!--">-->
       <img id="itemImg" style="width:200px;height:200px" referrerPolicy="no-referrer" src="<?php echo  'https://images.weserv.nl/?url=' . $item['url'] ?? ''; ?>">
       <div style="margin: 5px auto">
-          <a class="layui-btn layui-btn-mini view" target="_blank" href="<?php echo str_replace("http:", 'https:', $item['url']); ?>" dataid=<?php echo $item['id']; ?>">查看</a>
+          <a class="layui-btn layui-btn-mini view" target="_blank" referrerPolicy="no-referrer" href="<?php echo str_replace("http:", 'https:', $item['url']); ?>" dataid=<?php echo $item['id']; ?>">查看</a>
 
           <a class="layui-btn layui-btn-mini layui-btn-normal edit" >编辑</a>
           <a class="layui-btn layui-btn-mini layui-btn-danger delete" >删除</a>
-          <a class="layui-btn layui-btn-mini layui-btn-warm" ">入库</a>
+          <a class="layui-btn layui-btn-mini layui-btn-warm" todb">入库</a>
 
       </div>
       <!--这里我们假如图片的实际尺寸是320X320-->
@@ -157,15 +158,16 @@
 
     $(".view").click(function(){
 
-        var item_id = $(this).attr("dataid");
-
-        layer.open({
-                        type:1,
-                        title:"查看详情",
-                        skin:"myclass",
-                        area:["50%","50%"],
-                        content:$("#item_info").html()
-                    });
+        // var item_id = $(this).attr("dataid");
+        // var url = $(this).attr("href");
+        //
+        // layer.open({
+        //                 type:1,
+        //                 title:"查看详情",
+        //                 skin:"myclass",
+        //                  area:["50%","50%"],
+        //                 content:"<img id=\"itemImg\"  referrerPolicy=\"no-referrer\" src=\""+ url +"\">"
+        //             });
 
       });
 
@@ -205,6 +207,9 @@
 
       });
 
+      $(".todb").click(function)(){
+
+      }
       // 刷新
       $('#btn-refresh').on('click', function () {
           window.location.reload();

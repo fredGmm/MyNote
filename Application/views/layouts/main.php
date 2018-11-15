@@ -55,7 +55,7 @@
     <!--[if IE 9]>
     <link rel='stylesheet' id='portfolio-ie9-css'  href='http://www.j-book.cn/wp-content/themes/gk-portfolio/css/ie9.css?ver=4.9.4' type='text/css' media='all' />
     <![endif]-->
-    <script type='text/javascript' src='http://www.j-book.cn/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<!--    <script type='text/javascript' src='http://www.j-book.cn/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>-->
     <script type='text/javascript' src='http://www.j-book.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.j-book.cn/xmlrpc.php?rsd" />
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.j-book.cn/wp-includes/wlwmanifest.xml" />

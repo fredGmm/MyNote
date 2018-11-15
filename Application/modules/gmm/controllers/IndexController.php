@@ -7,10 +7,12 @@
  */
 namespace app\modules\gmm\controllers;
 
+use app\controllers\BaseController;
+use app\library\Common;
 use app\models\HupuImages;
 use app\models\Items;
 
-class IndexController extends \yii\web\Controller
+class IndexController extends \app\modules\base\controller\BaseController
 {
     public $layout = false;
 
@@ -62,13 +64,27 @@ class IndexController extends \yii\web\Controller
 
         foreach ($imgs as &$img){
 
-            $img->url = str_replace('https:', 'http:', $img->url);
+            $img->url = rtrim(str_replace('https:', 'http:', $img->url), 'g') . 'g';
+
 
 
         }
 //        var_dump($imgs);
 //        exit;
         return $this->render('item-list', ['imgs' => $imgs]);
+    }
+
+    /**
+     * @param $image_id
+     * @param $url
+     * @param $article
+     */
+    public function actionDown($image_id, $url, $article){
+
+        $data = Common::downImage($url, './upload');
+
+        $this->jsonOk($data);
+
     }
 
 

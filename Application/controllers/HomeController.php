@@ -30,11 +30,11 @@ class HomeController extends \app\modules\base\controller\BaseController
      */
     public function actionIndex()
     {
-        $images = HupuImages::find()->limit(10)->orderBy('create_time desc')->asArray()->all();
+        $images = HupuImages::find()->offset(104)->limit(8)->orderBy('create_time desc')->asArray()->all();
 
 //        var_dump($images);exit;
 
-        return $this->render('index.php',['images' => $images], ['gmm' => 'fasfd'] );
+        return $this->render('index.php',['images' => $images]);
     }
 
     public function actionDetail()

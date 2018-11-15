@@ -61,7 +61,7 @@
                 <div class="article-helper notloaded">
                     <div class="post-preview transition animation animation-slide-up" data-url="/home/detail">
                         <header class="entry-header full-width-image" data-url="/home/detail">
-                            <img width="400" height="400" src="<?php echo $img['origin_url'] ?? '' ?>" class="attachment-gk-portfolio-size size-gk-portfolio-size wp-post-image" alt="" />
+                            <img width="400" height="400" referrerPolicy="no-referrer" src="<?php echo $img['url'] ?? '' ?>" class="attachment-gk-portfolio-size size-gk-portfolio-size wp-post-image" alt="" />
                             <h2 class="entry-title">
                                 <a href="/home/detail" rel="bookmark">
                                     fsafda				</a>
@@ -75,108 +75,6 @@
                 </div>
             </article><!-- #post -->
             <?php endforeach; ?>
-            <article id="post-524" class="post-524 post type-post status-publish format-image has-post-thumbnail hentry category-love post_format-post-format-image" data-cols="4">
-                <div class="article-helper notloaded">
-                    <div class="post-preview transition animation animation-slide-up" data-url="http://www.j-book.cn/archives/524">
-                        <header class="entry-header full-width-image" data-url="http://www.j-book.cn/archives/524">
-                            <img width="400" height="400" src="https://i10.hoopchina.com.cn/hupuapp/bbs/275/4147275/thread_34_4147275_20181026083856_s_971751_o_h_3662px_w_2743px66849.jpg?x-oss-process=image/resize,w_800/format,webp" class="attachment-gk-portfolio-size size-gk-portfolio-size wp-post-image" alt="" />
-                            <h2 class="entry-title">
-                                <a href="http://www.j-book.cn/archives/524" rel="bookmark">
-                                    fsafda				</a>
-                            </h2>
-                        </header><!-- .entry-header -->
-                        <div class="entry-summary">
-                            <a href="http://www.j-book.cn/archives/524" rel="bookmark"><p>&#8221; order_by&hellip;</p>
-                            </a>
-                        </div><!-- .entry-summary -->
-                    </div>
-                </div>
-            </article><!-- #post -->
-            <article id="post-466" class="post-466 post type-post status-publish format-image has-post-thumbnail hentry category-love post_format-post-format-image" data-cols="4">
-                <div class="article-helper notloaded">
-                    <div class="post-preview transition animation animation-slide-up" data-url="http://www.j-book.cn/archives/466">
-                        <header class="entry-header full-width-image" data-url="http://www.j-book.cn/archives/466">
-                            <img width="338" height="600" src="http://www.j-book.cn/wp-content/uploads/ngg_featured/23430958.html.jpg" class="attachment-gk-portfolio-size size-gk-portfolio-size wp-post-image" alt="" srcset="http://www.j-book.cn/wp-content/uploads/ngg_featured/23430958.html.jpg 338w, http://www.j-book.cn/wp-content/uploads/ngg_featured/23430958.html-169x300.jpg 169w" sizes="(max-width: 338px) 100vw, 338px" />
-                            <h2 class="entry-title">
-                                <a href="http://www.j-book.cn/archives/466" rel="bookmark">
-                                    20180921				</a>
-                            </h2>
-                        </header><!-- .entry-header -->
-                        <div class="entry-summary">
-                            <a href="http://www.j-book.cn/archives/466" rel="bookmark"><p>~~~~ &#8221; ord&hellip;</p>
-                            </a>
-                        </div><!-- .entry-summary -->
-                    </div>
-                </div>
-            </article><!-- #post -->
-            <article id="post-440" class="post-440 post type-post status-publish format-gallery has-post-thumbnail hentry category-default post_format-post-format-gallery" data-cols="4">
-                <div class="article-helper notloaded">
-                    <div class="post-preview transition animation animation-slide-up" data-url="http://www.j-book.cn/archives/440">
-                        <header class="entry-header full-width-image" data-url="http://www.j-book.cn/archives/440">
-                            <img width="738" height="600" src="http://www.j-book.cn/wp-content/uploads/ngg_featured/23151363_1533789917.jpg" class="attachment-gk-portfolio-size size-gk-portfolio-size wp-post-image" alt="" srcset="http://www.j-book.cn/wp-content/uploads/ngg_featured/23151363_1533789917.jpg 738w, http://www.j-book.cn/wp-content/uploads/ngg_featured/23151363_1533789917-300x244.jpg 300w" sizes="(max-width: 738px) 100vw, 738px" />
-                            <h2 class="entry-title">
-                                <a href="http://www.j-book.cn/archives/440" rel="bookmark">
-                                    20180920_2				</a>
-                            </h2>
-                        </header><!-- .entry-header -->
-                        <div class="entry-summary">
-                            <a href="http://www.j-book.cn/archives/440" rel="bookmark"><p>&#8221; order_by&hellip;</p>
-                            </a>
-                        </div><!-- .entry-summary -->
-                    </div>
-                </div>
-            </article><!-- #post -->
-            <article id="post-394" class="post-394 post type-post status-publish format-image has-post-thumbnail hentry category-default post_format-post-format-image" data-cols="4">
-                <div class="article-helper notloaded">
-                    <div class="post-preview transition animation animation-slide-up" data-url="http://www.j-book.cn/archives/394">
-                        <header class="entry-header full-width-image" data-url="http://www.j-book.cn/archives/394">
-                            <img width="440" height="248" src="http://www.j-book.cn/wp-content/uploads/ngg_featured/23159692447024_1533788377.jpg" class="attachment-gk-portfolio-size size-gk-portfolio-size wp-post-image" alt="" srcset="http://www.j-book.cn/wp-content/uploads/ngg_featured/23159692447024_1533788377.jpg 440w, http://www.j-book.cn/wp-content/uploads/ngg_featured/23159692447024_1533788377-300x169.jpg 300w" sizes="(max-width: 440px) 100vw, 440px" />
-                            <h2 class="entry-title">
-                                <a href="http://www.j-book.cn/archives/394" rel="bookmark">
-                                    20180920				</a>
-                            </h2>
-                        </header><!-- .entry-header -->
-                        <div class="entry-summary">
-                            <a href="http://www.j-book.cn/archives/394" rel="bookmark"><p>&#8221; order_by&hellip;</p>
-                            </a>
-                        </div><!-- .entry-summary -->
-                    </div>
-                </div>
-            </article><!-- #post -->
-            <article id="post-350" class="post-350 post type-post status-publish format-image has-post-thumbnail hentry category-default post_format-post-format-image" data-cols="4">
-                <div class="article-helper notloaded">
-                    <div class="post-preview transition animation animation-slide-up" data-url="http://www.j-book.cn/archives/350">
-                        <header class="entry-header full-width-image" data-url="http://www.j-book.cn/archives/350">
-                            <img width="504" height="519" src="http://www.j-book.cn/wp-content/uploads/ngg_featured/23138783_1533790215.jpg" class="attachment-gk-portfolio-size size-gk-portfolio-size wp-post-image" alt="" srcset="http://www.j-book.cn/wp-content/uploads/ngg_featured/23138783_1533790215.jpg 504w, http://www.j-book.cn/wp-content/uploads/ngg_featured/23138783_1533790215-291x300.jpg 291w" sizes="(max-width: 504px) 100vw, 504px" />
-                            <h2 class="entry-title">
-                                <a href="http://www.j-book.cn/archives/350" rel="bookmark">
-                                    暗黑表情图				</a>
-                            </h2>
-                        </header><!-- .entry-header -->
-                        <div class="entry-summary">
-                            <a href="http://www.j-book.cn/archives/350" rel="bookmark"><p>今天整理新发现了一批表情图，请j&hellip;</p>
-                            </a>
-                        </div><!-- .entry-summary -->
-                    </div>
-                </div>
-            </article><!-- #post -->
-            <article id="post-283" class="post-283 post type-post status-publish format-gallery has-post-thumbnail hentry category-default post_format-post-format-gallery" data-cols="4">
-                <div class="article-helper notloaded">
-                    <div class="post-preview transition animation animation-slide-up" data-url="http://www.j-book.cn/archives/283">
-                        <header class="entry-header full-width-image" data-url="http://www.j-book.cn/archives/283">
-                            <img width="154" height="122" src="http://www.j-book.cn/wp-content/uploads/ngg_featured/touxiang.png" class="attachment-gk-portfolio-size size-gk-portfolio-size wp-post-image" alt="" />
-                            <h2 class="entry-title">
-                                <a href="http://www.j-book.cn/archives/283" rel="bookmark">
-                                    黑图				</a>
-                            </h2>
-                        </header><!-- .entry-header -->
-                        <div class="entry-summary">
-                            <a href="http://www.j-book.cn/archives/283" rel="bookmark"><p>&#8221; order_by&hellip;</p>
-                            </a>
-                        </div><!-- .entry-summary -->
-                    </div>
-                </div>
-            </article><!-- #post -->
         </div><!-- #content -->
     </div><!-- #primary -->
 </div><!-- #main -->
