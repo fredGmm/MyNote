@@ -9,12 +9,15 @@
  * @license
  */
 namespace app\library;
+use yii\helpers\ArrayHelper;
 
 /**
  * 一些公共的常用方法
  * @package app\library
  */
 class Common {
+
+    public $data; // 数据容器
 
     /**
      * 封装curl方法
@@ -203,5 +206,29 @@ class Common {
         fclose($fp2);
         unset($img,$url);
         return array('file_name'=>$filename,'save_path'=>$dist,'error'=>0);
+    }
+
+    /**
+     * 无限极递归
+     * @param $items
+     * @return mixed
+     */
+    public static function recursive($items){
+
+        if(!is_array($items)){
+            throw new \RuntimeException('需要传入二维数组');
+        }
+        $tree = [];
+        $items = ArrayHelper::index($items, 'id');
+
+        foreach ($items as $item){
+            if(isset($items[$item['pid']])){
+                $items[$item['pid']]['children'][] = &$items[$item['id']];
+            }else{
+                $tree[] = &$items[$item['id']];
+            }
+        }
+        return  $tree;
+
     }
 }

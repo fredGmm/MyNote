@@ -11,7 +11,9 @@
 
 namespace app\controllers;
 
+use app\library\Common;
 use app\models\HupuImages;
+use app\models\Menu;
 use yii;
 use yii\web\Controller;
 
@@ -20,7 +22,7 @@ use yii\web\Controller;
  *
  * @package app\controllers
  */
-class HomeController extends \app\modules\base\controller\BaseController
+class HomeController extends BaseController
 {
     /**
      * @desc  首页
@@ -48,4 +50,18 @@ class HomeController extends \app\modules\base\controller\BaseController
 
         return $this->render('image');
     }
+
+    /**
+     * 首页的菜单
+     */
+    public function actionMenu()
+    {
+        $menu = Menu::find()->where(['is_deleted' => 0, 'is_enabled' => 1])->asArray()->all();
+
+        $menu = Common::recursive($menu);
+
+        return $this->jsonOk($menu);
+    }
+
+
 }
